@@ -1,0 +1,19 @@
+/* Fonts used */
+
+/* Square */
+    @font-face {
+        font-family: Square;
+        src: url('../resources/fonts/Square721_BT.ttf');
+    }
+    
+/* Orator */
+    @font-face {
+        font-family: Orator;
+        src: url('../resources/fonts/OratorStd.otf');
+    }
+
+/* Courgette */
+    @font-face {
+        font-family: Shangai;
+        src: url('../resources/fonts/Anita_semi_square.ttf');
+    }

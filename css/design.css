@@ -1,0 +1,153 @@
+/**
+    
+    Diseño de la aplicación.
+    
+    En términos generales.
+    
+    Las modificaciones de algún elemento solo para un apartado
+    estará en un archivo con el nombre de la página y la extensión .css
+    
+**/
+
+/**  Reset **/
+
+    @import url("reset.css");
+
+/** Tipografías **/
+
+    @import url("fonts.css");
+
+/** Generales **/
+    
+    body{
+        background: rgb(245,245,245);
+    }
+    
+    header{
+        width: 100%;
+        height: 50px; 
+                
+        background: rgb(35,81,127);
+        
+        color: white;
+        
+        font-size: 19px;
+        font-family: Square;
+        
+        position: absolute;
+        top: 0;
+    }
+    
+    header .toolbar {
+        float: right;
+    }
+    
+    header .toolbar .element_toolbar{
+        float: left;
+        position: relative;
+        min-width: 80px;
+        text-align: center;
+        margin-right: 15px;
+        padding: 15px 10px 16px 10px;
+        cursor: pointer;
+    }
+    
+    header .toolbar .element_toolbar:hover{
+        background: #FFF;
+        color:rgb(34,81,127);
+    }
+    
+    header .toolbar .element_toolbar .sub_toolbar{
+        display: none;
+        
+        position: absolute;
+        margin-top: 16px;
+        right: 0;
+        
+        background: white; 
+        color: rgb(34,81,127);
+        
+        font-size: 16px;
+        text-align: left;
+        
+        border-left: 1px solid rgba(0,0,0,0.2);
+        border-bottom: 1px solid rgba(0,0,0,0.2); 
+        
+        width: 180%;
+    }
+    
+    header .toolbar .element_toolbar:hover .sub_toolbar{
+        display: block;
+    }
+    
+    header .toolbar .element_toolbar .sub_toolbar:hover{
+        display: block;
+    }
+    
+    header .toolbar .element_toolbar .sub_toolbar .element_sub_toolbar{
+        position: relative;
+        padding: 10px 20px 11px 10px;
+        
+        background: rgba(34,81,127,0.2);
+        color: black;
+    }
+    
+    header .toolbar .element_toolbar .sub_toolbar .element_sub_toolbar:hover{
+        background: white;
+        color: rgb(34,81,127);
+    }
+    
+    img.language{
+        float: right;
+    }
+    
+    #logo {
+        text-align: center;
+        font-family: Square;
+        color: rgb(255,255,255);
+        padding: 6px 20px 6px 10px;
+        float: left;
+        cursor: pointer;
+        transition: all 0.5s ease;
+    }
+    
+    #logo:hover{
+        color:rgb(34,81,127);
+        text-shadow: 1px 0 0 #fff, 
+                    -1px 0 0 #fff,
+                    0 1px 0 #fff, 
+                    0 -1px 0 #fff, 
+                    1px 1px #fff, 
+                    -1px -1px 0 #fff, 
+                    1px -1px 0 #fff, 
+                    -1px 1px 0 #fff;
+    }
+
+    #logo h1{
+        font-size: 30px;
+    }
+
+    #logo h1 span{
+        font-size: 34px;
+        font-family: Shangai;
+        margin-right: -2px;
+    }
+    
+    section{
+        padding: 60px 20px 0 20px;
+        min-height: 90%;
+    }
+
+    a {
+        color: rgb(100,100,255); 
+        cursor: pointer;
+    }
+    
+    
+    a:hover{
+        text-decoration: underline;
+    }
+    
+    footer{
+        
+    }
