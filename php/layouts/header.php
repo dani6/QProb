@@ -18,12 +18,17 @@
         <!-- Links to JS files -->
             <!-- SweetAlert Library -->
         <script src="../js/sweetalert2.min.js"></script>
+        
             <!-- JQuery Library -->
         <script type="text/javascript" src="../js/jQuery.js"></script>
             <!-- MD5 Library -->
         <script type="text/javascript" src="../js/md5.js"></script>
             <!-- Slider Library -->
-        <script type="text/javascript" src="../js/coin-slider.min.js"></script>
+        <script type="text/javascript" src="../js/responsiveslides.min.js"></script>
+            <!-- Notify.js Library -->
+        <script type="text/javascript" src="../js/notify.min.js"></script>
+            <!-- Chart -->
+        <script type="text/javascript" src="../js/Chart.js"></script>
         
         <!-- Functions -->
         
@@ -60,7 +65,7 @@
                 }
                 
                 /** 
-                COMENTAR FUNCION
+                Log out function
                 **/
                 function logout(){
                     var parametros = {
@@ -84,24 +89,6 @@
                             }
                     });
                 }
-                
-                /*var keycombo = "";	
-                $(document).keypress(function(e) 
-                {
-                    
-                    try	
-                    {	
-                        keycombo += e.keyCode+"";
-                        if(keycombo==108111103105110) // 108111103105110 is "login"
-                        {		
-                                keycombo = "";	 	
-                                showLogin();
-                                
-                        }else if (e.keyCode==13){
-                                keycombo="";
-                        } 
-                    }catch(e){}
-                });*/
         </script>
     </head>
     <body>

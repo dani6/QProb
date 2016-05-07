@@ -23,15 +23,79 @@
             }catch(e){}
         });
     </script>
+    <div class="element_toolbar special" onclick="">
+        <p><?php echo $addincident;?></p>
+    </div> 
+    <div class="element_toolbar" onclick="">
+        <p><?php echo $maintenance;?></p>
+         <div class="sub_toolbar">
+            <div class="element_sub_toolbar" onclick="window.location='dependencies.html'"> 
+                <p><?php echo $dependencies; ?></p> 
+            </div>
+            <div class="element_sub_toolbar"> 
+                <p><?php echo $categories; ?></p> 
+            </div>
+            <div class="element_sub_toolbar" 
+                style="
+                    border-top: 1px solid rgba(0,0,0,0.2);
+                    "
+                onclick=""
+                    > 
+                <p><?php echo $incidences; ?></p>
+                <div class="sub_sub_toolbar">
+                    <div class="element_sub_sub_toolbar" > 
+                        <p><?php echo $incidences_in_progress; ?></p> 
+                    </div>
+                    <div class="element_sub_sub_toolbar">  
+                        <p><?php echo $incidences_open; ?></p> 
+                    </div>
+                    <div class="element_sub_sub_toolbar"> 
+                        <p><?php echo $incidences_resolved; ?></p> 
+                    </div>
+                </div>
+            </div>
+            <div class="element_sub_toolbar"> 
+                <p><?php echo $users; ?></p> 
+            </div>
+             <div class="element_sub_toolbar" 
+                style="
+                    border-top: 1px solid rgba(0,0,0,0.2);
+                    "
+                onclick=""
+                    >  
+                <p><?php echo $reset; ?></p> 
+            </div>
+        </div>
+    </div>     
     <div class="element_toolbar">
         <p><?php echo $user; ?></p>
         <div class="sub_toolbar">
-            <div class="element_sub_toolbar"> 
+            <div class="element_sub_toolbar" > 
+                <p><?php echo $your_incidences; ?></p>
+                <div class="sub_sub_toolbar">
+                    <div class="element_sub_sub_toolbar" > 
+                        <p><?php echo $incidences_in_progress; ?></p> 
+                    </div>
+                    <div class="element_sub_sub_toolbar">  
+                        <p><?php echo $incidences_open; ?></p> 
+                    </div>
+                    <div class="element_sub_sub_toolbar"> 
+                        <p><?php echo $incidences_resolved; ?></p> 
+                    </div>
+                </div>
+            </div>
+             <div class="element_sub_toolbar" 
+                style="
+                    border-top: 1px solid rgba(0,0,0,0.2);
+                    "
+                onclick=""
+                    >  
                 <p><?php echo $profile; ?></p> 
             </div>
             <div class="element_sub_toolbar"> 
                 <p><?php echo $manage_account; ?></p> 
             </div>
+            
             <div class="element_sub_toolbar" 
                 style="
                     text-align: right;
@@ -42,7 +106,7 @@
                 <p><?php echo $logout; ?></p> 
             </div>
         </div>
-    </div> 
+    </div>
 <?php
     }else{
         // Log In menu
@@ -101,10 +165,11 @@
     <div class="element_toolbar" onclick="showLogin();">
         <p><?php echo $login;?></p>
     </div>
+    <div class="element_toolbar special" onclick="showRegister('','','','','','');">
+        <p><?php echo $signup;?></p>
+    </div>
 <?php
     }
-    // <p onClick="cambiarIdioma('ES');" style="cursor: pointer;">Cambiar al español.</p>
-    // <p onClick="cambiarIdioma('EN');" style="cursor: pointer;">Cambiar al Inglés.</p>
 ?>
     <div class="element_toolbar">
         <img style="float:left;margin-top:2px;" src="../resources/images/<?php echo $_SESSION['language']; ?>.png" height="15px"/>

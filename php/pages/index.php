@@ -7,7 +7,6 @@
     </style>  
     
     <a href="plantilla.html">Plantilla -></a>
-
 <!-- </section> -->    
 <?php
     echo $_SESSION['user'];

@@ -2,8 +2,9 @@
         </section>
         
         <footer>
-            
+
         </footer>
     </body>
 </html>
-
+<?php
+    $db->close();

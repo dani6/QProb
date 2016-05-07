@@ -57,6 +57,14 @@
         color:rgb(34,81,127);
     }
     
+    header .toolbar .special{
+        border-radius: 8px;
+        background: rgba(87,142,250,0.5);
+        margin-top: 8px;
+        margin-right: 25px;
+        padding: 7px 5px 8px 5px;
+    }
+    
     header .toolbar .element_toolbar .sub_toolbar{
         display: none;
         
@@ -93,6 +101,47 @@
     }
     
     header .toolbar .element_toolbar .sub_toolbar .element_sub_toolbar:hover{
+        background: white;
+        color: rgb(34,81,127);
+    }
+    
+    header .sub_sub_toolbar{
+        display: none;
+        
+        position: absolute;
+        margin-top: -26.5px;
+        right: 100%;
+        
+        background: white; 
+        color: rgb(34,81,127);
+        
+        font-size: 16px;
+        text-align: left;
+        
+        border-left: 1px solid rgba(0,0,0,0.1);
+        border-bottom: 1px solid rgba(0,0,0,0.1); 
+        border-top: 1px solid rgba(0,0,0,0.1);
+        
+        width: 100%;
+    }
+    
+    header .element_sub_toolbar:hover .sub_sub_toolbar{
+        display: block;
+    }
+    
+    header .sub_sub_toolbar:hover{
+        display: block;
+    }
+    
+    header .sub_sub_toolbar .element_sub_sub_toolbar{
+        position: relative;
+        padding: 10px 20px 11px 10px;
+        
+        background: rgba(34,81,127,0.1);
+        color: black;
+    }
+    
+    header .element_sub_sub_toolbar:hover{
         background: white;
         color: rgb(34,81,127);
     }
@@ -134,7 +183,7 @@
     }
     
     section{
-        padding: 60px 20px 0 20px;
+        padding: 60px 0 0 0;
         min-height: 90%;
     }
 
