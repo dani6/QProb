@@ -3,10 +3,10 @@
 ?>
 <!-- <section> -->
      <style type="text/css" scoped>
-        @import url("../css/pages/dependencies.css");
+        @import url("../css/pages/users.css");
     </style>  
     
-<p> dependencies </p>
+<p> users </p>
 <!-- </section> -->    
 <?php
     require('../layouts/footer.php');

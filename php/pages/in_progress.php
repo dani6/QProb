@@ -3,10 +3,10 @@
 ?>
 <!-- <section> -->
      <style type="text/css" scoped>
-        @import url("../css/pages/dependencies.css");
+        @import url("../css/pages/in_progress.css");
     </style>  
     
-<p> dependencies </p>
+<p> in_progress </p>
 <!-- </section> -->    
 <?php
     require('../layouts/footer.php');

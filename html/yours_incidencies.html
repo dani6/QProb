@@ -1,0 +1,39 @@
+<html>
+    <head>
+        <script type="text/javascript" src="../js/jQuery.js"></script>
+        
+        
+    </head>
+    <body>
+        <script>
+            function cargar(){
+                    var parametros = {
+                            
+                    };
+                    
+                    $.ajax({
+                            data:  parametros, //Datos que mandamos
+                            url:   '../php/pages/yours_incidencies.php', //Direccion a donde lo mandamos
+                            type:  'post', 
+                            
+                            //Antes del envío se produce...:
+                            beforeSend: function () {
+                                    // No hacemos nada
+                            },
+                            
+                            //Despues del envio se produce...:
+                            success:  function (response) {
+                                document.open();
+                                document.write(response);
+                                document.close();
+                            }
+                    });
+                }
+                    
+                cargar();
+               
+        </script>
+         
+         
+    </body>
+</html>
