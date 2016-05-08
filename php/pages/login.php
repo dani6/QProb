@@ -240,6 +240,7 @@
                                 errorRegister(response,name,surname,email,tlf,department,user);
                                 control="email";
                            }
+                           $(".register input").bind("keydown",null);
                         }
                 });
             }
@@ -296,7 +297,7 @@
                 $("input").focus(function(){
                     this.select();
                 }); 
-                $("input").bind("keydown",showSweetCheck);
+                $(".register input").bind("keydown",showSweetCheck);
                 
                 switch(control) {
                     case "surname":

@@ -229,7 +229,7 @@
                         +'<td><?php echo $surname;?></td><td><input value="'+surname+'" class="input-field" maxlength="20" id="surname"></td></tr>'
                         +'<tr><td><?php echo $email;?></td><td><input value="'+email+'" class="input-field" maxlength="30" id="email"></td>'
                         +'<td><?php echo $tlf;?></td><td><input value="'+tlf+'" onkeyup="validateNumber();" type="number" class="input-field" min="0" max="999999999" id="tlf"></tr>'
-                        +'<tr><td><?php echo $department;?></td><td colspan="3"><select style="width: 100%;"class="input-field" maxlength="20" id="department"><?php echo $valor_departamento;?></select></td></tr></table>'
+                        +'<tr><td><?php echo $department;?></td><td colspan="3"><select style="width: 100%;"class="input-field" maxlength="20" id="department"><?php echo $valor_departamento;?></select></td></tr>'
                         +'<tr><td><?php echo $type;?></td><td colspan="3"><select style="width: 100%;"class="input-field" maxlength="20" id="type"><option value="NORMAL">NORMAL<option value="TECHNICAL">TECHNICAL<option value="ADMIN">ADMIN<option value="SPECIAL">SPECIAL</select></td></tr></table>'
                         +'<table class="register"><tr><td></td><td><?php echo $user_text.":";?></td><td><input value="'+user+'" class="input-field" maxlength="50" id="Ruser"></td><td></td></tr>'
                         +'<tr><td></td><td><?php echo $password_text.":";?></td><td><input class="input-field" id="Rpass" type="password" value=""></td><td></td></tr>'
@@ -361,6 +361,34 @@
                 });
             }
             
+            function updateUser(id,name,surname,email,tlf,department,type){
+                var parametros = {
+                        "ID": id,
+                        "NOMBRE": name,
+                        "APELLIDOS": surname,
+                        "EMAIL": email,
+                        "TLF": tlf,
+                        "DEPARTAMENTO": department,
+                        "TYPE": type
+                };
+                
+                $.ajax({
+                        data:  parametros, //Datos que mandamos
+                        url:   '../php/scripts/updateUser2.php', //Direccion a donde lo mandamos
+                        type:  'post', 
+                        
+                        //Antes del envío se produce...:
+                        beforeSend: function () {
+                                // No hacemos nada
+                        },
+                        
+                        //Despues del envio se produce...:
+                        success:  function (response) {
+                            window.location="users.html";
+                        }
+                });
+            }
+            
             function editar(id){
                 var parametros = {
                         "ID": id
@@ -385,18 +413,25 @@
                                 confirmButtonText: 'Aceptar',
                                 showCancelButton: true,
                                 cancelButtonText: 'CANCEL',
-                                closeOnConfirm: true,
+                                closeOnConfirm: false,
                                 allowEscapeKey: true,
                                 allowOutsideClick: true
                             }).then(function(isConfirm) {
                                 if (isConfirm) {
-                                    swal('Correcto');
+                                    updateUser(id,$("#name").val(),$("#surname").val(),$("#email").val(),$("#tlf").val(),$("#department").val(),$("#type").val());
                                 }
+                                swal.close();
                             });
-                            
-                            $("input").focus(function(){
+                            $("#name").select();
+                            $(".register input").focus(function(){
                                 this.select();
                             }); 
+                            
+                            $(".register input").bind("keydown",function(e){
+                                if (e.keyCode==13){
+                                    updateUser(id,$("#name").val(),$("#surname").val(),$("#email").val(),$("#tlf").val(),$("#department").val(),$("#type").val());
+                                }     
+                            });
                         }
                 });
             }

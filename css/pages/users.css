@@ -28,7 +28,7 @@
     color: green;
 }
 
-.input-field2{
+.input-field2, .input-field{
     border: 1px solid rgba(0,0,0,0.4);
     padding: 10px;
     width: 225px;
@@ -56,13 +56,4 @@ select{
     padding-right: 20px; 
     border: 1px solid rgba(0,0,0,0.2);
     cursor: pointer;
-}
-
-.input-field {
-    border-bottom: 1px solid black;
-    margin-bottom: 20px;
-    padding: 10px;
-    font-size: 18px;
-    font-family: Square; 
-    background: #efefef;   
 }
