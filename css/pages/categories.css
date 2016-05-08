@@ -20,6 +20,10 @@ select{
     background: #efefef;  
 }
 
+.button{
+    margin-top:0px;
+}
+
 div.X {
     width: 10px;
     padding: 10px;
