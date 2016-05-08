@@ -181,8 +181,8 @@
         <script>
             function info(){
                 swal({
-                    title: '<?php $DEPENDENCIES_how_to_add;?>',
-                    html: "<?php $DEPENDENCIES_instructions;?>",
+                    title: '<?php echo $DEPENDENCIES_how_to_add;?>',
+                    html: "<?php echo $DEPENDENCIES_instructions;?>",
                     type: 'info', 
                     width: 800,       
                     confirmButtonText: '<?php echo $OK;?>'
@@ -193,7 +193,7 @@
         <div class="options">
             
             <select id="edificio" onchange="updateParams($('#edificio').val(),0,0);">
-                <option value="0"> <?php $DEPENDENCIES_select_build;?>
+                <option value="0"> <?php echo $DEPENDENCIES_select_build;?>
                 <?php
                     $result = $db->query("select e.id EDIFICIO_ID, e.NOMBRE EDIFICIO_NOMBRE FROM EDIFICIO e;");
                     while($row = mysqli_fetch_array($result)){
@@ -204,7 +204,7 @@
                 ?>
             </select>
             <select id="planta" onchange="updateParams($('#edificio').val(),$('#planta').val(),0);">
-                <option value="0"> <?php $DEPENDENCIES_select_floor;?>
+                <option value="0"> <?php echo $DEPENDENCIES_select_floor;?>
                 <?php
                     $result = $db->query("select p.id PLANTA_ID, p.NUMERO PLANTA_NUMERO FROM PLANTA p where p.id_edificio like '".$_POST['EDIFICIO']."';");
                     while($row = mysqli_fetch_array($result)){
@@ -215,7 +215,7 @@
                 ?>
             </select>
             <select id="aula" onchange="updateParams($('#edificio').val(),$('#planta').val(),$('#aula').val());">
-                <option value="0"> <?php $DEPENDENCIES_select_classroom;?>
+                <option value="0"> <?php echo $DEPENDENCIES_select_classroom;?>
                 <?php
                     $result = $db->query("select a.id AULA_ID, a.AULA AULA_NOMBRE FROM AULA a where a.id_planta like '".$_POST['PLANTA']."';");
                     while($row = mysqli_fetch_array($result)){
