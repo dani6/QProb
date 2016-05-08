@@ -10,7 +10,7 @@
 
     $user_text="Usuario";
     $password_text="Contraseña";
-
+    $type="Tipo";
     $profile="Perfil";
     $manage_account="Gestionar Cuenta";
     $logout="Cerrar sesión";
@@ -67,6 +67,45 @@
     $login_error="Incorrecto";
     $login_error_message="Usuario o contraseña incorrecta.";
     $enter="Entrar";
+
+//Dependencies
+    $DEPENDENCIES_dependencies="Dependencias";
+    $DEPENDENCIES_delete="¡Borrado!";
+    $DEPENDENCIES_verify_deleted="Se ha eliminado correctamente";
+    $DEPENDENCIES_confirm="¿Está seguro?";
+    $DEPENDENCIES_warning="¡No se podrá deshacer el cambio!";
+    $DEPENDENCIES_added="¡Añadido!";
+    $DEPENDENCIES_verify_added="Ha sido añadido correctamente";
+    $DEPENDENCIES_error="¡Error!";
+    $DEPENDENCIES_error_message="Ha ocurrido un error. Posiblemente el aula ya existe.";
+    $DEPENDENCIES_add_classroom="Añadir aula";
+    $DEPENDENCIES_accept="Aceptar";
+    $DEPENDENCIES_cancel="CANCELAR";
+    $DEPENDENCIES_cancel_accept="Sí, borrar dependencia.";
+    $DEPENDENCIES_add="Añadir +";
+    $DEPENDENCIES_how_to_add="Cómo añadir edificios y plantas";
+    $DEPENDENCIES_instructions="Se pueden utilizar los siguientes comandos en el terminal de MySQL para añadir edificios y plantas:</p><p style='color: blue;margin-top: 20px;'>INSERT INTO EDIFICIO VALUES (0, '--NOMBRE EDIFICIO--');</p>"
+                    +"<p style='color: blue;margin-top: 20px;'>INSERT INTO PLANTA VALUES (0,--NUMERO_PLANTA--,(select id from edificio where nombre like '--NOMBRE_EDIFICIO--'));</p>"
+                    +"<p style='margin-top: 30px;'>O puede utilizar una interfaz para el manejo de la base de datos.</p>"
+                    +"<p> El motivo principal por el que no se puede añadir es debido a que los edificios y plantas no suelen cambiar con relativa frencuencia.</p>";
+    $DEPENDENCIES_question=" ¿Desea añadir edificios y plantas nuevos?";
+    $DEPENDENCIES_select_build=" -- Selecciona un edificio";
+    $DEPENDENCIES_select_floor=" -- Selecciona una planta";
+    $DEPENDENCIES_select_classroom=" -- Selecciona un aula";
+    $DEPENDENCIES_build="Edificio";
+    $DEPENDENCIES_floor="Planta";
+    $DEPENDENCIES_classroom="Aula";
+    
+// Categories
+
+    $CATEGORIES_categories="Categorías";
+    $CATEGORIES_select=" -- Selecciona una categoría";
+    $CATEGORIES_verify_deleted="Se ha eliminado correctamente.";
+    $CATEGORIES_added="¡Añadido!";
+    $CATEGORIES_error_message="Ha ocurrido un error. Posiblemente la categoría ya existe.";
+    $CATEGRIES_intro_category="Introduzca una categoría";
+
+    
 // Nombre del fichero sin la extension.
     $filename = explode(".",basename($_SERVER['PHP_SELF']))[0];
     

@@ -4,7 +4,7 @@
 ?>
     
     <select id="edificio2" onchange="updateParams2($(\'#edificio2\').val(),0);">
-        <option value="0"> -- Selecciona un edificio
+        <option value="0"> <?php echo $DEPENDENCIES_select_build;?>
         
         <?php 
             $result = $db->query("select e.id EDIFICIO_ID, e.NOMBRE EDIFICIO_NOMBRE FROM EDIFICIO e;");
@@ -14,7 +14,7 @@
         ?>
     </select>
     <select id="planta2" onchange="updateParams2($(\'#edificio2\').val(),$(\'#planta2\').val());">
-        <option value="0"> -- Selecciona una planta
+        <option value="0"> <?php echo $DEPENDENCIES_select_floor;?>
         <?php 
             $result = $db->query("select p.id PLANTA_ID, p.NUMERO PLANTA_NUMERO FROM PLANTA p where p.id_edificio like '".$_POST['EDIFICIO']."';");
             while($row = mysqli_fetch_array($result)){ 
