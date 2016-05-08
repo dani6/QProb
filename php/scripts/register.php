@@ -11,8 +11,16 @@
     $REGISTER_password=$_POST['pass'];
     $REGISTER_idioma=$_SESSION['language'];
     
+    if(empty($_POST['type'])){
+        $REGISTER_type="NORMAL";
+        $REGISTER_valid=0;
+    }else {
+        $REGISTER_type=$_POST['type'];
+        $REGISTER_valid=1;
+    }
+    
     $db->query('alter table USUARIO AUTO_INCREMENT=1');
-    $result=$db->query("INSERT INTO USUARIO VALUES (0,'".$REGISTER_name."','".$REGISTER_surname."','".$REGISTER_email."',".$REGISTER_tlf.",md5('".$REGISTER_user."'),'".$REGISTER_password."',0,'NORMAL',".$REGISTER_department.",'".$REGISTER_idioma."')");
+    $result=$db->query("INSERT INTO USUARIO VALUES (0,'".$REGISTER_name."','".$REGISTER_surname."','".$REGISTER_email."',".$REGISTER_tlf.",md5('".$REGISTER_user."'),'".$REGISTER_password."',".$REGISTER_valid.",'".$REGISTER_type."',".$REGISTER_department.",'".$REGISTER_idioma."')");
     if ($result>=1){        
         //Usamos el SetFrom para decirle al script quien envia el correo
         $correo->SetFrom($correo_admin,$organization);

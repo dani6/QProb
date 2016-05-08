@@ -132,7 +132,7 @@
                 swal({
                     title: 'Introduzca una categoría',
                     html: '<input id="category2" class="input-field" max="20">',
-                    showCancelButton: false    
+                    showCancelButton: true    
                 }).then(function(isConfirm) {
                     if(isConfirm){
                             addCategory2($('#category2').val());
