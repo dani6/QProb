@@ -34,7 +34,7 @@
         font-size: 19px;
         font-family: Square;
         
-        position: absolute;
+        position: fixed;
         top: 0;
     }
     
@@ -50,6 +50,9 @@
         margin-right: 15px;
         padding: 15px 10px 16px 10px;
         cursor: pointer;
+        -webkit-transition: all 0.1s ease;
+        -moz-transition: all 0.1s ease;
+        transition: all 0.1s ease;
     }
     
     header .toolbar .element_toolbar:hover{
@@ -61,8 +64,9 @@
         border-radius: 8px;
         background: rgba(87,142,250,0.5);
         margin-top: 8px;
-        margin-right: 25px;
-        padding: 7px 5px 8px 5px;
+        margin-right: 25px;        
+        padding: 7px 10px 8px 10px;
+        font-family: Shangai;
     }
     
     header .toolbar .element_toolbar .sub_toolbar{
@@ -80,7 +84,9 @@
         
         border-left: 1px solid rgba(0,0,0,0.2);
         border-bottom: 1px solid rgba(0,0,0,0.2); 
-        
+        -webkit-transition: all 0.1s ease;
+        -moz-transition: all 0.1s ease;
+        transition: all 0.1s ease;
         width: 180%;
     }
     
@@ -98,6 +104,9 @@
         
         background: rgba(34,81,127,0.2);
         color: black;
+        -webkit-transition: all 0.1s ease;
+        -moz-transition: all 0.1s ease;
+        transition: all 0.1s ease;
     }
     
     header .toolbar .element_toolbar .sub_toolbar .element_sub_toolbar:hover{
@@ -121,7 +130,9 @@
         border-left: 1px solid rgba(0,0,0,0.1);
         border-bottom: 1px solid rgba(0,0,0,0.1); 
         border-top: 1px solid rgba(0,0,0,0.1);
-        
+        -webkit-transition: all 0.1s ease;
+        -moz-transition: all 0.1s ease;
+        transition: all 0.1s ease;
         width: 100%;
     }
     
@@ -139,6 +150,9 @@
         
         background: rgba(34,81,127,0.1);
         color: black;
+        -webkit-transition: all 0.1s ease;
+        -moz-transition: all 0.1s ease;
+        transition: all 0.1s ease;
     }
     
     header .element_sub_sub_toolbar:hover{
@@ -157,6 +171,8 @@
         padding: 6px 20px 6px 10px;
         float: left;
         cursor: pointer;
+        -webkit-transition: all 0.5s ease;
+        -moz-transition: all 0.5s ease;
         transition: all 0.5s ease;
     }
     
@@ -190,11 +206,49 @@
     a {
         color: rgb(100,100,255); 
         cursor: pointer;
+        -webkit-transition: all 0.1s ease;
+        -moz-transition: all 0.1s ease;
+        transition: all 0.1s ease;
     }
     
     
     a:hover{
         text-decoration: underline;
+    }
+    
+    #wrapper{
+        margin: 15px auto;    
+        width: 900px;   
+        text-align: left;
+    }
+    
+    #wrapper h1{
+        font-size: 40px;
+        color: black;
+        font-family: Square;
+    }
+    
+    table{
+        border-collapse: collapse;
+    }    
+        
+    #wrapper table tr td{
+        font-family: Square;
+        padding: 20px 10px 20px 10px;
+        border: 2px solid rgba(0,0,0,0.2);
+        color: rgba(0,0,0,0.5);
+    }
+    
+    #wrapper table tr.top td{
+        color: black;
+    }
+    
+    #wrapper table tr td.empty{
+        border: none;
+    }
+    
+    hr{
+        border: 1px solid rgba(0,0,0,0.3);    
     }
     
     footer{

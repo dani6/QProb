@@ -74,7 +74,8 @@
 
 // Database
     $db = new mysqli($server,$database_user,$database_password,$database);
-
+    $acentos = $db->query("SET NAMES 'utf8'"); // Acentos para el idioma español.
+    
 // Languages
     $english="ENGLISH";
     $spanish="SPANISH";
