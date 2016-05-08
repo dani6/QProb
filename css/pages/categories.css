@@ -1,0 +1,62 @@
+
+select{
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin-right: 50px; 
+    padding: 10px;
+    padding-right: 20px; 
+    border: 1px solid rgba(0,0,0,0.2);
+    cursor: pointer;
+}
+
+.input-field{
+    border-bottom: 1px solid black;
+    margin-bottom: 20px;
+    padding: 10px;
+    font-size: 18px;
+    font-family: Square; 
+    background: #efefef;  
+}
+
+.button {
+    border-radius: 8px;
+    background: rgba(61,112,189,1);
+    width: 100px;
+    left: 450px;
+    top:148px;
+    padding: 10px;
+    font-size: 20px;
+    margin-bottom: 10px;
+    font-family: Shangai;
+    border: 1px solid rgba(61,112,189,1);
+    color: rgba(255,255,255,1);
+    -webkit-transition: all 0.1s ease;
+    -moz-transition: all 0.1s ease;
+    transition: all 0.1s ease;
+    cursor: pointer;
+    position:absolute;
+}
+
+.button:hover {
+    background: rgba(87,142,250,0.0);
+    color: rgba(87,142,250,1);
+}
+
+div.X {
+    min-width: 0;
+    padding: 10px;
+    text-align: center;
+    font-family: Shangai;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+    cursor: pointer;
+    left: 300px;
+    top: 154px;
+    position: absolute;
+}
+
+div.X:hover{
+    color: red;
+}

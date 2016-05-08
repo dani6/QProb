@@ -33,7 +33,7 @@
                 });
             }
             
-            function deleteDependencie2(edificio,planta,aula){
+            function deleteDependency2(edificio,planta,aula){
                 var parametros = {
                         "EDIFICIO": edificio,
                         "PLANTA": planta,
@@ -42,7 +42,7 @@
                 
                 $.ajax({
                         data:  parametros, //Datos que mandamos
-                        url:   '../php/scripts/deleteDependencie.php', //Direccion a donde lo mandamos
+                        url:   '../php/scripts/deleteDependency.php', //Direccion a donde lo mandamos
                         type:  'post', 
                         
                         //Antes del envío se produce...:
@@ -63,7 +63,7 @@
                 });
             }
             
-            function deleteDependencie(edificio,planta,aula){
+            function deleteDependency(edificio,planta,aula){
                 swal({
                     title: 'Are you sure?',
                     text: "You won't be able to revert this!",
@@ -74,7 +74,7 @@
                     confirmButtonText: 'Yes, delete it!'
                 }).then(function(isConfirm) {
                     if (isConfirm) {
-                        deleteDependencie2(edificio,planta,aula);
+                        deleteDependency2(edificio,planta,aula);
                     }
                 });
             }
@@ -87,7 +87,7 @@
                 
                 $.ajax({
                         data:  parametros, //Datos que mandamos
-                        url:   '../php/scripts/updateDependencie2.php', //Direccion a donde lo mandamos
+                        url:   '../php/scripts/updateDependency2.php', //Direccion a donde lo mandamos
                         type:  'post', 
                         
                         //Antes del envío se produce...:
@@ -97,7 +97,7 @@
                         
                         //Despues del envio se produce...:
                         success:  function (response) {
-                            $('#addDependencie').html(response);
+                            $('#addDependency').html(response);
                             $('#edificio2 > option[value="'+edificio+'"]').attr('selected', 'selected');
                             
                             $("input").focus(function(){
@@ -107,7 +107,7 @@
                 });
             }
             
-            function addDependencie2(edificio,planta,aula){
+            function addDependency2(edificio,planta,aula){
                 var parametros = {
                         "EDIFICIO": edificio,
                         "PLANTA": planta,
@@ -116,7 +116,7 @@
                 
                 $.ajax({
                         data:  parametros, //Datos que mandamos
-                        url:   '../php/scripts/addDependencie.php', //Direccion a donde lo mandamos
+                        url:   '../php/scripts/addDependency.php', //Direccion a donde lo mandamos
                         type:  'post', 
                         
                         //Antes del envío se produce...:
@@ -140,31 +140,30 @@
                                     'Ha ocurrido un error. Puede ya existir el aula.',
                                     'error'
                                 ).then(function(){
-                                    addDependencie(edificio,planta);
+                                    addDependency(edificio,planta);
                                 });
                             }
-                            
                         }
                 });
             }
             
-            function addDependencie(edificio,planta){
+            function addDependency(edificio,planta){
                 swal({
-                title: 'Añadir aula',
-                width: 800,
-                html: '<div id="addDependencie"><select id="edificio2" onchange="updateParams2($(\'#edificio2\').val(),$(\'#aula2\').val());"><option value="0"> -- Selecciona un edificio<?php $result = $db->query("select e.id EDIFICIO_ID, e.NOMBRE EDIFICIO_NOMBRE FROM EDIFICIO e;");
-                    while($row = mysqli_fetch_array($result)){ echo '<option value="'.$row['EDIFICIO_ID'].'">'.$row["EDIFICIO_NOMBRE"]; }?></select>'
-                    +'<select id="planta2" onchange="updateParams2($(\'#edificio2\').val(),$(\'#aula2\').val());"><option value="0"> -- Selecciona una planta<?php $result = $db->query("select p.id PLANTA_ID, p.NUMERO PLANTA_NUMERO FROM PLANTA p where p.id_edificio like '".$_POST['EDIFICIO2']."';");while($row = mysqli_fetch_array($result)){ echo '<option value="'.$row['PLANTA_ID'].'">'.$row['PLANTA_NUMERO'];}?></select>'
-                    +'<input id="aula2" class="input-field" max="50" value="AULA"></div>',
-                confirmButtonText: 'Aceptar',
-                showCancelButton: true,
-                cancelButtonText: 'CANCEL',
-                closeOnConfirm: true,
-                allowEscapeKey: true,
-                allowOutsideClick: true
+                    title: 'Añadir aula',
+                    width: 800,
+                    html: '<div id="addDependency"><select id="edificio2" onchange="updateParams2($(\'#edificio2\').val(),$(\'#aula2\').val());"><option value="0"> -- Selecciona un edificio<?php $result = $db->query("select e.id EDIFICIO_ID, e.NOMBRE EDIFICIO_NOMBRE FROM EDIFICIO e;");
+                        while($row = mysqli_fetch_array($result)){ echo '<option value="'.$row['EDIFICIO_ID'].'">'.$row["EDIFICIO_NOMBRE"]; }?></select>'
+                        +'<select id="planta2" onchange="updateParams2($(\'#edificio2\').val(),$(\'#aula2\').val());"><option value="0"> -- Selecciona una planta<?php $result = $db->query("select p.id PLANTA_ID, p.NUMERO PLANTA_NUMERO FROM PLANTA p where p.id_edificio like '".$_POST['EDIFICIO2']."';");while($row = mysqli_fetch_array($result)){ echo '<option value="'.$row['PLANTA_ID'].'">'.$row['PLANTA_NUMERO'];}?></select>'
+                        +'<input id="aula2" class="input-field" max="50" value="AULA"></div>',
+                    confirmButtonText: 'Aceptar',
+                    showCancelButton: true,
+                    cancelButtonText: 'CANCEL',
+                    closeOnConfirm: true,
+                    allowEscapeKey: true,
+                    allowOutsideClick: true
                 }).then(function(isConfirm) {
                     if (isConfirm) {
-                        addDependencie2($('#edificio2').val(),$('#planta2').val(),$("#aula2").val());
+                        addDependency2($('#edificio2').val(),$('#planta2').val(),$("#aula2").val());
                     }
                 });
                 
@@ -178,7 +177,7 @@
         <hr size="2px"/>
         <br>
         <br>
-        <div class="button" onclick="addDependencie(0,0);"> Añadir +</div>
+        <div class="button" onclick="addDependency(0,0);"> Añadir +</div>
         <script>
             function info(){
                 swal({
@@ -254,7 +253,7 @@
                 <td><?php echo $row['EDIFICIO_NOMBRE'];?></td>
                 <td><?php echo $row['PLANTA_NUMERO'];?></td>
                 <td><?php echo $row['AULA_NOMBRE'];?></td>
-                <td class="X" onClick="deleteDependencie(<?php echo $row['EDIFICIO_ID'];?>,<?php echo $row['PLANTA_ID'];?>,<?php echo $row['AULA_ID'];?>);">X</td> 
+                <td class="X" onClick="deleteDependency(<?php echo $row['EDIFICIO_ID'];?>,<?php echo $row['PLANTA_ID'];?>,<?php echo $row['AULA_ID'];?>);">X</td> 
             </tr>
         <?php
     }
