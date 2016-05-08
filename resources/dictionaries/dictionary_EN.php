@@ -85,10 +85,7 @@
     $DEPENDENCIES_cancel_accept="Yes, delete it!";
     $DEPENDENCIES_add="Add +";
     $DEPENDENCIES_how_to_add="How to add buildings and floors";
-    $DEPENDENCIES_instructions="You can use the following commands in the terminal of mysql for add buildings and floors:</p><p style='color: blue;margin-top: 20px;'>INSERT INTO EDIFICIO VALUES (0, '--NOMBRE EDIFICIO--');</p>"
-                    +"<p style='color: blue;margin-top: 20px;'>INSERT INTO PLANTA VALUES (0,--NUMERO_PLANTA--,(select id from edificio where nombre like '--NOMBRE_EDIFICIO--'));</p>"
-                    +"<p style='margin-top: 30px;'> Or you can use a interface for the handling of data base.</p>"
-                    +"<p>The main reason why you can not add it because the buildings and plants do not usually change relatively frequency.</p>";
+    $DEPENDENCIES_instructions="You can use the following commands in the terminal of mysql for add buildings and floors:</p><p style='color: blue;margin-top: 20px;'>INSERT INTO EDIFICIO VALUES (0, '--NOMBRE EDIFICIO--');</p><p style='color: blue;margin-top: 20px;'>INSERT INTO PLANTA VALUES (0,--NUMERO_PLANTA--,(select id from edificio where nombre like '--NOMBRE_EDIFICIO--'));</p><p style='margin-top: 30px;'> Or you can use a interface for the handling of data base.</p><p>The main reason why you can not add it because the buildings and plants do not usually change relatively frequency.</p>";
     $DEPENDENCIES_question=" Do you wish add a new buildings and floors?";
     $DEPENDENCIES_select_build=" -- Select a building";
     $DEPENDENCIES_select_floor=" -- Select a floor";
@@ -103,8 +100,9 @@
     $CATEGORIES_select=" -- Select a category";
     $CATEGORIES_verify_deleted="Your category has been deleted.";
     $CATEGORIES_added="Category has been added";
+    $CATEGORIES_cancel_accept="Yes, delete category.";
     $CATEGORIES_error_message="An error has been happened. The category may already exists.";
-    $CATEGRIES_intro_category="Enter a category";
+    $CATEGORIES_intro_category="Enter a category";
 
 // Name file without extension
     $filename = explode(".",basename($_SERVER['PHP_SELF']))[0];

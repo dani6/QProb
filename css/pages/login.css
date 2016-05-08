@@ -88,6 +88,17 @@
     font-family: Shangai;
 }
 
+select{
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin-right: 50px; 
+    padding: 10px;
+    padding-right: 20px; 
+    border: 1px solid rgba(0,0,0,0.2);
+    cursor: pointer;
+}
+
 #login table{
     margin-top: 50px;
     margin-left: 80px;

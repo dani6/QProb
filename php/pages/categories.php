@@ -56,18 +56,18 @@
                 if($("#categories").val()==0){
                     swal(
                         '<?php echo $DEPENDENCIES_error;?>',
-                        '<?php echo $CATEGORIES_select;?>',
+                        '<?php echo $CATEGORIES_intro_category;?>',
                         'error'
                     );
                 }else{
                     swal({
                         title: '<?php echo $DEPENDENCIES_confirm;?>',
-                        text: "<?php echo $CATEGORIES_warning;?>",
+                        text: "<?php echo $DEPENDENCIES_warning;?>",
                         type: 'warning',
                         showCancelButton: true,
                         confirmButtonColor: '#3085d6',
                         cancelButtonColor: '#d33',
-                        confirmButtonText: '<?php echo $DEPENDENCIES_cancel_accept;?>',
+                        confirmButtonText: '<?php echo $CATEGORIES_cancel_accept;?>',
                         cancelButtonText: '<?php echo $DEPENDENCIES_cancel;?>'
                     }).then(function(isConfirm) {
                         if (isConfirm) {
@@ -133,7 +133,7 @@
                 swal({
                     title: '<?php echo $CATEGORIES_intro_category;?>',
                     html: '<input id="category2" class="input-field" max="20">',
-                    showCancelButton: false    
+                    showCancelButton: true    
                 }).then(function(isConfirm) {
                     if(isConfirm){
                             addCategory2($('#category2').val());

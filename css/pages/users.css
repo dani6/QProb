@@ -1,0 +1,68 @@
+#wrapper table tr td.X{
+    min-width: 0;
+    padding: 10px;
+    text-align: center;
+    font-family: Shangai;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+    cursor: pointer;
+}
+
+#wrapper table tr td.X:hover{
+    color: red;
+}
+
+#wrapper table tr td.editar{
+    min-width: 0;
+    padding: 10px;
+    text-align: center;
+    font-family: Shangai;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+    cursor: pointer;
+}
+
+#wrapper table tr td.editar:hover{
+    color: green;
+}
+
+.input-field2{
+    border: 1px solid rgba(0,0,0,0.4);
+    padding: 10px;
+    width: 225px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.register{
+    margin-top:10px;
+    margin-bottom:20px;
+    /*border: 1px solid black;*/
+}
+
+.register td{
+    padding: 0px 20px 10px 5px;
+    text-align: right;
+}
+
+select{
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin-right: 50px; 
+    padding: 10px;
+    padding-right: 20px; 
+    border: 1px solid rgba(0,0,0,0.2);
+    cursor: pointer;
+}
+
+.input-field {
+    border-bottom: 1px solid black;
+    margin-bottom: 20px;
+    padding: 10px;
+    font-size: 18px;
+    font-family: Square; 
+    background: #efefef;   
+}

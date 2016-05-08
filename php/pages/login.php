@@ -105,7 +105,6 @@
             $("#user2").bind("keydown",showSweet2);
             $("#pass2").bind("keydown",showSweet2);
             
-            var last_valor = null;
             function validateNumber(){
                 if(!($('#tlf').val()>=0&&$('#tlf').val()<=999999999)){
                     if($('#tlf').val()>999999999){
