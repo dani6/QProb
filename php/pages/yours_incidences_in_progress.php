@@ -3,11 +3,11 @@
 ?>
 <!-- <section> -->
      <style type="text/css" scoped>
-        @import url("../css/pages/users.css");
+        @import url("../css/pages/yours_incidences_in_progress.css");
     </style>  
     
     <div id="wrapper">
-        <h1> Users </h1>
+        <h1> Yours incidences in progress </h1>
         <hr size="2px"/>
         <br>
         <br>

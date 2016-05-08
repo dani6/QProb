@@ -32,29 +32,28 @@
             <div class="element_sub_toolbar" onclick="window.location='dependencies.html'"> 
                 <p><?php echo $dependencies; ?></p> 
             </div>
-            <div class="element_sub_toolbar"> 
+            <div class="element_sub_toolbar" onclick="window.location='categories.html'"> 
                 <p><?php echo $categories; ?></p> 
             </div>
             <div class="element_sub_toolbar" 
                 style="
                     border-top: 1px solid rgba(0,0,0,0.2);
                     "
-                onclick=""
                     > 
-                <p><?php echo $incidences; ?></p>
+                <p onclick="window.location='incidences.html'"><?php echo $incidences; ?></p>
                 <div class="sub_sub_toolbar">
-                    <div class="element_sub_sub_toolbar" > 
+                    <div class="element_sub_sub_toolbar" onclick="window.location='in_progress.html'"> 
                         <p><?php echo $incidences_in_progress; ?></p> 
                     </div>
-                    <div class="element_sub_sub_toolbar">  
+                    <div class="element_sub_sub_toolbar" onclick="window.location='open.html'">  
                         <p><?php echo $incidences_open; ?></p> 
                     </div>
-                    <div class="element_sub_sub_toolbar"> 
+                    <div class="element_sub_sub_toolbar" onclick="window.location='resolved.html'"> 
                         <p><?php echo $incidences_resolved; ?></p> 
                     </div>
                 </div>
             </div>
-            <div class="element_sub_toolbar"> 
+            <div class="element_sub_toolbar" onclick="window.location='users.html'"> 
                 <p><?php echo $users; ?></p> 
             </div>
              <div class="element_sub_toolbar" 
@@ -70,16 +69,16 @@
     <div class="element_toolbar">
         <p><?php echo $user; ?></p>
         <div class="sub_toolbar">
-            <div class="element_sub_toolbar" > 
-                <p><?php echo $your_incidences; ?></p>
+            <div class="element_sub_toolbar"> 
+                <p onclick="window.location='yours_incidences.html'"><?php echo $your_incidences; ?></p>
                 <div class="sub_sub_toolbar">
-                    <div class="element_sub_sub_toolbar" > 
+                    <div class="element_sub_sub_toolbar" onclick="window.location='yours_incidences_in_progress.html'"> 
                         <p><?php echo $incidences_in_progress; ?></p> 
                     </div>
-                    <div class="element_sub_sub_toolbar">  
+                    <div class="element_sub_sub_toolbar" onclick="window.location='yours_incidences_open.html'">  
                         <p><?php echo $incidences_open; ?></p> 
                     </div>
-                    <div class="element_sub_sub_toolbar"> 
+                    <div class="element_sub_sub_toolbar" onclick="window.location='yours_incidences_resolved.html'"> 
                         <p><?php echo $incidences_resolved; ?></p> 
                     </div>
                 </div>

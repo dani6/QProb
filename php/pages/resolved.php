@@ -6,7 +6,12 @@
         @import url("../css/pages/resolved.css");
     </style>  
     
-<p> resolved </p>
+    <div id="wrapper">
+        <h1> Incidences Resolved </h1>
+        <hr size="2px"/>
+        <br>
+        <br>
+    </div>
 <!-- </section> -->    
 <?php
     require('../layouts/footer.php');
