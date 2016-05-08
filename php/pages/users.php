@@ -7,19 +7,19 @@
     </style>  
     
     <div id="wrapper">
-        <h1> Users </h1>
+        <h1> <?php echo $USERS_users;?> </h1>
         <hr size="2px"/>
         <br>
         <br>
         <script>
                 function validate(id){
                     swal({
-                        title: 'Validar usuario.',
-                        text: "¿Está seguro? Significará que el usuario pueda identificarse en la plataforma.",
+                        title: '<?php echo $USERS_validate;?>',
+                        text: "<?php echo $USERS_verify_validate;?>",
                         type: 'warning',
                         showCancelButton: true,
                         confirmButtonColor: 'green',
-                        confirmButtonText: 'Yes, validate it!'
+                        confirmButtonText: '<?php echo $USERS_confirm;?>'
                     }).then(function(isConfirm) {
                         if (isConfirm) {
                             validate2(id);
@@ -45,8 +45,8 @@
                             //Despues del envio se produce...:
                             success:  function (response) {
                                 swal(
-                                    '¡Validado!',
-                                    'El usuario ha sido validado correctamente.',
+                                    '<?php echo $USERS_validated;?>',
+                                    '<?php echo $USERS_validated_message;?>',
                                     'success'
                                 ).then(function(isConfirm){
                                     window.location="users.html";
@@ -68,7 +68,7 @@
                 
                 function errorRegister(msg,name,surname,email,tlf,department,user,type){
                     swal({
-                        title: 'Error',
+                        title: '<?php echo $DEPENDENCIES_error;?>',
                         text: msg,
                         type: 'error',        
                         confirmButtonText: '<?php echo $OK;?>',
@@ -302,8 +302,8 @@
                             //Despues del envio se produce...:
                             success:  function (response) {
                                 swal(
-                                    'Deleted!',
-                                    'The user has been deleted.',
+                                    '<?php echo $DEPENDENCIES_delete;?>',
+                                    '<?php echo $USERS_deleted;?>',
                                     'success'
                                 ).then(function(isConfirm){
                                     window.location="users.html";
@@ -314,12 +314,12 @@
                 
                 function deleteUser(id){
                     swal({
-                        title: 'Are you sure?',
-                        text: "You won't be able to revert this!",
+                        title: '<?php echo $DEPENDENCIES_confirm;?>',
+                        text: "<?php echo $DEPENDENCIES_warning;?>",
                         type: 'warning',
                         showCancelButton: true,
                         confirmButtonColor: '#3085d6',
-                        confirmButtonText: 'Yes, delete it!'
+                        confirmButtonText: '<?php echo $DEPENDENCIES_delete_accept;?>'
                     }).then(function(isConfirm) {
                         if (isConfirm) {
                             deleteUser2(id);
@@ -407,12 +407,12 @@
                         //Despues del envio se produce...:
                         success:  function (response) {
                             swal({
-                                title: 'Editar usuario',
+                                title: '<?php echo $USERS_edit;?>',
                                 width: 800,
                                 html: response,
-                                confirmButtonText: 'Aceptar',
+                                confirmButtonText: '<?php echo $OK;?>',
                                 showCancelButton: true,
-                                cancelButtonText: 'CANCEL',
+                                cancelButtonText: '<?php echo $DEPENDENCIES_cancel;?>',
                                 closeOnConfirm: false,
                                 allowEscapeKey: true,
                                 allowOutsideClick: true
@@ -438,45 +438,45 @@
         </script>
         <table style='text-align: left;'>
             <tr style='margin-left: 5px;'>
-                <td> Buscar por nombre:</td>
+                <td> <?php echo $USERS_search_name;?> </td>
                 <td> 
                     <input class="input-field2" id='porNombre' type="text" name="txt" value="" onchange='update($("#porNombre").val(), $("#porDepartamento").val(), $("#porCorreo").val(), $("#porTipo").val());' onClick="this.select();"/>
                 </td>
-                <td> Buscar por departamento:</td>
+                <td> <?php echo $USERS_search_department;?> </td>
                 <td> 
                     <input class="input-field2" id='porDepartamento' type="text" name="txt" value="" onchange='update($("#porNombre").val(), $("#porDepartamento").val(), $("#porCorreo").val(), $("#porTipo").val());' onClick="this.select();"/>
                 </td>
             </tr>
             <tr style='margin-left: 5px;'>
-                <td> Buscar por correo: </td>
+                <td> <?php echo $USERS_search_mail;?> </td>
                 <td>
                     <input class="input-field2" id='porCorreo' type="text" name="txt" value="" onchange='update($("#porNombre").val(), $("#porDepartamento").val(), $("#porCorreo").val(), $("#porTipo").val());' onClick="this.select();"/>
                 </td>
-                <td> Buscar por tipo de cuenta: </td>
+                <td> <?php echo $USERS_search_type;?> </td>
                 <td>
                     <select id="porTipo" onchange='update($("#porNombre").val(), $("#porDepartamento").val(), $("#porCorreo").val(), $("#porTipo").val());'>
-                        <option value=''>--CUALQUIER--</option>
-                        <option value='NORMAL'>NORMAL</option>
-                        <option value='TECHNICAL'>TECNICO</option>
-                        <option value='SPECIAL'>ESPECIAL</option>
-                        <option value='ADMIN'>ADMIN</option>
+                        <option value=''> <?php echo $USERS_any;?> </option>
+                        <option value='NORMAL'> <?php echo $USERS_normal;?> </option>
+                        <option value='TECHNICAL'> <?php echo $USERS_technical;?> </option>
+                        <option value='SPECIAL'> <?php echo $USERS_special;?> </option>
+                        <option value='ADMIN'> <?php echo $USERS_admin;?> </option>
                     </select>
                 </td>
             </tr>
         </table>
-        <h2> Users no validate </h2>
+        <h2> <?php echo $USERS_unvalidated;?> </h2>
         <?php
             $result = $db->query("SELECT U.ID ID_USUARIO, U.NOMBRE NOMBRE_USUARIO, U.APELLIDOS APELLIDOS_USUARIO, U.EMAIL EMAIL_USUARIO, U.TLF TLF_USUARIO, U.TIPO TIPO_USUARIO, D.NOMBRE NOMBRE_DEPARTAMENTO FROM USUARIO U INNER JOIN DEPARTAMENTO D ON U.id_departamento=D.id where U.VALIDO=0 and U.NOMBRE LIKE '%".$_POST['NOMBRE_USUARIO']."%' and U.EMAIL LIKE '%".$_POST['EMAIL_USUARIO']."%' and U.TIPO LIKE '%".$_POST['TIPO_USUARIO']."%' and D.NOMBRE LIKE '%".$_POST['NOMBRE_DEPARTAMENTO']."%';");
             if($result->num_rows>0){  
         ?>  
             <table>
                 <tr class="top">
-                    <td>NOMBRE</td>
-                    <td>APELLIDOS</td>
-                    <td>DEPARTAMENTO</td>
+                    <td><?php echo $USERS_name;?></td>
+                    <td><?php echo $USERS_surname;?></td>
+                    <td><?php echo $USERS_department;?></td>
                     <td>EMAIL</td>
                     <td>TLF</td>
-                    <td>TIPO</td>
+                    <td><?php echo $USERS_type;?></td>
                     <td class="empty"></td>
                     <td class="empty"></td>
                 </tr>
@@ -500,23 +500,23 @@
         <?php
             }else {
                 ?>
-                <p> No existen usuarios no válidados por ahora. </p>
+                <p> <?php echo $USERS_users_unvalidated;?> </p>
                 <?php
             }
         ?>
-        <h2> Users validate </h2>
+        <h2> <?php echo $USERS_validate;?> </h2>
         <?php
             $result = $db->query("SELECT U.ID ID_USUARIO, U.NOMBRE NOMBRE_USUARIO, U.APELLIDOS APELLIDOS_USUARIO, U.EMAIL EMAIL_USUARIO, U.TLF TLF_USUARIO, U.TIPO TIPO_USUARIO, D.NOMBRE NOMBRE_DEPARTAMENTO FROM USUARIO U INNER JOIN DEPARTAMENTO D ON U.id_departamento=D.id where U.VALIDO=1 and U.NOMBRE LIKE '%".$_POST['NOMBRE_USUARIO']."%' and U.EMAIL LIKE '%".$_POST['EMAIL_USUARIO']."%' and U.TIPO LIKE '%".$_POST['TIPO_USUARIO']."%' and D.NOMBRE LIKE '%".$_POST['NOMBRE_DEPARTAMENTO']."%';");
             if($result->num_rows>0){  
         ?>
             <table>
                 <tr class="top">
-                    <td>NOMBRE</td>
-                    <td>APELLIDOS</td>
-                    <td>DEPARTAMENTO</td>
+                    <td><?php echo $USERS_name;?></td>
+                    <td><?php echo $USERS_surname;?></td>
+                    <td><?php echo $USERS_department;?></td>
                     <td>EMAIL</td>
                     <td>TLF</td>
-                    <td>TIPO</td>
+                    <td><?php echo $USERS_type;?></td>
                     <td class="empty"></td>
                     <td class="empty"></td>
                 </tr>
@@ -540,7 +540,7 @@
         <?php
             }else {
                 ?>
-                <p> No existen usuarios válidados por ahora. </p>
+                <p> <?php echo $USERS_users_validated;?> </p>
                 <?php
             }
         ?>

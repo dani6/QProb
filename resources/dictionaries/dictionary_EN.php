@@ -82,7 +82,7 @@
     $DEPENDENCIES_add_classroom="Add classroom";
     $DEPENDENCIES_accept="Accept";
     $DEPENDENCIES_cancel="CANCEL";
-    $DEPENDENCIES_cancel_accept="Yes, delete it!";
+    $DEPENDENCIES_delete_accept="Yes, delete it!";
     $DEPENDENCIES_add="Add +";
     $DEPENDENCIES_how_to_add="How to add buildings and floors";
     $DEPENDENCIES_instructions="You can use the following commands in the terminal of mysql for add buildings and floors:</p><p style='color: blue;margin-top: 20px;'>INSERT INTO EDIFICIO VALUES (0, '--NOMBRE EDIFICIO--');</p><p style='color: blue;margin-top: 20px;'>INSERT INTO PLANTA VALUES (0,--NUMERO_PLANTA--,(select id from edificio where nombre like '--NOMBRE_EDIFICIO--'));</p><p style='margin-top: 30px;'> Or you can use a interface for the handling of data base.</p><p>The main reason why you can not add it because the buildings and plants do not usually change relatively frequency.</p>";
@@ -103,6 +103,34 @@
     $CATEGORIES_cancel_accept="Yes, delete category.";
     $CATEGORIES_error_message="An error has been happened. The category may already exists.";
     $CATEGORIES_intro_category="Enter a category";
+    
+// Users
+
+    $USERS_users="Users";
+    $USERS_validate="Validated user";
+    $USERS_verify_validate="Are you sure? User may be able to sign in at the platform";
+    $USERS_confirm="Yes, validate it!";
+    $USERS_validated="Validated!";
+    $USERS_validated_message="User has been validated successfully.";
+    $USERS_deleted="User has been deleted.";
+    $USERS_edit="Edit user";
+    $USERS_correct="Correct";
+    $USERS_search_name="Search by name:";
+    $USERS_search_department="Search by department:";
+    $USERS_search_mail="Search by e-mail:";
+    $USERS_search_type="Search by account type:";
+    $USERS_any="--ANY--";
+    $USERS_normal="NORMAL";
+    $USERS_technical="TECHNICAL";
+    $USERS_special="SPECIAL";
+    $USERS_admin="ADMIN";
+    $USERS_unvalidated="Unvalidated users";
+    $USERS_name="NAME";
+    $USERS_surname="SURNAME";
+    $USERS_department="DEPARTMENT";
+    $USERS_type="TYPE";
+    $USERS_users_unvalidated="There are no users unvalidated.";
+    $USERS_users_validated="There are no users validated.";
 
 // Name file without extension
     $filename = explode(".",basename($_SERVER['PHP_SELF']))[0];

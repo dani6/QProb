@@ -81,7 +81,7 @@
     $DEPENDENCIES_add_classroom="Añadir aula";
     $DEPENDENCIES_accept="Aceptar";
     $DEPENDENCIES_cancel="CANCELAR";
-    $DEPENDENCIES_cancel_accept="Sí, borrar dependencia.";
+    $DEPENDENCIES_delete_accept="Sí, borrar dependencia.";
     $DEPENDENCIES_add="Añadir +";
     $DEPENDENCIES_how_to_add="Cómo añadir edificios y plantas";
     $DEPENDENCIES_instructions="Se pueden utilizar los siguientes comandos en el terminal de MySQL para añadir edificios y plantas:</p><p style='color: blue;margin-top: 20px;'>INSERT INTO EDIFICIO VALUES (0, '--NOMBRE EDIFICIO--');</p><p style='color: blue;margin-top: 20px;'>INSERT INTO PLANTA VALUES (0,--NUMERO_PLANTA--,(select id from edificio where nombre like '--NOMBRE_EDIFICIO--'));</p><p style='margin-top: 30px;'>O puede utilizar una interfaz para el manejo de la base de datos.</p><p> El motivo principal por el que no se puede añadir es debido a que los edificios y plantas no suelen cambiar con relativa frencuencia.</p>";
@@ -102,6 +102,33 @@
     $CATEGORIES_error_message="Ha ocurrido un error. Posiblemente la categoría ya existe.";
     $CATEGORIES_intro_category="Introduzca una categoría";
 
+// Users
+
+    $USERS_users="Usuarios";
+    $USERS_validate="Validar usuario.";
+    $USERS_verify_validate="¿Está seguro? El usuario podrá identificarse en la plataforma";
+    $USERS_confirm="Sí, validar usuario";
+    $USERS_validated="¡Validado!";
+    $USERS_validated_message="El usuario ha sido validado correctamente.";
+    $USERS_deleted="El usuario ha sido eliminado.";
+    $USERS_edit="Editar usuario";
+    $USERS_correct="Correcto";
+    $USERS_search_name="Buscar por nombre:";
+    $USERS_search_department="Buscar por departamento:";
+    $USERS_search_mail="Buscar por e-mail:";
+    $USERS_search_type="Buscar por tipo de cuenta:";
+    $USERS_any="--CUALQUIER--";
+    $USERS_normal="NORMAL";
+    $USERS_technical="TÉCNICO";
+    $USERS_special="ESPECIAL";
+    $USERS_admin="ADMIN";
+    $USERS_unvalidate="Usuarios no validados";
+    $USERS_name="NOMBRE";
+    $USERS_surname="APELLIDOS";
+    $USERS_department="DEPARTAMENTO";
+    $USERS_type="TIPO";
+    $USERS_users_unvalidated="No existen usuarios no validados.";
+    $USERS_users_validated="No existen usuarios válidos.";
     
 // Nombre del fichero sin la extension.
     $filename = explode(".",basename($_SERVER['PHP_SELF']))[0];
