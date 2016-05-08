@@ -122,13 +122,17 @@
     $USERS_technical="TÉCNICO";
     $USERS_special="ESPECIAL";
     $USERS_admin="ADMIN";
-    $USERS_unvalidate="Usuarios no validados";
+    $USERS_unvalidated="Usuarios no validados";
     $USERS_name="NOMBRE";
     $USERS_surname="APELLIDOS";
     $USERS_department="DEPARTAMENTO";
     $USERS_type="TIPO";
     $USERS_users_unvalidated="No existen usuarios no validados.";
     $USERS_users_validated="No existen usuarios válidos.";
+    $USERS_validated="Usuarios validados";
+    $USERS_delete_accept="Sí, borrar usuario.";
+    $USERS_validar="Validar";
+    $USERS_editar="Editar";
     
 // Nombre del fichero sin la extension.
     $filename = explode(".",basename($_SERVER['PHP_SELF']))[0];

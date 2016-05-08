@@ -131,7 +131,11 @@
     $USERS_type="TYPE";
     $USERS_users_unvalidated="There are no users unvalidated.";
     $USERS_users_validated="There are no users validated.";
-
+    $USERS_validated="Validated users";
+    $USERS_delete_accept="Yes, do it.";
+    $USERS_validar="Validate";
+    $USERS_editar="Edit";
+    
 // Name file without extension
     $filename = explode(".",basename($_SERVER['PHP_SELF']))[0];
 

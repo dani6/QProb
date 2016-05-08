@@ -319,7 +319,7 @@
                         type: 'warning',
                         showCancelButton: true,
                         confirmButtonColor: '#3085d6',
-                        confirmButtonText: '<?php echo $DEPENDENCIES_delete_accept;?>'
+                        confirmButtonText: '<?php echo $USERS_delete_accept;?>'
                     }).then(function(isConfirm) {
                         if (isConfirm) {
                             deleteUser2(id);
@@ -327,7 +327,7 @@
                     });
                 }
             </script>
-        <div class="button" style="margin-left:30px;" onclick="showRegister('','','','','','','');"> Añadir +</div><br><br><br><br>
+        <div class="button" style="margin-left:30px;" onclick="showRegister('','','','','','','');"><?php echo $DEPENDENCIES_add;?></div><br><br><br><br>
         <script>
             function update(nombre,departamento,email,cuenta){
                 var parametros = {
@@ -491,7 +491,7 @@
                             <td><?php echo $row['TLF_USUARIO'];?></td>
                             <td><?php echo $row['TIPO_USUARIO'];?></td>
                             <td onclick="deleteUser(<?php echo $row['ID_USUARIO'];?>);" class="X">X</td>
-                            <td onclick="validate(<?php echo $row['ID_USUARIO'];?>);" class="editar">Validar</td>
+                            <td onclick="validate(<?php echo $row['ID_USUARIO'];?>);" class="editar"><?php echo $USERS_validar;?></td>
                         </tr>    
                     <?php
                 }
@@ -504,7 +504,7 @@
                 <?php
             }
         ?>
-        <h2> <?php echo $USERS_validate;?> </h2>
+        <h2> <?php echo $USERS_validated;?> </h2>
         <?php
             $result = $db->query("SELECT U.ID ID_USUARIO, U.NOMBRE NOMBRE_USUARIO, U.APELLIDOS APELLIDOS_USUARIO, U.EMAIL EMAIL_USUARIO, U.TLF TLF_USUARIO, U.TIPO TIPO_USUARIO, D.NOMBRE NOMBRE_DEPARTAMENTO FROM USUARIO U INNER JOIN DEPARTAMENTO D ON U.id_departamento=D.id where U.VALIDO=1 and U.NOMBRE LIKE '%".$_POST['NOMBRE_USUARIO']."%' and U.EMAIL LIKE '%".$_POST['EMAIL_USUARIO']."%' and U.TIPO LIKE '%".$_POST['TIPO_USUARIO']."%' and D.NOMBRE LIKE '%".$_POST['NOMBRE_DEPARTAMENTO']."%';");
             if($result->num_rows>0){  
@@ -531,7 +531,7 @@
                             <td><?php echo $row['TLF_USUARIO'];?></td>
                             <td><?php echo $row['TIPO_USUARIO'];?></td>
                             <td onclick="deleteUser(<?php echo $row['ID_USUARIO'];?>);" class="X">X</td>
-                            <td onclick="editar(<?php echo $row['ID_USUARIO'];?>);" class="editar">Editar</td>
+                            <td onclick="editar(<?php echo $row['ID_USUARIO'];?>);" class="editar"><?php echo $USERS_editar;?></td>
                         </tr>    
                     <?php
                 }
