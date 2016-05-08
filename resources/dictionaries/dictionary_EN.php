@@ -11,7 +11,7 @@
 
     $user_text="User";
     $password_text="Password";
-
+    $type="Type";
     $profile="Profile";
     $manage_account="Manage Account";
     $logout="Log Out";
@@ -68,6 +68,43 @@
     $login_error="Incorrect";
     $login_error_message="User or password is incorrect.";
     $enter="Sign In";
+
+//Dependencies
+    $DEPENDENCIES_dependencies="Dependencies";
+    $DEPENDENCIES_delete="Deleted!";
+    $DEPENDENCIES_verify_deleted="Your dependency has been deleted";
+    $DEPENDENCIES_confirm="Are you sure?";
+    $DEPENDENCIES_warning="You won\'t be able to revert this!";
+    $DEPENDENCIES_added="Added!";
+    $DEPENDENCIES_verify_added="Your dependency has been added.";
+    $DEPENDENCIES_error="Error!";
+    $DEPENDENCIES_error_message="An error has been happened. The classroom may already exists.";
+    $DEPENDENCIES_add_classroom="Add classroom";
+    $DEPENDENCIES_accept="Accept";
+    $DEPENDENCIES_cancel="CANCEL";
+    $DEPENDENCIES_cancel_accept="Yes, delete it!";
+    $DEPENDENCIES_add="Add +";
+    $DEPENDENCIES_how_to_add="How to add buildings and floors";
+    $DEPENDENCIES_instructions="You can use the following commands in the terminal of mysql for add buildings and floors:</p><p style='color: blue;margin-top: 20px;'>INSERT INTO EDIFICIO VALUES (0, '--NOMBRE EDIFICIO--');</p>"
+                    +"<p style='color: blue;margin-top: 20px;'>INSERT INTO PLANTA VALUES (0,--NUMERO_PLANTA--,(select id from edificio where nombre like '--NOMBRE_EDIFICIO--'));</p>"
+                    +"<p style='margin-top: 30px;'> Or you can use a interface for the handling of data base.</p>"
+                    +"<p>The main reason why you can not add it because the buildings and plants do not usually change relatively frequency.</p>";
+    $DEPENDENCIES_question=" Do you wish add a new buildings and floors?";
+    $DEPENDENCIES_select_build=" -- Select a building";
+    $DEPENDENCIES_select_floor=" -- Select a floor";
+    $DEPENDENCIES_select_classroom=" -- Select a classroom";
+    $DEPENDENCIES_build="Building";
+    $DEPENDENCIES_floor="Floor";
+    $DEPENDENCIES_classroom="Classroom";
+    
+// Categories
+
+    $CATEGORIES_categories="Categories";
+    $CATEGORIES_select=" -- Select a category";
+    $CATEGORIES_verify_deleted="Your category has been deleted.";
+    $CATEGORIES_added="Category has been added";
+    $CATEGORIES_error_message="An error has been happened. The category may already exists.";
+    $CATEGRIES_intro_category="Enter a category";
 
 // Name file without extension
     $filename = explode(".",basename($_SERVER['PHP_SELF']))[0];

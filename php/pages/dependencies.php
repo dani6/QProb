@@ -53,8 +53,8 @@
                         //Despues del envio se produce...:
                         success:  function (response) {
                             swal(
-                                'Deleted!',
-                                'Your file has been deleted.',
+                                '<?php echo $DEPENDENCIES_delete;?>',
+                                '<?php echo $DEPENDENCIES_verify_deleted;?>',
                                 'success'
                             ).then(function(isConfirm){
                                 updateParams(0,0,0);
@@ -65,13 +65,13 @@
             
             function deleteDependency(edificio,planta,aula){
                 swal({
-                    title: 'Are you sure?',
-                    text: "You won't be able to revert this!",
+                    title: '<?php echo $DEPENDENCIES_confirm;?>',
+                    text: "<?php echo $DEPENDENCIES_warning;?>",
                     type: 'warning',
                     showCancelButton: true,
                     confirmButtonColor: '#3085d6',
                     cancelButtonColor: '#d33',
-                    confirmButtonText: 'Yes, delete it!'
+                    confirmButtonText: '<?php echo $DEPENDENCIES_cancel_accept;?>'
                 }).then(function(isConfirm) {
                     if (isConfirm) {
                         deleteDependency2(edificio,planta,aula);
@@ -128,16 +128,16 @@
                         success:  function (response) {
                             if(response=='1'){
                                 swal(
-                                    'Added!',
-                                    'Your file has been added.',
+                                    '<?php echo $DEPENDENCIES_added;?>',
+                                    '<?php echo $DEPENDENCIES_verify_added;?>',
                                     'success'
                                 ).then(function(){
                                     updateParams(0,0,0);
                                 });
                             }else{
                                 swal(
-                                    'Error!',
-                                    'Ha ocurrido un error. Puede ya existir el aula.',
+                                    '<?php echo $DEPENDENCIES_error;?>',
+                                    '<?php echo $DEPENDENCIES_error_message;?>',
                                     'error'
                                 ).then(function(){
                                     addDependency(edificio,planta);
@@ -149,15 +149,15 @@
             
             function addDependency(edificio,planta){
                 swal({
-                    title: 'Añadir aula',
+                    title: '<?php echo $DEPENDENCIES_add_classroom;?>',
                     width: 800,
-                    html: '<div id="addDependency"><select id="edificio2" onchange="updateParams2($(\'#edificio2\').val(),$(\'#aula2\').val());"><option value="0"> -- Selecciona un edificio<?php $result = $db->query("select e.id EDIFICIO_ID, e.NOMBRE EDIFICIO_NOMBRE FROM EDIFICIO e;");
+                    html: '<div id="addDependency"><select id="edificio2" onchange="updateParams2($(\'#edificio2\').val(),$(\'#aula2\').val());"><option value="0"> <?php echo $DEPENDENCIES_select_build;?> <?php $result = $db->query("select e.id EDIFICIO_ID, e.NOMBRE EDIFICIO_NOMBRE FROM EDIFICIO e;");
                         while($row = mysqli_fetch_array($result)){ echo '<option value="'.$row['EDIFICIO_ID'].'">'.$row["EDIFICIO_NOMBRE"]; }?></select>'
-                        +'<select id="planta2" onchange="updateParams2($(\'#edificio2\').val(),$(\'#aula2\').val());"><option value="0"> -- Selecciona una planta<?php $result = $db->query("select p.id PLANTA_ID, p.NUMERO PLANTA_NUMERO FROM PLANTA p where p.id_edificio like '".$_POST['EDIFICIO2']."';");while($row = mysqli_fetch_array($result)){ echo '<option value="'.$row['PLANTA_ID'].'">'.$row['PLANTA_NUMERO'];}?></select>'
-                        +'<input id="aula2" class="input-field" max="50" value="AULA"></div>',
-                    confirmButtonText: 'Aceptar',
+                        +'<select id="planta2" onchange="updateParams2($(\'#edificio2\').val(),$(\'#aula2\').val());"><option value="0"> <?php echo $DEPENDENCIES_select_floor;?> <?php $result = $db->query("select p.id PLANTA_ID, p.NUMERO PLANTA_NUMERO FROM PLANTA p where p.id_edificio like '".$_POST['EDIFICIO2']."';");while($row = mysqli_fetch_array($result)){ echo '<option value="'.$row['PLANTA_ID'].'">'.$row['PLANTA_NUMERO'];}?></select>'
+                        +'<input id="aula2" class="input-field" max="50" value="<?php echo $DEPENDENCIES_classroom;?>"></div>',
+                    confirmButtonText: '<?php echo $DEPENDENCIES_accept;?>',
                     showCancelButton: true,
-                    cancelButtonText: 'CANCEL',
+                    cancelButtonText: '<?php echo $DEPENDENCIES_cancel;?>',
                     closeOnConfirm: true,
                     allowEscapeKey: true,
                     allowOutsideClick: true
@@ -173,30 +173,27 @@
             }
     </script>
     <div id="wrapper">
-        <h1> Dependencies </h1>
+        <h1> <?php $DEPENDENCIES_dependencies;?> </h1>
         <hr size="2px"/>
         <br>
         <br>
-        <div class="button" onclick="addDependency(0,0);"> Añadir +</div>
+        <div class="button" onclick="addDependency(0,0);"> <?php echo $DEPENDENCIES_add;?> </div>
         <script>
             function info(){
                 swal({
-                    title: 'Cómo añadir edificios y plantas',
-                    html: "<p>Puedes usar los siguientes comandos en la terminal de mysql para añadir edificios y plantas:</p><p style='color: blue;margin-top: 20px;'>INSERT INTO EDIFICIO VALUES (0, '--NOMBRE EDIFICIO--');</p>"
-                    +"<p style='color: blue;margin-top: 20px;'>INSERT INTO PLANTA VALUES (0,--NUMERO_PLANTA--,(select id from edificio where nombre like '--NOMBRE_EDIFICIO--'));</p>"
-                    +"<p style='margin-top: 30px;'>O bien utilizar una interfaz para la manipulación de bases de datos. </p>"
-                    +"<p>El motivo principal por el que no se puede añadir es debido a que los edificios y plantas no suelen cambiar con relativa frencuencia.</p>",
+                    title: '<?php $DEPENDENCIES_how_to_add;?>',
+                    html: "<?php $DEPENDENCIES_instructions;?>",
                     type: 'info', 
                     width: 800,       
                     confirmButtonText: '<?php echo $OK;?>'
                   });
             }
         </script>
-        <div class="info" onclick="info();"> ¿Desea añadir nuevos edificios y plantas? </div>
+        <div class="info" onclick="info();"> <?php echo $DEPENDENCIES_question;?> </div>
         <div class="options">
             
             <select id="edificio" onchange="updateParams($('#edificio').val(),0,0);">
-                <option value="0"> -- Selecciona un edificio
+                <option value="0"> <?php $DEPENDENCIES_select_build;?>
                 <?php
                     $result = $db->query("select e.id EDIFICIO_ID, e.NOMBRE EDIFICIO_NOMBRE FROM EDIFICIO e;");
                     while($row = mysqli_fetch_array($result)){
@@ -207,7 +204,7 @@
                 ?>
             </select>
             <select id="planta" onchange="updateParams($('#edificio').val(),$('#planta').val(),0);">
-                <option value="0"> -- Selecciona una planta
+                <option value="0"> <?php $DEPENDENCIES_select_floor;?>
                 <?php
                     $result = $db->query("select p.id PLANTA_ID, p.NUMERO PLANTA_NUMERO FROM PLANTA p where p.id_edificio like '".$_POST['EDIFICIO']."';");
                     while($row = mysqli_fetch_array($result)){
@@ -218,7 +215,7 @@
                 ?>
             </select>
             <select id="aula" onchange="updateParams($('#edificio').val(),$('#planta').val(),$('#aula').val());">
-                <option value="0"> -- Selecciona un aula
+                <option value="0"> <?php $DEPENDENCIES_select_classroom;?>
                 <?php
                     $result = $db->query("select a.id AULA_ID, a.AULA AULA_NOMBRE FROM AULA a where a.id_planta like '".$_POST['PLANTA']."';");
                     while($row = mysqli_fetch_array($result)){
@@ -232,9 +229,9 @@
         <br>
         <table id="table_dependencies">
             <tr class="top">
-                <td>Edificio</td>
-                <td>Planta</td>
-                <td>Aula</td>
+                <td><?php echo $DEPENDENCIES_build;?></td>
+                <td><?php echo $DEPENDENCIES_floor;?></td>
+                <td><?php echo $DEPENDENCIES_classroom;?></td>
                 <td class="empty"></td>
             </tr>
 <?php

@@ -7,13 +7,13 @@
     </style>  
     
     <div id="wrapper">
-        <h1> Categories </h1>
+        <h1> <?php echo $CATEGORIES_categories;?> </h1>
         <hr size="2px"/>
         <br>
         <br>
         
         <select id="categories">
-            <option value="0"> -- Selecciona una categoría
+            <option value="0"> <?php echo $CATEGORIES_select;?>
             <?php
                 $result = $db->query("select c.id CATEGORIA_ID, c.NOMBRE CATEGORIA_NOMBRE FROM CATEGORIA c;");
                 while($row = mysqli_fetch_array($result)){
@@ -42,8 +42,8 @@
                         //Despues del envio se produce...:
                         success:  function (response) {
                             swal(
-                                'Deleted!',
-                                'Your file has been deleted.',
+                                '<?php echo $DEPENDENCIES_delete;?>',
+                                '<?php echo $CATEGORIES_verify_deleted;?>',
                                 'success'
                             ).then(function(){
                                 window.location="categories.html";
@@ -55,19 +55,20 @@
             function deleteCategory(){
                 if($("#categories").val()==0){
                     swal(
-                        'Error!',
-                        'Selecciona una categoría',
+                        '<?php echo $DEPENDENCIES_error;?>',
+                        '<?php echo $CATEGORIES_select;?>',
                         'error'
                     );
                 }else{
                     swal({
-                        title: 'Are you sure?',
-                        text: "You won't be able to revert this!",
+                        title: '<?php echo $DEPENDENCIES_confirm;?>',
+                        text: "<?php echo $CATEGORIES_warning;?>",
                         type: 'warning',
                         showCancelButton: true,
                         confirmButtonColor: '#3085d6',
                         cancelButtonColor: '#d33',
-                        confirmButtonText: 'Yes, delete it!'
+                        confirmButtonText: '<?php echo $DEPENDENCIES_cancel_accept;?>',
+                        cancelButtonText: '<?php echo $DEPENDENCIES_cancel;?>'
                     }).then(function(isConfirm) {
                         if (isConfirm) {
                             deleteCategory2();
@@ -97,14 +98,14 @@
                             if(response=='1'){
                                     swal({
                                         type: 'success',
-                                        text: 'Categoría añadida'
+                                        text: '<?php echo $CATEGORIES_added;?>'
                                     }).then(function(){
                                         window.location="categories.html";
                                     });
                                 }else{
                                     swal(
-                                        'Error!',
-                                        'Ha ocurrido un error. Puede ya existir la categoria.',
+                                        '<?php echo $DEPENDENCIES_error;?>',
+                                        '<?php echo $CATEGORIES_error_message;?>',
                                         'error'
                                     ).then(function(){
                                         addCategory();
@@ -130,7 +131,7 @@
             
              function addCategory(){	
                 swal({
-                    title: 'Introduzca una categoría',
+                    title: '<?php echo $CATEGORIES_intro_category;?>',
                     html: '<input id="category2" class="input-field" max="20">',
                     showCancelButton: true    
                 }).then(function(isConfirm) {
@@ -143,7 +144,7 @@
             }
         </script>
         <div class="X" onclick="deleteCategory()">X</div>
-        <div class="button" onclick="addCategory();"> Añadir +</div>
+        <div class="button" onclick="addCategory();"> <?php echo $DEPENDENCIES_add;?> </div>
     </div>
 <!-- </section> -->    
 <?php
