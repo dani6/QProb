@@ -38,22 +38,6 @@ CREATE TABLE `AULA` (
   CONSTRAINT `rel_aula_planta` FOREIGN KEY (`id_planta`) REFERENCES `PLANTA` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-CREATE TABLE `INCIDENCIA` (
-  `ID` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `ESTADO` enum('ABIERTA','RESUELTA','EN CURSO') NOT NULL DEFAULT 'ABIERTA',
-  `FECHA` date NOT NULL,
-  `TITULO` varchar(40) NOT NULL DEFAULT '',
-  `DESCRIPCION` text,
-  `TIPO` enum('URGENTE','TIC','GENERAL') NOT NULL DEFAULT 'GENERAL',
-  `id_Departamento` int(11) unsigned NOT NULL,
-  `id_Usuario` int(11) unsigned NOT NULL,
-  PRIMARY KEY (`ID`),
-  KEY `id_Departamento` (`id_Departamento`),
-  KEY `id_Usuario` (`id_Usuario`),
-  CONSTRAINT `departamento_incidencias` FOREIGN KEY (`id_Departamento`) REFERENCES `DEPARTAMENTO` (`ID`) ON DELETE CASCADE,
-  CONSTRAINT `usuario_incidencia` FOREIGN KEY (`id_Usuario`) REFERENCES `USUARIO` (`ID`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
 CREATE TABLE `USUARIO` (
   `ID` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `NOMBRE` varchar(20) NOT NULL,
@@ -74,6 +58,21 @@ CREATE TABLE `USUARIO` (
   CONSTRAINT `departamento_usuario` FOREIGN KEY (`id_departamento`) REFERENCES `DEPARTAMENTO` (`ID`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+CREATE TABLE `INCIDENCIA` (
+  `ID` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `ESTADO` enum('ABIERTA','RESUELTA','EN CURSO') NOT NULL DEFAULT 'ABIERTA',
+  `FECHA` date NOT NULL,
+  `TITULO` varchar(40) NOT NULL DEFAULT '',
+  `DESCRIPCION` text,
+  `TIPO` enum('URGENTE','TIC','GENERAL') NOT NULL DEFAULT 'GENERAL',
+  `id_Departamento` int(11) unsigned NOT NULL,
+  `id_Usuario` int(11) unsigned NOT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `id_Departamento` (`id_Departamento`),
+  KEY `id_Usuario` (`id_Usuario`),
+  CONSTRAINT `departamento_incidencias` FOREIGN KEY (`id_Departamento`) REFERENCES `DEPARTAMENTO` (`ID`) ON DELETE CASCADE,
+  CONSTRAINT `usuario_incidencia` FOREIGN KEY (`id_Usuario`) REFERENCES `USUARIO` (`ID`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `REVISION` (
   `HORA` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
