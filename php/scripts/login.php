@@ -17,7 +17,7 @@
         $_SESSION['email']=$row['EMAIL'];
         $_SESSION['tlf']=$row['TLF'];
         $_SESSION['language']=$row['IDIOMA'];
-        $_SESSION['id_department']=$row['DEPARTAMENTO'];
+        $_SESSION['id_department']=$row['id_departamento'];
         $_SESSION['type']=$row['TIPO']; // Añadir tipo de usuario
                 
         $db->query("INSERT INTO LOG VALUES (0,CURRENT_DATE,CURRENT_TIMESTAMP,".$row['ID'].",'USER: ".$login_user." ACTION: Log In');");

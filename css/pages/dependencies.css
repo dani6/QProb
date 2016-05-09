@@ -55,23 +55,3 @@
     text-align: center;  
     margin-top: 40px;  
 }
-
-select{
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    margin-right: 50px; 
-    padding: 10px;
-    padding-right: 20px; 
-    border: 1px solid rgba(0,0,0,0.2);
-    cursor: pointer;
-}
-
-.input-field{
-    border-bottom: 1px solid black;
-    margin-bottom: 20px;
-    padding: 10px;
-    font-size: 18px;
-    font-family: Square; 
-    background: #efefef;  
-}

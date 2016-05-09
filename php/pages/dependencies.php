@@ -173,7 +173,7 @@
             }
     </script>
     <div id="wrapper">
-        <h1> <?php $DEPENDENCIES_dependencies;?> </h1>
+        <h1> <?php echo $DEPENDENCIES_dependencies;?> </h1>
         <hr size="2px"/>
         <br>
         <br>

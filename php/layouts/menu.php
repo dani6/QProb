@@ -23,7 +23,7 @@
             }catch(e){}
         });
     </script>
-    <div class="element_toolbar special" onclick="">
+    <div class="element_toolbar special" onclick="addIncidence('','','','','','','','','');">
         <p><?php echo $addincident;?></p>
     </div> 
     <div class="element_toolbar" onclick="">

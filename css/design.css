@@ -288,3 +288,31 @@
     footer{
         
     }
+    
+    .formIncidence .input-field2, .input-field{
+        border: 1px solid rgba(0,0,0,0.4);
+        padding: 10px;
+        width: 225px;
+        border-radius: 5px;
+        margin-bottom: 10px;
+    }
+    
+    .formIncidence td{
+        text-align: right;
+        padding: 5px;
+    }
+    
+    select{
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        margin-right: 50px; 
+        padding: 10px;
+        padding-right: 20px; 
+        border: 1px solid rgba(0,0,0,0.2);
+        cursor: pointer;
+    }
+    
+    .formIncidence select{
+        margin: 0;
+    }

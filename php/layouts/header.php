@@ -89,6 +89,104 @@
                             }
                     });
                 }
+                
+                function addIncidence2(categoria,titulo,descripcion,tipo,edificio,planta,aula){
+                    var parametros = {
+                        "CATEGORIA": categoria,
+                        "TITULO": titulo,
+                        "DESCRIPCION": descripcion,
+                        "TIPO": tipo,
+                        "EDIFICIO": edificio,
+                        "PLANTA": planta,
+                        "AULA": aula
+                    };
+                    
+                    $.ajax({
+                            data:  parametros, //Datos que mandamos
+                            url:   '../php/scripts/addIncidence.php', //Direccion a donde lo mandamos
+                            type:  'post', 
+                            
+                            //Antes del envío se produce...:
+                            beforeSend: function () {
+                                    // No hacemos nada
+                            },
+                            
+                            //Despues del envio se produce...:
+                            success:  function (response) {
+                                alert(categoria+" "+titulo+" "+descripcion+" "+tipo+" "+edificio+" "+planta+" "+aula+" "+response);
+                                window.location="<?php echo $filename;?>.html";
+                            }
+                    });
+                }
+                
+                function updateFloor(edificio){
+                    var parametros = {
+                        "EDIFICIO": edificio
+                    };
+                    
+                    $.ajax({
+                            data:  parametros, //Datos que mandamos
+                            url:   '../php/scripts/floors.php', //Direccion a donde lo mandamos
+                            type:  'post', 
+                            
+                            //Antes del envío se produce...:
+                            beforeSend: function () {
+                                    // No hacemos nada
+                            },
+                            
+                            //Despues del envio se produce...:
+                            success:  function (response) {
+                                $("#plantatd").html(response);
+                            }
+                    });
+                }
+                
+                function updateClass(planta){
+                    var parametros = {
+                        "PLANTA": planta
+                    };
+                    
+                    $.ajax({
+                            data:  parametros, //Datos que mandamos
+                            url:   '../php/scripts/classrooms.php', //Direccion a donde lo mandamos
+                            type:  'post', 
+                            
+                            //Antes del envío se produce...:
+                            beforeSend: function () {
+                                    // No hacemos nada
+                            },
+                            
+                            //Despues del envio se produce...:
+                            success:  function (response) {
+                                $("#aulatd").html(response);
+                            }
+                    });
+                }
+                
+                
+                function addIncidence(){
+                    swal({
+                        title: 'Incidencia',
+                        width: 800,
+                        html: '<div id="addIncidence"><?php include("../layouts/formIncidence.php");?></div>',
+                        confirmButtonText: '<?php echo $DEPENDENCIES_accept;?>',
+                        showCancelButton: true,
+                        cancelButtonText: '<?php echo $DEPENDENCIES_cancel;?>',
+                        closeOnConfirm: false,
+                        allowEscapeKey: true,
+                        allowOutsideClick: true
+                    }).then(function(isConfirm) {
+                        if (isConfirm) {
+                            addIncidence2($('#categoria3').val(),$('#titulo3').val(),$('#descripcion3').val(),$('#tipo3').val(),$('#edificio3').val(),$('#planta3').val(),$('#aula3').val());
+                        }
+                        swal.close();
+                    });
+                    
+                    $(".formIncidence .input-field").focus(function(){
+                        this.select();
+                    }); 
+                }
+                
         </script>
     </head>
     <body>
