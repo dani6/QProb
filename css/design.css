@@ -97,10 +97,10 @@
     header .toolbar .element_toolbar .sub_toolbar:hover{
         display: block;
     }
-    
+        
     header .toolbar .element_toolbar .sub_toolbar .element_sub_toolbar{
         position: relative;
-        padding: 10px 20px 11px 10px;
+        /*padding: 10px 20px 11px 10px;*/
         
         background: rgba(34,81,127,0.2);
         color: black;
@@ -118,7 +118,7 @@
         display: none;
         
         position: absolute;
-        margin-top: -26.5px;
+        margin-top: -38px;
         right: 100%;
         
         background: white; 
@@ -245,16 +245,19 @@
         font-family: Square;
         padding: 20px 10px 20px 10px;
         border: 2px solid rgba(0,0,0,0.2);
-        color: rgba(0,0,0,0.5);
+        color: rgba(0,0,0,0.7);
         font-size: 14px;
+        background: white;
     }
     
     #wrapper table tr.top td{
         color: black;
+        font-size: 18px;
     }
     
     #wrapper table tr td.empty{
         border: none;
+        background: transparent;
     }
     
     .button {
@@ -323,6 +326,7 @@
         -webkit-transition: all 0.1s ease;
         -moz-transition: all 0.1s ease;
         transition: all 0.1s ease;
+        background: white;
     }
     .simple-button:hover{
         background: rgba(87,142,250,1); color: white;
@@ -336,6 +340,7 @@
     #wrapper table.buscador tr td{
         border: none;
         padding: 5px;
+        background: transparent;
     }
     
     table.buscador {
@@ -358,7 +363,7 @@
     }
  
     #wrapper table tr td.X{
-        min-width: 0;
+        width: 5px;
         padding: 10px;
         text-align: center;
         font-family: Shangai;
@@ -370,4 +375,13 @@
 
     #wrapper table tr td.X:hover{
         color: red;
+    }
+    
+    #wrapper h3{
+        font-family: Orator;
+    }
+    
+    
+    .element_sub_toolbar p{
+        padding: 10px 20px 11px 10px;
     }

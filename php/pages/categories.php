@@ -48,7 +48,8 @@
                                 '<?php echo $CATEGORIES_verify_deleted;?>',
                                 'success'
                             ).then(function(){
-                                window.location="categories.html";
+                                //window.location="categories.html";
+                                location.reload(true);
                             });
                         }
                 });
@@ -102,7 +103,8 @@
                                         type: 'success',
                                         text: '<?php echo $CATEGORIES_added;?>'
                                     }).then(function(){
-                                        window.location="categories.html";
+                                        //window.location="categories.html";
+                                        location.reload(true);
                                     });
                                 }else{
                                     swal(

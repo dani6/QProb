@@ -2,16 +2,16 @@
     // All scripts call session.php like:
     require('../layouts/session.php');
     
-    $usuario = $_POST['USUARIO'];//
-    $categoria = $_POST['CATEGORIA'];//
-    $estado = $_POST['ESTADO']; //
-    $titulo = $_POST['TITULO']; //
-    $tipo = $_POST['TIPO']; //
-    $departamento = $_POST['DEPARTAMENTO']; //
+    $usuario = $_POST['USUARIO'];
+    $categoria = $_POST['CATEGORIA'];
+    $estado = $_POST['ESTADO']; 
+    $titulo = $_POST['TITULO']; 
+    $tipo = $_POST['TIPO']; 
+    $departamento = $_POST['DEPARTAMENTO'];
     $edificio = $_POST['EDIFICIO'];
     $planta = $_POST['PLANTA'];
     $aula = $_POST['AULA'];
-    $nombre = $_POST['NOMBRE'];//
+    $nombre = $_POST['NOMBRE'];
     $file = $_POST['FILE'];
     
     $result = $db->query("SELECT * FROM EDIFICIO;");
@@ -66,7 +66,8 @@
                                     'La incidencia ha sido eliminada',
                                     'success'
                                 ).then(function(isConfirm){
-                                    window.location="<?php echo $file;?>.html";
+                                    //window.location="<?php echo $file;?>.html";
+                                    location.reload(true);
                                 });
                             }
                     });
@@ -214,7 +215,7 @@
     <br>
     <br>
     <?php
-    $result = $db->query("select i.ID ID, u.NOMBRE USUARIO_NAME, c.NOMBRE CATEGORIA_NAME, i.ESTADO INCIDENCIA_ESTADO, i.TITULO INCIDENCIA_TITULO, i.TIPO INCIDENCIA_TIPO, e.NOMBRE EDIFICIO_NOMBRE, p.NUMERO PLANTA_NUMERO, a.AULA AULA, i.FECHA FECHA from incidencia i inner join rel_aula_incidencia rai on rai.id_incidencia=i.id inner join rel_categoria_incidencia rci on rci.id_incidencia=i.id inner join usuario u on u.id=i.id_usuario inner join departamento d on d.id=u.id_departamento inner join categoria c on c.id=rci.id_categoria inner join aula a on a.id=rai.id_aula inner join planta p on p.id=a.id_planta inner join edificio e on e.id=p.id_edificio where u.USER LIKE '%".$usuario."%' and c.NOMBRE like '%".$categoria."%' and i.ESTADO like '%".$estado."%' and i.TITULO like '%".$titulo."%' and i.TIPO like '%URGENTE%' and d.NOMBRE LIKE '%".$departamento."%' and e.id like '%".$edificio."%' and p.id like '%".$planta."%' and a.id like '%".$aula."%' and concat(u.NOMBRE,' ',u.APELLIDOS) LIKE '%".$nombre."%';");
+    $result = $db->query("select i.ID ID,u.USER USUARIO_USUARIO, u.NOMBRE USUARIO_NAME, c.NOMBRE CATEGORIA_NAME, i.ESTADO INCIDENCIA_ESTADO, i.TITULO INCIDENCIA_TITULO, i.TIPO INCIDENCIA_TIPO, e.NOMBRE EDIFICIO_NOMBRE, p.NUMERO PLANTA_NUMERO, a.AULA AULA, i.FECHA FECHA from incidencia i inner join rel_aula_incidencia rai on rai.id_incidencia=i.id inner join rel_categoria_incidencia rci on rci.id_incidencia=i.id inner join usuario u on u.id=i.id_usuario inner join departamento d on d.id=u.id_departamento inner join categoria c on c.id=rci.id_categoria inner join aula a on a.id=rai.id_aula inner join planta p on p.id=a.id_planta inner join edificio e on e.id=p.id_edificio where u.USER LIKE '%".$usuario."%' and c.NOMBRE like '%".$categoria."%' and i.ESTADO like '%".$estado."%' and i.TITULO like '%".$titulo."%' and i.TIPO like '%URGENTE%' and d.NOMBRE LIKE '%".$departamento."%' and e.id like '%".$edificio."%' and p.id like '%".$planta."%' and a.id like '%".$aula."%' and concat(u.NOMBRE,' ',u.APELLIDOS) LIKE '%".$nombre."%' ORDER BY FECHA DESC;");
 
     echo "<h2>Incidencias urgentes</h2>";
     
@@ -223,23 +224,23 @@
         
          <table style="width: 100%">
                 <tr class="top">
-                    <td><?php echo $category;?></td>
                     <td><?php echo $title;?></td>
+                    <td><?php echo $user_text;?></td>
                     <td><?php echo $date;?></td>
                     <td><?php echo $status;?></td>
-                    <td class="empty"></td>
+                    <?php if($row['INCIDENCIA_ESTADO']!='RESUELTA'){?><td class="empty"></td><?php }?>
                     <td class="empty"></td>
                 </tr>
                 <?php
                     while ($row = mysqli_fetch_array($result)) {
                 ?>
                 <tr>
-                    <td><?php echo $row['CATEGORIA_NAME'];?></td>
                     <td><?php echo $row['INCIDENCIA_TITULO'];?></td>
-                    <td><?php echo $row['FECHA'];?></td>
-                    <td><?php echo $row['INCIDENCIA_ESTADO'];?></td>
-                    <td class="X" onclick="borrarIncidencia(<?php echo $row['ID'];?>);"> X</td>
-                    <td class="editar" onclick="window.location='incidencia.html?id=<?php echo $row['ID'];?>';"> Ver incidencia</td>
+                    <td style="width: 100px;"><?php echo $row['USUARIO_USUARIO'];?></td>
+                    <td style="width: 170px;"><?php echo $row['FECHA'];?></td>
+                    <td style="width: 100px;"><?php echo $row['INCIDENCIA_ESTADO'];?></td>
+                    <?php if($row['INCIDENCIA_ESTADO']!='RESUELTA'){?><td class="X" onclick="borrarIncidencia(<?php echo $row['ID'];?>);"> X</td><?php }?>
+                    <td style="font-size: 10px; width: 100px;" class="editar" onclick="window.location='incidencia.html?id=<?php echo $row['ID'];?>';"> Ver incidencia</td>
                 </tr>
             <?php
                 }
@@ -250,7 +251,7 @@
         echo "No existen incidencias urgentes.";
     }
     
-    $result = $db->query("select i.ID ID, u.NOMBRE USUARIO_NAME, c.NOMBRE CATEGORIA_NAME, i.ESTADO INCIDENCIA_ESTADO, i.TITULO INCIDENCIA_TITULO, i.TIPO INCIDENCIA_TIPO, e.NOMBRE EDIFICIO_NOMBRE, p.NUMERO PLANTA_NUMERO, a.AULA AULA, i.FECHA FECHA from incidencia i inner join rel_aula_incidencia rai on rai.id_incidencia=i.id inner join rel_categoria_incidencia rci on rci.id_incidencia=i.id inner join usuario u on u.id=i.id_usuario inner join departamento d on d.id=u.id_departamento inner join categoria c on c.id=rci.id_categoria inner join aula a on a.id=rai.id_aula inner join planta p on p.id=a.id_planta inner join edificio e on e.id=p.id_edificio where u.USER LIKE '%".$usuario."%' and c.NOMBRE like '%".$categoria."%' and i.ESTADO like '%".$estado."%' and i.TITULO like '%".$titulo."%' and i.TIPO like '%".$tipo."%' and d.NOMBRE LIKE '%".$departamento."%' and e.id like '%".$edificio."%' and p.id like '%".$planta."%' and a.id like '%".$aula."%' and concat(u.NOMBRE,' ',u.APELLIDOS) LIKE '%".$nombre."%'");
+    $result = $db->query("select i.ID ID,u.USER USUARIO_USUARIO, u.NOMBRE USUARIO_NAME, c.NOMBRE CATEGORIA_NAME, i.ESTADO INCIDENCIA_ESTADO, i.TITULO INCIDENCIA_TITULO, i.TIPO INCIDENCIA_TIPO, e.NOMBRE EDIFICIO_NOMBRE, p.NUMERO PLANTA_NUMERO, a.AULA AULA, i.FECHA FECHA from incidencia i inner join rel_aula_incidencia rai on rai.id_incidencia=i.id inner join rel_categoria_incidencia rci on rci.id_incidencia=i.id inner join usuario u on u.id=i.id_usuario inner join departamento d on d.id=u.id_departamento inner join categoria c on c.id=rci.id_categoria inner join aula a on a.id=rai.id_aula inner join planta p on p.id=a.id_planta inner join edificio e on e.id=p.id_edificio where u.USER LIKE '%".$usuario."%' and c.NOMBRE like '%".$categoria."%' and i.ESTADO like '%".$estado."%' and i.TITULO like '%".$titulo."%' and i.TIPO like '%".$tipo."%' and i.TIPO not like 'URGENTE' and d.NOMBRE LIKE '%".$departamento."%' and e.id like '%".$edificio."%' and p.id like '%".$planta."%' and a.id like '%".$aula."%' and concat(u.NOMBRE,' ',u.APELLIDOS) LIKE '%".$nombre."%' ORDER BY FECHA DESC;");
     
     echo "<h2>Otras incidencias</h2>";
     
@@ -258,23 +259,23 @@
     ?>
             <table style="width: 100%">
                 <tr class="top">
-                    <td><?php echo $category;?></td>
                     <td><?php echo $title;?></td>
+                    <td><?php echo $user_text;?></td>
                     <td><?php echo $date;?></td>
                     <td><?php echo $status;?></td>
-                    <td class="empty"></td>
+                    <?php if($row['INCIDENCIA_ESTADO']!='RESUELTA'){?><td class="empty"></td><?php }?>
                     <td class="empty"></td>
                 </tr>
                 <?php
                     while ($row = mysqli_fetch_array($result)) {
                 ?>
                 <tr>
-                    <td><?php echo $row['CATEGORIA_NAME'];?></td>
                     <td><?php echo $row['INCIDENCIA_TITULO'];?></td>
-                    <td><?php echo $row['FECHA'];?></td>
-                    <td><?php echo $row['INCIDENCIA_ESTADO'];?></td>
-                    <td class="X" onclick="borrarIncidencia(<?php echo $row['ID'];?>);"> X</td>
-                    <td class="editar" onclick="window.location='incidencia.html?id=<?php echo $row['ID'];?>';"> Ver incidencia</td>
+                    <td style="width: 100px;"><?php echo $row['USUARIO_USUARIO'];?></td>
+                    <td style="width: 170px;"><?php echo $row['FECHA'];?></td>
+                    <td style="width: 100px;"><?php echo $row['INCIDENCIA_ESTADO'];?></td>
+                    <?php if($row['INCIDENCIA_ESTADO']!='RESUELTA'){?><td class="X" onclick="borrarIncidencia(<?php echo $row['ID'];?>);"> X</td><?php }?>
+                    <td style="font-size: 10px; width: 100px;" class="editar" onclick="window.location='incidencia.html?id=<?php echo $row['ID'];?>';"> Ver incidencia</td>
                 </tr>
                 <?php
                     }

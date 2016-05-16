@@ -49,7 +49,8 @@
                                     '<?php echo $USERS_validated_message;?>',
                                     'success'
                                 ).then(function(isConfirm){
-                                    window.location="users.html";
+                                    //window.location="users.html";
+                                    location.reload(true);
                                 });
                             }
                     });
@@ -188,7 +189,8 @@
                                         allowEscapeKey: true,
                                         allowOutsideClick: true
                                         }).then(function(){
-                                            window.location="users.html";
+                                            //window.location="users.html";
+                                            location.reload(true);
                                         });
                                 }else{
                                         errorRegister(response,name,surname,email,tlf,department,user,type);
@@ -306,7 +308,8 @@
                                     '<?php echo $USERS_deleted;?>',
                                     'success'
                                 ).then(function(isConfirm){
-                                    window.location="users.html";
+                                    //window.location="users.html";
+                                    location.reload(true);
                                 });
                             }
                     });
@@ -385,7 +388,8 @@
                         
                         //Despues del envio se produce...:
                         success:  function (response) {
-                            window.location="users.html";
+                            //window.location="users.html";
+                            location.reload(true);
                         }
                 });
             }
@@ -535,7 +539,6 @@
                     <td><?php echo $USERS_department;?></td>
                     <td>EMAIL</td>
                     <td>TLF</td>
-                    <td><?php echo $USERS_type;?></td>
                     <td class="empty"></td>
                     <td class="empty"></td>
                 </tr>
@@ -547,7 +550,6 @@
                             <td><?php echo $row['NOMBRE_DEPARTAMENTO'];?></td>
                             <td><?php echo $row['EMAIL_USUARIO'];?></td>
                             <td><?php echo $row['TLF_USUARIO'];?></td>
-                            <td><?php echo $row['TIPO_USUARIO'];?></td>
                             <td onclick="deleteUser(<?php echo $row['ID_USUARIO'];?>);" class="X">X</td>
                             <td onclick="validate(<?php echo $row['ID_USUARIO'];?>);" class="editar"><?php echo $USERS_validar;?></td>
                         </tr>    
@@ -572,7 +574,6 @@
                     <td><?php echo $USERS_name;?></td>
                     <td><?php echo $USERS_department;?></td>
                     <td>EMAIL</td>
-                    <td><?php echo $USERS_type;?></td>
                     <td class="empty"></td>
                     <td class="empty"></td>
                     <td class="empty"></td>
@@ -582,13 +583,12 @@
                     ?>
                     <tr>
                             <td><?php echo $row['NOMBRE_USUARIO']." ".$row['APELLIDOS_USUARIO'];?></td>
-                            <td><?php echo $row['NOMBRE_DEPARTAMENTO'];?></td>
+                            <td style="text-align: center;"><?php echo $row['NOMBRE_DEPARTAMENTO'];?></td>
                             <td><?php echo $row['EMAIL_USUARIO'];?></td>
-                            <td><?php echo $row['TIPO_USUARIO'];?></td>
                             <td onclick="deleteUser(<?php echo $row['ID_USUARIO'];?>);" class="X">X</td>
-                            <td onclick="editar(<?php echo $row['ID_USUARIO'];?>);" class="editar"><?php echo $USERS_editar;?></td>
+                            <td style="font-size: 10px;" onclick="editar(<?php echo $row['ID_USUARIO'];?>);" class="editar"><?php echo $USERS_editar;?></td>
                             <?php if ($row['USER']!=$admin_user){?>
-                                <td onclick="cambiarPass(<?php echo $row['ID_USUARIO'];?>);" class="editar"><?php echo $USERS_change_pass;?></td>
+                                <td style="font-size: 10px;" onclick="cambiarPass(<?php echo $row['ID_USUARIO'];?>);" class="editar"><?php echo $USERS_change_pass;?></td>
                             <?php }else{ ?>
                                 <td class="empty"></td>
                             <?php } ?>

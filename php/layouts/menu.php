@@ -79,7 +79,9 @@
                                     '<?php echo $DEPENDENCIES_delete;?>',
                                     'Las incidencias han sido eliminada',
                                     'success'
-                                );
+                                ).then(function(){
+                                    window.location='index.html';
+                                });
                             }
                     });
                 }
@@ -163,10 +165,10 @@
         <div class="sub_toolbar">
             <div class="element_sub_toolbar"> 
                 <p onclick="window.location='yours_incidences.html'"><?php echo $your_incidences; ?></p>
-                <div class="sub_sub_toolbar">
+                <div class="sub_sub_toolbar" style="margin-top:-37px;">
                     <div class="element_sub_sub_toolbar" onclick="window.location='yours_incidences_in_progress.html'"> 
                         <p><?php echo $incidences_in_progress; ?></p> 
-                    </div>
+                    </div> 
                     <div class="element_sub_sub_toolbar" onclick="window.location='yours_incidences_open.html'">  
                         <p><?php echo $incidences_open; ?></p> 
                     </div>
@@ -175,11 +177,34 @@
                     </div>
                 </div>
             </div>
+            <script>
+                function perfil(id){
+                    var parametros = {
+                            "ID": id
+                    };
+                    
+                    $.ajax({
+                            data:  parametros, //Datos que mandamos
+                            url:   '../php/scripts/perfil.php', //Direccion a donde lo mandamos
+                            type:  'post', 
+                            
+                            //Antes del envío se produce...:
+                            beforeSend: function () {
+                                    // No hacemos nada
+                            },
+                            
+                            //Despues del envio se produce...:
+                            success:  function (response) {
+                                swal(response);
+                            }
+                    });
+                }
+            </script>
              <div class="element_sub_toolbar" 
                 style="
                     border-top: 1px solid rgba(0,0,0,0.2);
                     "
-                onclick=""
+                onclick="perfil(<?php echo $_SESSION['id'];?>);"
                     >  
                 <p><?php echo $profile; ?></p> 
             </div>
@@ -207,7 +232,8 @@
                             
                             //Despues del envio se produce...:
                             success:  function (response) {
-                                window.location="<?php echo $filename;?>.html";
+                                //window.location="<?php echo $filename;?>.html";
+                                location.reload(true);
                             }
                     });
                 }

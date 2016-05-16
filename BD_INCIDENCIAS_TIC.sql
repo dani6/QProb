@@ -81,18 +81,17 @@ CREATE TABLE `INCIDENCIA` (
 
 
 CREATE TABLE `REVISION` (
-  `HORA` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `FECHA` date NOT NULL,
+  `FECHA` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `id_Usuario` int(11) unsigned NOT NULL,
   `id_Incidencia` int(11) unsigned NOT NULL,
   `OBSERVACION` text NOT NULL,
   `PRESUPUESTO` float NOT NULL DEFAULT '0',
-  PRIMARY KEY (`HORA`,`FECHA`,`id_Usuario`,`id_Incidencia`),
+  PRIMARY KEY (`FECHA`,`id_Usuario`,`id_Incidencia`),
   KEY `id_Usuario` (`id_Usuario`),
   KEY `id_Incidencia` (`id_Incidencia`),
   CONSTRAINT `incidecia_revision` FOREIGN KEY (`id_Incidencia`) REFERENCES `INCIDENCIA` (`ID`) ON DELETE CASCADE,
   CONSTRAINT `usuario_revision` FOREIGN KEY (`id_Usuario`) REFERENCES `USUARIO` (`ID`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 
 CREATE TABLE `REL_AULA_INCIDENCIA` (
   `id_aula` int(11) unsigned NOT NULL AUTO_INCREMENT,
@@ -101,7 +100,7 @@ CREATE TABLE `REL_AULA_INCIDENCIA` (
   UNIQUE KEY `id_incidencia` (`id_incidencia`,`id_aula`),
   CONSTRAINT `rel_aula_incidencia` FOREIGN KEY (`id_aula`) REFERENCES `AULA` (`id`) ON DELETE CASCADE,
   CONSTRAINT `rel_incidencia_aula` FOREIGN KEY (`id_incidencia`) REFERENCES `INCIDENCIA` (`ID`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=62 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 
 CREATE TABLE `REL_CATEGORIA_INCIDENCIA` (
   `id_incidencia` int(11) unsigned NOT NULL,
@@ -110,7 +109,7 @@ CREATE TABLE `REL_CATEGORIA_INCIDENCIA` (
   KEY `rel_categoria_incidencia` (`id_categoria`),
   CONSTRAINT `rel_categoria_incidencia` FOREIGN KEY (`id_categoria`) REFERENCES `CATEGORIA` (`ID`) ON DELETE CASCADE,
   CONSTRAINT `rel_incidencia_categoria` FOREIGN KEY (`id_incidencia`) REFERENCES `INCIDENCIA` (`ID`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 
 CREATE TABLE `LOG` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,

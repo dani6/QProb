@@ -1,0 +1,106 @@
+#wrapper2{
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid rgba(0,0,0,0.2);
+    margin-bottom: 20px;
+}
+
+#wrapper2 h1{
+    font-size: 32px;
+}
+
+#wrapper2 h2{
+    font-family: Square;
+    font-size: 18px;
+    color: rgba(0,0,0,0.7);
+    text-decoration: none;
+}
+
+#wrapper2 h3{
+    font-size: 16px;
+    color: rgba(0,0,0,0.7);
+}
+
+#wrapper2 p{
+    margin-top: 0px;
+    font-size: 14px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    line-height: 1.5;
+    color: rgba(0,0,0,0.8);
+    padding: 10px;
+    background: rgba(0,0,0,0.05);
+    border: 1px solid rgba(0,0,0,0.3);
+    border-radius: 10px;
+}
+
+.observacion{
+    width: 500px;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid rgba(0,0,0,0.2);
+    margin-bottom: 20px;
+}
+
+#observaciones{
+    margin-top: 120px;
+    display: none;
+}
+
+.button{
+    width: 200px;
+    font-size: 18px;
+    padding: 5px;
+    margin-bottom: 20px;
+    font-family: Shangai;
+    float: right;
+    margin-right: 0;
+    margin-left: 0;
+}
+
+.simple-button{
+    float: right;
+    margin-right: 30px;
+    margin-top: 10px;
+}
+
+footer{
+    height: 100px;
+}
+
+.observacion{
+    font-family: Square;
+}
+
+.observacion div{
+    margin-bottom: 10px;
+}
+
+.observacion div.comentario{
+    margin-top: 20px;
+}
+
+.observacion div.text{
+    margin-top: 5px;
+    font-size: 14px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    line-height: 1.5;
+    color: rgba(0,0,0,0.8);
+    padding: 10px;
+    padding-left: 20px; 
+    background: rgba(0,0,0,0.05);
+    border: 1px solid rgba(0,0,0,0.3);
+    border-radius: 10px;
+}
+
+.observacion .X{
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+    cursor: pointer;
+}
+
+.observacion .X:hover{
+    color: red;
+}

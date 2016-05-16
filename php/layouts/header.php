@@ -59,7 +59,8 @@
                             //Despues del envio se produce...:
                             success:  function (response) {
                                 // Reload
-                                window.location="../html/<?php echo ($filename=="login")?"index":$filename;?>.html";
+                                // window.location="../html/<?php echo ($filename=="login")?"index":$filename;?>.html";
+                                location.reload(true);
                             }
                     });
                 }
@@ -118,7 +119,8 @@
                                         addIncidence(categoria,titulo,descripcion,tipo);
                                     });
                                 }else{
-                                    window.location="<?php echo $filename;?>.html";
+                                    //window.location="<?php echo $filename;?>.html";
+                                    location.reload(true);
                                 }
                             }
                     });
@@ -227,9 +229,7 @@
             -->
             <?php require('../layouts/menu.php'); ?>
         </header>
-        <script>
-            
-        </script>
+        
         <section>
 
             <!-- Page Content -->
