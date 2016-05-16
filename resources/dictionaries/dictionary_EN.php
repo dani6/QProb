@@ -25,6 +25,9 @@
     $maintenance="Maintenance";
     $dependencies="Dependencies";
     $categories="Categories";
+    $category="Category";
+    $status="Status";
+    $title="Title";
     $incidences="Incidences";
     $users="Users";
     $your_incidences="Yours Incidences";
@@ -43,6 +46,9 @@
     $tlf="Phone: ";
     $confirm_password="Confirm password: ";
     $department="Department: ";
+    $tipo_name="Type";
+    $place="Place";
+    $date="Date";
     
     $REGISTER_congratulation="Congratulation!";
     $REGISTER_OK_msg="You\'ve just created your account. Admin have to activate account before sign in. You will receive an e- mail when your account has been validated.";
@@ -135,6 +141,12 @@
     $USERS_delete_accept="Yes, do it.";
     $USERS_validar="Validate";
     $USERS_editar="Edit";
+    $USERS_change_pass="Change password";
+    $reset_form="Reset";
+    $USERS_congratulation="Congratulations!";
+    $USERS_changed_pass="The password has been changed";
+    $USERS_confirm_pass="Enter your password: ";
+    $USERS_error_confirm_pass="The password is incorrect.";
     
 // Name file without extension
     $filename = explode(".",basename($_SERVER['PHP_SELF']))[0];

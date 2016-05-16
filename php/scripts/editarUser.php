@@ -2,9 +2,11 @@
     // All scripts call session.php like:
     require('../layouts/session.php');
     
-    $id = $_POST['ID'];
     
-    $result = $db->query("SELECT U.ID ID_USUARIO, U.NOMBRE NOMBRE_USUARIO, U.APELLIDOS APELLIDOS_USUARIO, D.NOMBRE NOMBRE_DEPARTAMENTO, U.EMAIL EMAIL_USUARIO, U.TLF TLF_USUARIO, U.TIPO TIPO_USUARIO FROM USUARIO U INNER JOIN DEPARTAMENTO D ON U.id_departamento=D.ID WHERE U.ID=".$id);
+    
+    $id_post = $_POST['ID'];
+    
+    $result = $db->query("SELECT U.ID ID_USUARIO,U.USER USUARIO_USUARIO, U.NOMBRE NOMBRE_USUARIO, U.APELLIDOS APELLIDOS_USUARIO, D.NOMBRE NOMBRE_DEPARTAMENTO, U.EMAIL EMAIL_USUARIO, U.TLF TLF_USUARIO, U.TIPO TIPO_USUARIO FROM USUARIO U INNER JOIN DEPARTAMENTO D ON U.id_departamento=D.ID WHERE U.ID=".$id_post);
 
     $row = mysqli_fetch_array($result);
     $departamento=$row['NOMBRE_DEPARTAMENTO'];
@@ -36,6 +38,10 @@
             <td><input value="<?php echo $row['TLF_USUARIO'];?>" onkeyup="validateNumber();" type="number" class="input-field" min="0" max="999999999" id="tlf"></td>
         </tr>
         <tr>
+            <td><?php echo $user_text;?>:</td>
+            <td colspan="3"><input style="width:100%;" value="<?php echo $row['USUARIO_USUARIO'];?>" class="input-field" maxlength="50" id="user_name"></td>
+        </tr>
+        <tr>
             <td><?php echo $department;?></td>
             <td colspan="3">
                 <select style="width: 100%;"class="input-field" maxlength="20" id="department">
@@ -43,6 +49,7 @@
                 </select>
             </td>
         </tr>
+        <?php if($_SESSION['type']=="ADMIN"){?>
         <tr>
             <td><?php echo $type;?></td>
             <td colspan="3">
@@ -54,5 +61,5 @@
                 </select>
             </td>
         </tr>
-    </table>
-                        
+        <?php } ?>
+    </table>            

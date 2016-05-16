@@ -20,7 +20,7 @@
     }
     
     $db->query('alter table USUARIO AUTO_INCREMENT=1');
-    $result=$db->query("INSERT INTO USUARIO VALUES (0,'".$REGISTER_name."','".$REGISTER_surname."','".$REGISTER_email."',".$REGISTER_tlf.",md5('".$REGISTER_user."'),'".$REGISTER_password."',".$REGISTER_valid.",'".$REGISTER_type."',".$REGISTER_department.",'".$REGISTER_idioma."')");
+    $result=$db->query("INSERT INTO USUARIO VALUES (0,'".$REGISTER_name."','".$REGISTER_surname."','".$REGISTER_email."',".$REGISTER_tlf.",'".$REGISTER_user."','".$REGISTER_password."',".$REGISTER_valid.",'".$REGISTER_type."',".$REGISTER_department.",'".$REGISTER_idioma."')");
     if ($result>=1){        
         //Usamos el SetFrom para decirle al script quien envia el correo
         $correo->SetFrom($correo_admin,$organization);
@@ -41,7 +41,7 @@
         $correo->CharSet = 'UTF-8';
         $correo->Send();
                 
-        $result = $db->query("SELECT * FROM USUARIO WHERE md5('".$REGISTER_user."')=user;");
+        $result = $db->query("SELECT * FROM USUARIO WHERE '".$REGISTER_user."'=user;");
         $row = mysqli_fetch_array($result);
         $db->query('alter table LOG AUTO_INCREMENT=1');
         $db->query("INSERT INTO LOG VALUES (0,CURRENT_DATE,CURRENT_TIMESTAMP,".$row['ID'].",'USER: ".$REGISTER_user." ACTION: Sign Up');");

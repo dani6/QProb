@@ -113,8 +113,13 @@
                             
                             //Despues del envio se produce...:
                             success:  function (response) {
-                                alert(categoria+" "+titulo+" "+descripcion+" "+tipo+" "+edificio+" "+planta+" "+aula+" "+response);
-                                window.location="<?php echo $filename;?>.html";
+                                if (response != ""){
+                                    swal('ERROR','No ha rellenado todos los campos','error').then(function(){
+                                        addIncidence(categoria,titulo,descripcion,tipo);
+                                    });
+                                }else{
+                                    window.location="<?php echo $filename;?>.html";
+                                }
                             }
                     });
                 }
@@ -137,6 +142,7 @@
                             //Despues del envio se produce...:
                             success:  function (response) {
                                 $("#plantatd").html(response);
+                                updateClass(0);
                             }
                     });
                 }
@@ -164,7 +170,7 @@
                 }
                 
                 
-                function addIncidence(){
+                function addIncidence(categoria,titulo,descripcion,tipo){
                     swal({
                         title: 'Incidencia',
                         width: 800,
@@ -184,9 +190,29 @@
                     
                     $(".formIncidence .input-field").focus(function(){
                         this.select();
-                    }); 
+                    });
+                    
+                    $('#categoria3').val(categoria);
+                    $('#titulo3').val(titulo);
+                    $('#descripcion3').val(descripcion); 
+                    $('#tipo3').val(tipo);
                 }
                 
+                (function($) {  
+                    $.get = function(key)   {  
+                        key = key.replace(/[\[]/, '\\[');  
+                        key = key.replace(/[\]]/, '\\]');  
+                        var pattern = "[\\?&]" + key + "=([^&#]*)";  
+                        var regex = new RegExp(pattern);  
+                        var url = unescape(window.location.href);  
+                        var results = regex.exec(url);  
+                        if (results === null) {  
+                            return null;  
+                        } else {  
+                            return results[1];  
+                        }  
+                    }  
+                })(jQuery); 
         </script>
     </head>
     <body>
@@ -201,7 +227,9 @@
             -->
             <?php require('../layouts/menu.php'); ?>
         </header>
-        
+        <script>
+            
+        </script>
         <section>
 
             <!-- Page Content -->

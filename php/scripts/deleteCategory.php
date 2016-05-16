@@ -1,6 +1,7 @@
 <?php
     // All scripts call session.php like:
     require('../layouts/session.php');
+     
     
     $categoria=$_POST['CATEGORIA'];
     

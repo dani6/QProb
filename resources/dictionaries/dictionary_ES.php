@@ -24,6 +24,9 @@
     $maintenance="Mantenimiento";
     $dependencies="Dependencias";
     $categories="Categorias";
+    $category="Categoria";
+    $status="Estado";
+    $title="Título";
     $incidences="Incidencias";
     $users="Usuarios";
     $your_incidences="Tus incidencias";
@@ -42,6 +45,9 @@
     $tlf="Teléfono: ";
     $confirm_password="Confirmar contraseña: ";
     $department="Departamento: ";
+    $tipo_name="Tipo";
+    $place="Lugar";
+    $date="Fecha";
      
     $REGISTER_congratulation="¡Bienvenido!";
     $REGISTER_OK_msg="Su cuenta ha sido creada. El admnistrador deberá validar su cuenta antes de poder acceder a ella. Recibirá un correo cuando su cuenta sea validada.";
@@ -133,6 +139,12 @@
     $USERS_delete_accept="Sí, borrar usuario.";
     $USERS_validar="Validar";
     $USERS_editar="Editar";
+    $USERS_change_pass="Cambiar contraseña";
+    $reset_form="Resetear búsqueda";
+    $USERS_congratulation="¡Éxito!";
+    $USERS_changed_pass="La contraseña ha sido cambiada";
+    $USERS_confirm_pass="Introduzca su contraseña: ";
+    $USERS_error_confirm_pass="Contraseña no válida";
     
 // Nombre del fichero sin la extension.
     $filename = explode(".",basename($_SERVER['PHP_SELF']))[0];

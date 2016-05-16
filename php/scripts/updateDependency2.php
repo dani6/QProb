@@ -1,6 +1,7 @@
 <?php
     // All scripts call session.php like: 
     require('../layouts/session.php');
+    
 ?>
     
     <select id="edificio2" onchange="updateParams2($(\'#edificio2\').val(),0);">

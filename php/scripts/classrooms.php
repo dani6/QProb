@@ -1,7 +1,7 @@
 <?php
     // All scripts call session.php like:
     require('../layouts/session.php');
-    
+        
     $result = $db->query("SELECT * FROM AULA WHERE id_planta=".$_POST['PLANTA']." order by aula");
     
     $aula="";

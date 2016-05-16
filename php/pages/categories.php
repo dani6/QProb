@@ -1,5 +1,7 @@
 <?php 
     require('../layouts/header.php');
+    
+    if($_SESSION['type']=='TECHNICAL' || $_SESSION['type']=='ADMIN'){
 ?>
 <!-- <section> -->
      <style type="text/css" scoped>
@@ -148,5 +150,10 @@
     </div>
 <!-- </section> -->    
 <?php
+    }else{
+        ?>
+        <script> window.location="index.html"; </script>
+        <?php
+    }
     require('../layouts/footer.php');
 ?>

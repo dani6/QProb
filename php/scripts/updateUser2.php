@@ -15,3 +15,4 @@
     $db->query("UPDATE USUARIO SET TLF=".$tlf." WHERE ID=".$_POST['ID']);
     $db->query("UPDATE USUARIO SET id_departamento='".$departamento."' WHERE ID=".$_POST['ID']);
     $db->query("UPDATE USUARIO SET TIPO='".$tipo."' WHERE ID=".$_POST['ID']);
+    $db->query("UPDATE USUARIO SET user='".$_POST['USER_NAME']."' WHERE ID=".$_POST['ID']);

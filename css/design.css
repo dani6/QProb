@@ -246,6 +246,7 @@
         padding: 20px 10px 20px 10px;
         border: 2px solid rgba(0,0,0,0.2);
         color: rgba(0,0,0,0.5);
+        font-size: 14px;
     }
     
     #wrapper table tr.top td{
@@ -315,4 +316,58 @@
     
     .formIncidence select{
         margin: 0;
+    }
+    
+    .simple-button{
+        float: right; margin-right: 100px; margin-top: 10px; border: 1px solid rgba(0,0,0,0.6); background: transparent; cursor: pointer; padding: 5px; border-radius: 6px;
+        -webkit-transition: all 0.1s ease;
+        -moz-transition: all 0.1s ease;
+        transition: all 0.1s ease;
+    }
+    .simple-button:hover{
+        background: rgba(87,142,250,1); color: white;
+    }
+    
+    .register td{
+        padding: 0px 20px 10px 5px;
+        text-align: right;
+    }
+    
+    #wrapper table.buscador tr td{
+        border: none;
+        padding: 5px;
+    }
+    
+    table.buscador {
+        width: 100%;
+    }
+    
+    #wrapper table tr td.editar{
+        min-width: 0;
+        padding: 10px;
+        text-align: center;
+        font-family: Shangai;
+        -webkit-transition: all 0.5s ease;
+        -moz-transition: all 0.5s ease;
+        transition: all 0.5s ease;
+        cursor: pointer;
+    }
+    
+    #wrapper table tr td.editar:hover{
+        color: green;
+    }
+ 
+    #wrapper table tr td.X{
+        min-width: 0;
+        padding: 10px;
+        text-align: center;
+        font-family: Shangai;
+        -webkit-transition: all 0.5s ease;
+        -moz-transition: all 0.5s ease;
+        transition: all 0.5s ease;
+        cursor: pointer;
+    }
+
+    #wrapper table tr td.X:hover{
+        color: red;
     }

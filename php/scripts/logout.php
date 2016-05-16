@@ -10,4 +10,4 @@
     session_destroy();
     
     // Actualizar el idioma del usuario
-    $db->query("UPDATE USUARIO SET IDIOMA='".$aux_idioma."' WHERE user=md5('".$aux_user."')");
+    $db->query("UPDATE USUARIO SET IDIOMA='".$aux_idioma."' WHERE user='".$aux_user."'");

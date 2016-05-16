@@ -361,7 +361,7 @@
                 });
             }
             
-            function updateUser(id,name,surname,email,tlf,department,type){
+            function updateUser(id,name,surname,email,tlf,department,type,user){
                 var parametros = {
                         "ID": id,
                         "NOMBRE": name,
@@ -369,7 +369,8 @@
                         "EMAIL": email,
                         "TLF": tlf,
                         "DEPARTAMENTO": department,
-                        "TYPE": type
+                        "TYPE": type,
+                        "USER_NAME": user
                 };
                 
                 $.ajax({
@@ -418,7 +419,7 @@
                                 allowOutsideClick: true
                             }).then(function(isConfirm) {
                                 if (isConfirm) {
-                                    updateUser(id,$("#name").val(),$("#surname").val(),$("#email").val(),$("#tlf").val(),$("#department").val(),$("#type").val());
+                                    updateUser(id,$("#name").val(),$("#surname").val(),$("#email").val(),$("#tlf").val(),$("#department").val(),$("#type").val(),$("#user_name").val());
                                 }
                                 swal.close();
                             });
@@ -429,14 +430,65 @@
                             
                             $(".register input").bind("keydown",function(e){
                                 if (e.keyCode==13){
-                                    updateUser(id,$("#name").val(),$("#surname").val(),$("#email").val(),$("#tlf").val(),$("#department").val(),$("#type").val());
+                                    updateUser(id,$("#name").val(),$("#surname").val(),$("#email").val(),$("#tlf").val(),$("#department").val(),$("#type").val(),$("#user_name").val());
                                 }     
                             });
                         }
                 });
             }
+            
+            function updatePass(id,pass){
+                var parametros = {
+                        "ID": id,
+                        "PASS": pass
+                };
+                
+                $.ajax({
+                        data:  parametros, //Datos que mandamos
+                        url:   '../php/scripts/updatePass.php', //Direccion a donde lo mandamos
+                        type:  'post', 
+                        
+                        //Antes del envío se produce...:
+                        beforeSend: function () {
+                                // No hacemos nada
+                        },
+                        
+                        //Despues del envio se produce...:
+                        success:  function (response) {
+                           swal('<?php echo $USERS_congratulation;?>','<?php echo $USERS_changed_pass;?>','success');
+                        }
+                });
+            }
+            
+            function validatePass(id,pass){
+                if(pass.length < 8){
+                    swal("<?php echo $DEPENDENCIES_error;?>",'<?php echo $REGISTER_ERROR_passwords1;?>','error').then(function(){cambiarPass(id);});
+                }else{
+                    updatePass(id,hex_md5(pass));
+                    swal.enableLoading();
+                }
+            }
+            
+            function cambiarPass(id){
+                swal({
+                    title: '<?php echo $USERS_change_pass;?>',
+                    html: '<input type="password" class="input-field" id="new_pass">',
+                    confirmButtonText: '<?php echo $OK;?>',
+                    showCancelButton: true,
+                    cancelButtonText: '<?php echo $DEPENDENCIES_cancel;?>',
+                    closeOnConfirm: false,
+                    allowEscapeKey: true,
+                    allowOutsideClick: true
+                }).then(function(isConfirm) {
+                    if (isConfirm) {
+                        validatePass(id,$('#new_pass').val());
+                    }else{
+                        swal.close();
+                    }
+                });
+            }
         </script>
-        <table style='text-align: left;'>
+        <table class="buscador" style='text-align: left;'>
             <tr style='margin-left: 5px;'>
                 <td> <?php echo $USERS_search_name;?> </td>
                 <td> 
@@ -464,15 +516,22 @@
                 </td>
             </tr>
         </table>
+        <script>
+            function reset(){
+                update('','','','');
+            }
+        </script>
+        <input type="button" class="simple-button" onclick="reset();" value="<?php echo $reset_form;?>">
+        <br>
+        <br>
         <h2> <?php echo $USERS_unvalidated;?> </h2>
         <?php
-            $result = $db->query("SELECT U.ID ID_USUARIO, U.NOMBRE NOMBRE_USUARIO, U.APELLIDOS APELLIDOS_USUARIO, U.EMAIL EMAIL_USUARIO, U.TLF TLF_USUARIO, U.TIPO TIPO_USUARIO, D.NOMBRE NOMBRE_DEPARTAMENTO FROM USUARIO U INNER JOIN DEPARTAMENTO D ON U.id_departamento=D.id where U.VALIDO=0 and U.NOMBRE LIKE '%".$_POST['NOMBRE_USUARIO']."%' and U.EMAIL LIKE '%".$_POST['EMAIL_USUARIO']."%' and U.TIPO LIKE '%".$_POST['TIPO_USUARIO']."%' and D.NOMBRE LIKE '%".$_POST['NOMBRE_DEPARTAMENTO']."%';");
+            $result = $db->query("SELECT U.ID ID_USUARIO, U.NOMBRE NOMBRE_USUARIO, U.APELLIDOS APELLIDOS_USUARIO, U.EMAIL EMAIL_USUARIO, U.TLF TLF_USUARIO, U.TIPO TIPO_USUARIO, D.NOMBRE NOMBRE_DEPARTAMENTO FROM USUARIO U INNER JOIN DEPARTAMENTO D ON U.id_departamento=D.id where U.VALIDO=0 and CONCAT(U.NOMBRE,' ',U.APELLIDOS) LIKE '%".$_POST['NOMBRE_USUARIO']."%' and U.EMAIL LIKE '%".$_POST['EMAIL_USUARIO']."%' and U.TIPO LIKE '%".$_POST['TIPO_USUARIO']."%' and D.NOMBRE LIKE '%".$_POST['NOMBRE_DEPARTAMENTO']."%';");
             if($result->num_rows>0){  
         ?>  
             <table>
                 <tr class="top">
                     <td><?php echo $USERS_name;?></td>
-                    <td><?php echo $USERS_surname;?></td>
                     <td><?php echo $USERS_department;?></td>
                     <td>EMAIL</td>
                     <td>TLF</td>
@@ -484,8 +543,7 @@
                 while($row = mysqli_fetch_array($result)){
                     ?>
                     <tr>
-                            <td><?php echo $row['NOMBRE_USUARIO'];?></td>
-                            <td><?php echo $row['APELLIDOS_USUARIO'];?></td>
+                            <td><?php echo $row['NOMBRE_USUARIO']." ".$row['APELLIDOS_USUARIO'];?></td>
                             <td><?php echo $row['NOMBRE_DEPARTAMENTO'];?></td>
                             <td><?php echo $row['EMAIL_USUARIO'];?></td>
                             <td><?php echo $row['TLF_USUARIO'];?></td>
@@ -506,17 +564,16 @@
         ?>
         <h2> <?php echo $USERS_validated;?> </h2>
         <?php
-            $result = $db->query("SELECT U.ID ID_USUARIO, U.NOMBRE NOMBRE_USUARIO, U.APELLIDOS APELLIDOS_USUARIO, U.EMAIL EMAIL_USUARIO, U.TLF TLF_USUARIO, U.TIPO TIPO_USUARIO, D.NOMBRE NOMBRE_DEPARTAMENTO FROM USUARIO U INNER JOIN DEPARTAMENTO D ON U.id_departamento=D.id where U.VALIDO=1 and U.NOMBRE LIKE '%".$_POST['NOMBRE_USUARIO']."%' and U.EMAIL LIKE '%".$_POST['EMAIL_USUARIO']."%' and U.TIPO LIKE '%".$_POST['TIPO_USUARIO']."%' and D.NOMBRE LIKE '%".$_POST['NOMBRE_DEPARTAMENTO']."%';");
+            $result = $db->query("SELECT U.ID ID_USUARIO, U.NOMBRE NOMBRE_USUARIO, U.APELLIDOS APELLIDOS_USUARIO, U.EMAIL EMAIL_USUARIO, U.TLF TLF_USUARIO, U.TIPO TIPO_USUARIO, D.NOMBRE NOMBRE_DEPARTAMENTO, U.USER USER FROM USUARIO U INNER JOIN DEPARTAMENTO D ON U.id_departamento=D.id where U.VALIDO=1 and CONCAT(U.NOMBRE,' ',U.APELLIDOS) LIKE '%".$_POST['NOMBRE_USUARIO']."%' and U.EMAIL LIKE '%".$_POST['EMAIL_USUARIO']."%' and U.TIPO LIKE '%".$_POST['TIPO_USUARIO']."%' and D.NOMBRE LIKE '%".$_POST['NOMBRE_DEPARTAMENTO']."%';");
             if($result->num_rows>0){  
         ?>
             <table>
                 <tr class="top">
                     <td><?php echo $USERS_name;?></td>
-                    <td><?php echo $USERS_surname;?></td>
                     <td><?php echo $USERS_department;?></td>
                     <td>EMAIL</td>
-                    <td>TLF</td>
                     <td><?php echo $USERS_type;?></td>
+                    <td class="empty"></td>
                     <td class="empty"></td>
                     <td class="empty"></td>
                 </tr>
@@ -524,14 +581,17 @@
                 while($row = mysqli_fetch_array($result)){
                     ?>
                     <tr>
-                            <td><?php echo $row['NOMBRE_USUARIO'];?></td>
-                            <td><?php echo $row['APELLIDOS_USUARIO'];?></td>
+                            <td><?php echo $row['NOMBRE_USUARIO']." ".$row['APELLIDOS_USUARIO'];?></td>
                             <td><?php echo $row['NOMBRE_DEPARTAMENTO'];?></td>
                             <td><?php echo $row['EMAIL_USUARIO'];?></td>
-                            <td><?php echo $row['TLF_USUARIO'];?></td>
                             <td><?php echo $row['TIPO_USUARIO'];?></td>
                             <td onclick="deleteUser(<?php echo $row['ID_USUARIO'];?>);" class="X">X</td>
                             <td onclick="editar(<?php echo $row['ID_USUARIO'];?>);" class="editar"><?php echo $USERS_editar;?></td>
+                            <?php if ($row['USER']!=$admin_user){?>
+                                <td onclick="cambiarPass(<?php echo $row['ID_USUARIO'];?>);" class="editar"><?php echo $USERS_change_pass;?></td>
+                            <?php }else{ ?>
+                                <td class="empty"></td>
+                            <?php } ?>
                         </tr>    
                     <?php
                 }

@@ -12,7 +12,8 @@
         <br>
         <br>
         <script>
-            function updateIncidences(user,categoria,estado,titulo,tipo,departamento,edificio,planta,aula){
+            function updateIncidences(user,categoria,estado,titulo,tipo,departamento,edificio,planta,aula,nombre,file){
+                
                 var parametros = {
                     "USUARIO": user,
                     "CATEGORIA": categoria,
@@ -22,7 +23,9 @@
                     "DEPARTAMENTO": departamento,
                     "EDIFICIO": edificio,
                     "PLANTA": planta,
-                    "AULA": aula
+                    "AULA": aula,
+                    "NOMBRE": nombre,
+                    "FILE": file
                 };
                 
                 $.ajax({
@@ -38,11 +41,20 @@
                         //Despues del envio se produce...:
                         success:  function (response) {
                            $("#incidences").html(response);
+                           $('#categories').val(categoria);
+                           $('#nombre').val(nombre);
+                           $('#usuario').val(user);
+                           $('#titulo').val(titulo);
+                           $('#tipo').val(tipo);
+                           $('#departamento').val(departamento);
+                           $('#edificio4').val(edificio);
+                           $('#planta4').val(planta);
+                           $('#aula4').val(aula);
                         }
                 });
             }
             
-            updateIncidences('','','','','','','','','');
+            updateIncidences('','','ABIERTA','','','','','','','','<?php echo $filename;?>');
         </script>
         <div id="incidences">
         </div>

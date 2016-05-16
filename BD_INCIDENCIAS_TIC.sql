@@ -1,24 +1,28 @@
-CREATE TABLE `DEPARTAMENTO` (
+drop database if existsqprob;
+create database qprob;
+
+CREATE TABLE `departamento` (
   `ID` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `NOMBRE` varchar(20) NOT NULL DEFAULT '',
   PRIMARY KEY (`ID`),
   UNIQUE KEY `nombre_unique` (`NOMBRE`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=37 DEFAULT CHARSET=utf8;
 
 CREATE TABLE `CATEGORIA` (
   `ID` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `NOMBRE` varchar(20) NOT NULL DEFAULT '',
-  PRIMARY KEY (`ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  PRIMARY KEY (`ID`),
+  UNIQUE KEY `NOMBRE` (`NOMBRE`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
-CREATE TABLE `EDIFICIO` (
+CREATE TABLE `edificio` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `NOMBRE` varchar(20) NOT NULL DEFAULT '',
   PRIMARY KEY (`id`),
   UNIQUE KEY `NOMBRE` (`NOMBRE`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
-CREATE TABLE `PLANTA` (
+CREATE TABLE `planta` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `NUMERO` int(4) NOT NULL,
   `id_edificio` int(11) unsigned NOT NULL,
@@ -26,23 +30,23 @@ CREATE TABLE `PLANTA` (
   UNIQUE KEY `NUMERO` (`NUMERO`,`id_edificio`),
   KEY `id_edificio` (`id_edificio`),
   CONSTRAINT `rel_edificio_planta` FOREIGN KEY (`id_edificio`) REFERENCES `EDIFICIO` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 
 CREATE TABLE `AULA` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `AULA` varchar(20) NOT NULL DEFAULT '',
+  `AULA` varchar(50) NOT NULL DEFAULT '',
   `id_planta` int(11) unsigned NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `AULA` (`AULA`,`id_planta`),
   KEY `rel_aula_planta` (`id_planta`),
   CONSTRAINT `rel_aula_planta` FOREIGN KEY (`id_planta`) REFERENCES `PLANTA` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=134 DEFAULT CHARSET=utf8;
 
 CREATE TABLE `INCIDENCIA` (
   `ID` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `ESTADO` enum('ABIERTA','RESUELTA','EN CURSO') NOT NULL DEFAULT 'ABIERTA',
-  `FECHA` date NOT NULL,
-  `TITULO` varchar(40) NOT NULL DEFAULT '',
+  `FECHA` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `TITULO` varchar(60) NOT NULL DEFAULT '',
   `DESCRIPCION` text,
   `TIPO` enum('URGENTE','TIC','GENERAL') NOT NULL DEFAULT 'GENERAL',
   `id_Departamento` int(11) unsigned NOT NULL,
@@ -52,13 +56,13 @@ CREATE TABLE `INCIDENCIA` (
   KEY `id_Usuario` (`id_Usuario`),
   CONSTRAINT `departamento_incidencias` FOREIGN KEY (`id_Departamento`) REFERENCES `DEPARTAMENTO` (`ID`) ON DELETE CASCADE,
   CONSTRAINT `usuario_incidencia` FOREIGN KEY (`id_Usuario`) REFERENCES `USUARIO` (`ID`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=41 DEFAULT CHARSET=utf8;
 
 CREATE TABLE `USUARIO` (
   `ID` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `NOMBRE` varchar(20) NOT NULL,
   `APELLIDOS` varchar(20) NOT NULL,
-  `EMAIL` varchar(30) NOT NULL,
+  `EMAIL` varchar(60) NOT NULL DEFAULT '',
   `TLF` int(9) NOT NULL,
   `USER` varchar(50) NOT NULL,
   `PASS` varchar(50) NOT NULL,
@@ -72,8 +76,7 @@ CREATE TABLE `USUARIO` (
   UNIQUE KEY `email_unique` (`EMAIL`),
   KEY `departamento_usuario` (`id_departamento`),
   CONSTRAINT `departamento_usuario` FOREIGN KEY (`id_departamento`) REFERENCES `DEPARTAMENTO` (`ID`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 CREATE TABLE `REVISION` (
   `HORA` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
@@ -96,7 +99,7 @@ CREATE TABLE `REL_AULA_INCIDENCIA` (
   UNIQUE KEY `id_incidencia` (`id_incidencia`,`id_aula`),
   CONSTRAINT `rel_aula_incidencia` FOREIGN KEY (`id_aula`) REFERENCES `AULA` (`id`) ON DELETE CASCADE,
   CONSTRAINT `rel_incidencia_aula` FOREIGN KEY (`id_incidencia`) REFERENCES `INCIDENCIA` (`ID`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=62 DEFAULT CHARSET=utf8;
 
 CREATE TABLE `REL_CATEGORIA_INCIDENCIA` (
   `id_incidencia` int(11) unsigned NOT NULL,
@@ -114,7 +117,5 @@ CREATE TABLE `LOG` (
   `id_Usuario` int(11) unsigned NOT NULL,
   `DESCRIPCION` text NOT NULL,
   PRIMARY KEY (`id`),
-  UNIQUE KEY `unique` (`FECHA`,`HORA`,`id_Usuario`),
-  KEY `usuario` (`id_Usuario`),
-  CONSTRAINT `usuario_log` FOREIGN KEY (`id_Usuario`) REFERENCES `USUARIO` (`ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  UNIQUE KEY `unique` (`FECHA`,`HORA`,`id_Usuario`)
+) ENGINE=InnoDB AUTO_INCREMENT=47 DEFAULT CHARSET=utf8;

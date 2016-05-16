@@ -1,0 +1,54 @@
+
+<html>
+    <head>
+        <script type="text/javascript" src="../js/jQuery.js"></script>
+    </head>
+    <body>
+        <script>
+            (function($) {  
+                    $.get = function(key)   {  
+                        key = key.replace(/[\[]/, '\\[');  
+                        key = key.replace(/[\]]/, '\\]');  
+                        var pattern = "[\\?&]" + key + "=([^&#]*)";  
+                        var regex = new RegExp(pattern);  
+                        var url = unescape(window.location.href);  
+                        var results = regex.exec(url);  
+                        if (results === null) {  
+                            return null;  
+                        } else {  
+                            return results[1];  
+                        }  
+                    }  
+                })(jQuery); 
+            
+            function cargar(id){
+                    var parametros = {
+                            "ID_INCIDENCIA": id
+                    };
+                    
+                    $.ajax({
+                            data:  parametros, //Datos que mandamos
+                            url:   '../php/pages/incidencia.php', //Direccion a donde lo mandamos
+                            type:  'post', 
+                            
+                            //Antes del envío se produce...:
+                            beforeSend: function () {
+                                    // No hacemos nada
+                            },
+                            
+                            //Despues del envio se produce...:
+                            success:  function (response) {
+                                document.open();
+                                document.write(response);
+                                document.close();
+                            }
+                    });
+                }
+                    
+                cargar($.get("id"));
+                
+        </script>
+         
+         
+    </body>
+</html>
