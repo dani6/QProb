@@ -227,15 +227,15 @@
                     swal({
                     title: '<?php echo $signup;?>',
                     width: 800,
-                    html: '<center><table class="register"><tr><td><?php echo $name;?></td><td><input value="'+name+'" class="input-field" maxlength="20" id="name"></td>'
-                        +'<td><?php echo $surname;?></td><td><input value="'+surname+'" class="input-field" maxlength="20" id="surname"></td></tr>'
-                        +'<tr><td><?php echo $email;?></td><td><input value="'+email+'" class="input-field" maxlength="30" id="email"></td>'
-                        +'<td><?php echo $tlf;?></td><td><input value="'+tlf+'" onkeyup="validateNumber();" type="number" class="input-field" min="0" max="999999999" id="tlf"></tr>'
+                    html: '<center><table class="register"><tr><td><?php echo $name.":";?></td><td><input placeholder="<?php echo $name;?>"value="'+name+'" class="input-field" maxlength="20" id="name"></td>'
+                        +'<td><?php echo $surname.":";?></td><td><input placeholder="<?php echo $surname;?>"value="'+surname+'" class="input-field" maxlength="20" id="surname"></td></tr>'
+                        +'<tr><td><?php echo $email.":";?></td><td><input placeholder="<?php echo $email;?>"value="'+email+'" class="input-field" maxlength="30" id="email"></td>'
+                        +'<td><?php echo $tlf.":";?></td><td><input placeholder="<?php echo $tlf;?>"value="'+tlf+'" onkeyup="validateNumber();" type="number" class="input-field" min="0" max="999999999" id="tlf"></tr>'
                         +'<tr><td><?php echo $department;?></td><td colspan="3"><select style="width: 100%;"class="input-field" maxlength="20" id="department"><?php echo $valor_departamento;?></select></td></tr>'
                         +'<tr><td><?php echo $type;?></td><td colspan="3"><select style="width: 100%;"class="input-field" maxlength="20" id="type"><option value="NORMAL">NORMAL<option value="TECHNICAL">TECHNICAL<option value="ADMIN">ADMIN<option value="SPECIAL">SPECIAL</select></td></tr></table>'
-                        +'<table class="register"><tr><td></td><td><?php echo $user_text.":";?></td><td><input value="'+user+'" class="input-field" maxlength="50" id="Ruser"></td><td></td></tr>'
-                        +'<tr><td></td><td><?php echo $password_text.":";?></td><td><input class="input-field" id="Rpass" type="password" value=""></td><td></td></tr>'
-                        +'<tr><td></td><td><?php echo $confirm_password;?></td><td><input class="input-field" id="Rpassconfirm" type="password" value=""></td><td></td></tr>'
+                        +'<table class="register"><tr><td></td><td><?php echo $user_text.":";?></td><td><input placeholder="<?php echo $user_text;?>" value="'+user+'" class="input-field" maxlength="50" id="Ruser"></td><td></td></tr>'
+                        +'<tr><td></td><td><?php echo $password_text.":";?></td><td><input placeholder="<?php echo $password_text;?>" class="input-field" id="Rpass" type="password" value=""></td><td></td></tr>'
+                        +'<tr><td></td><td><?php echo $confirm_password.":";?></td><td><input placeholder="<?php echo $confirm_password;?>" class="input-field" id="Rpassconfirm" type="password" value=""></td><td></td></tr>'
                         +'</table></center>', 
                     confirmButtonText: '<?php echo $signup_botton;?>',
                     showCancelButton: true,

@@ -39,11 +39,11 @@
 // Registro
     $signup="Crea una cuenta";
     $signup_botton="Crear";
-    $name="Nombre: ";
-    $surname="Apellidos: ";
-    $email="E-mail: ";
-    $tlf="Teléfono: ";
-    $confirm_password="Confirmar contraseña: ";
+    $name="Nombre ";
+    $surname="Apellidos ";
+    $email="E-mail ";
+    $tlf="Teléfono ";
+    $confirm_password="Confirmar contraseña ";
     $department="Departamento: ";
     $tipo_name="Tipo";
     $place="Lugar";

@@ -167,7 +167,7 @@
         function addObservacion(id,observacion,presupuesto){
                 swal({
                     title: 'Nueva observación',
-                    html: '<center><table class="formObservacion"><tr><td colspan="2"><input style="width:100%" tabindex="1" value="" class="input-field" id="observacion3"></td></tr><tr><td>Presupuesto: </td><td><input tabindex="2" type="number" value="0" class="input-field" id="presupuesto3"></td></table></center>',
+                    html: '<center><table class="formObservacion"><tr><td colspan="2"><input style="width:100%" tabindex="1" value="" placeholder="Observacion" class="input-field" id="observacion3"></td></tr><tr><td>Presupuesto: </td><td><input tabindex="2" type="number" value="0" class="input-field" id="presupuesto3"></td></table></center>',
                     confirmButtonText: '<?php echo "Añadir observacion"?>',
                     showCancelButton: true,
                     cancelButtonText: '<?php echo $DEPENDENCIES_cancel;?>',

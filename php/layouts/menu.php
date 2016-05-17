@@ -23,6 +23,14 @@
             }catch(e){}
         });*/
     </script>
+    <div class="element_toolbar2" style="margin-right: 40px">
+        <input id="searcher" class="buscador" type="text" placeHolder="Search">
+    </div>
+    <script>
+        $("#searcher").focus(function(){
+            this.select();
+        });
+    </script>
     <div class="element_toolbar special" onclick="addIncidence('','','','','','','','','');">
         <p><?php echo $addincident;?></p>
     </div> 
@@ -445,8 +453,8 @@
         function showLogin(){
                swal({
                 title: '<?php echo $login;?>',
-                html: '<p><input class="input-field" id="user" value="<?php echo $user_text; ?>">'
-                    +'<p><input class="input-field" id="pass" type="password" value="<?php echo $password_text; ?>"><p id="void"></p>',        
+                html: '<p><input class="input-field" id="user" placeholder="<?php echo $user_text; ?>">'
+                    +'<p><input class="input-field" id="pass" type="password" placeholder="<?php echo $password_text; ?>"><p id="void"></p>',        
                 confirmButtonText: '<?php echo $login_OK;?>',
                 showCancelButton: true,
                 cancelButtonText: '<?php echo $login_CANCEL;?>',

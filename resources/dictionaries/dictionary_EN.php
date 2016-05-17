@@ -40,11 +40,11 @@
 // Registro
     $signup="Sign up";
     $signup_botton=$signup;
-    $name="Name: ";
-    $surname="Surname: ";
-    $email="E-mail: ";
-    $tlf="Phone: ";
-    $confirm_password="Confirm password: ";
+    $name="Name ";
+    $surname="Surname ";
+    $email="E-mail ";
+    $tlf="Phone ";
+    $confirm_password="Confirm password ";
     $department="Department: ";
     $tipo_name="Type";
     $place="Place";

@@ -162,6 +162,8 @@
     
     img.language{
         float: right;
+        margin-top: 10px;
+        margin-right: 10px;
     }
     
     #logo {
@@ -384,4 +386,27 @@
     
     .element_sub_toolbar p{
         padding: 10px 20px 11px 10px;
+    }
+    
+    .element_toolbar2 .buscador{
+        margin-top: -8px;
+        border: 1px solid rgba(0,0,0,0.2);
+        padding: 5px;
+        width: 225px;
+        border-radius: 5px;
+        margin-bottom: 10px;
+        cursor: pointer;
+    }
+    
+    .element_toolbar2{
+        float: left;
+        position: relative;
+        min-width: 80px;
+        text-align: center;
+        margin-right: 15px;
+        padding: 15px 10px 16px 10px;
+
+        -webkit-transition: all 0.1s ease;
+        -moz-transition: all 0.1s ease;
+        transition: all 0.1s ease;
     }
