@@ -23,12 +23,55 @@
             }catch(e){}
         });*/
     </script>
-    <div class="element_toolbar2" style="margin-right: 40px">
+    <div id="element_toolbar2" style="margin-right: 40px">
         <input id="searcher" class="buscador" type="text" placeHolder="Search">
+        <div class="sub_toolbar"></div>
     </div>
     <script>
-        $("#searcher").focus(function(){
+        $("#element_toolbar2").focus(function(){
             this.select();
+            if($("#element_toolbar2 .sub_toolbar").html() != ""){
+                $("#element_toolbar2 .sub_toolbar").show();
+            }
+        });
+        
+        $("#element_toolbar2 .sub_toolbar").focus(function(){
+            this.select();
+            if($("#element_toolbar2 .sub_toolbar").html() != ""){
+                $("#element_toolbar2 .sub_toolbar").show();
+            }
+        });
+        
+        $("#searcher").change(function(){
+                var parametros = {
+                    "TEXT": $("#searcher").val()
+                };
+                
+                $.ajax({
+                        data:  parametros, //Datos que mandamos
+                        url:   '../php/scripts/searcher.php', //Direccion a donde lo mandamos
+                        type:  'post', 
+                        
+                        //Antes del envío se produce...:
+                        beforeSend: function () {
+                                // No hacemos nada
+                        },
+                        
+                        //Despues del envio se produce...:
+                        success:  function (response) {
+                            alert(response);
+                            if(response != 0){
+                                $("#element_toolbar2 .sub_toolbar").html(response);
+                                $("#element_toolbar2 .sub_toolbar").show();  
+                            }else{
+                                $("#element_toolbar2 .sub_toolbar").html('<div class="element_sub_toolbar"> No se han encontrado resultados. </div>');  
+                             }
+                        }
+                });
+        });
+        
+        $("#searcher").blur(function(){
+            $("#element_toolbar2 .sub_toolbar").hide();
         });
     </script>
     <div class="element_toolbar special" onclick="addIncidence('','','','','','','','','');">

@@ -388,7 +388,7 @@
         padding: 10px 20px 11px 10px;
     }
     
-    .element_toolbar2 .buscador{
+    #element_toolbar2 .buscador{
         margin-top: -8px;
         border: 1px solid rgba(0,0,0,0.2);
         padding: 5px;
@@ -398,7 +398,7 @@
         cursor: pointer;
     }
     
-    .element_toolbar2{
+    #element_toolbar2{
         float: left;
         position: relative;
         min-width: 80px;
@@ -409,4 +409,30 @@
         -webkit-transition: all 0.1s ease;
         -moz-transition: all 0.1s ease;
         transition: all 0.1s ease;
+    }
+    
+    #element_toolbar2 .sub_toolbar{
+        display: none;
+        
+        position: absolute;
+        margin-top: 16px;
+        right: 0;
+        
+        background: white; 
+        color: rgb(34,81,127);
+        
+        font-size: 16px;
+        text-align: left;
+        
+        border-left: 1px solid rgba(0,0,0,0.2);
+        border-bottom: 1px solid rgba(0,0,0,0.2); 
+        -webkit-transition: all 0.1s ease;
+        -moz-transition: all 0.1s ease;
+        transition: all 0.1s ease;
+        width: 180%;
+    }
+    
+    #element_toolbar2 .sub_toolbar .element_sub_toolbar{
+        cursor: pointer;
+        /*background: red;*/
     }
