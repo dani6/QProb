@@ -1,5 +1,5 @@
 
-select{
+select#categories{
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
