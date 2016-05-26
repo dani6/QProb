@@ -38,6 +38,8 @@
     $OK="OK";
     $delete="Delete";
     $pdf="A PDF file with information about the deleted incidences will be generated.";
+    $in="In";
+
     
 // Registro
     $signup="Sign up";
@@ -169,11 +171,16 @@
     $INCIDENCIES_deleted="The incidence has been deleted";
     
     $INCIDENCIES_comment="+ Comment";
+    $INCIDENCIES_show_comment="Show Comments";
     $INCIDENCIES_accept_incidence="Take over this incidence";
     $INCIDENCIES_resolved_incidence="Resolved incidence";
     $INCIDENCIES_new_comment="New comment";
     $INCIDENCIES_total_cost="Total cost:";
     $INCIDENCIES_state="State:";
+    $INCIDENCIES_delete_comment="Delete comment";
+    $INCIDENCIES_comment_added="The comment has been added";
+    $INCIDENCIES_comment_error="There was an error, please try again";
+    $INCIDENCIES_description="Description";
     
     $INCIDENCIES_incidence="Incidence";
     $INCIDENCIES_incidences="Incidences";

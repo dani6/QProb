@@ -123,7 +123,7 @@
                     type: 'warning',
                     showCancelButton: true,
                     confirmButtonColor: '#3085d6',
-                    confirmButtonText: 'Borrar observación'
+                    confirmButtonText: '<?php echo $INCIDENCIES_delete_comment;?>'
                 }).then(function(isConfirm) {
                     if (isConfirm) {
                         deleteObservacion2(id);
@@ -152,11 +152,11 @@
                     success:  function (response) {
                         //window.location="users.html";
                         if(response==''){
-                            swal('Añadido','Se ha añadido la observación correctamente','success').then(function(){
+                            swal('<?php echo $DEPENDENCIES_added;?>','<?php echo $INCIDENCIES_comment_added;?>','success').then(function(){
                                 location.reload(true);
                             });
                         }else{
-                            swal('ERROR','Se ha producido un error, por favor vuelva a intentarlo','error').then(function(){
+                            swal('ERROR','<?php echo $INCIDENCIES_comment_error;?>','error').then(function(){
                                 addObservacion(id,observacion,presupuesto);
                             });
                         }
@@ -167,8 +167,8 @@
         function addObservacion(id,observacion,presupuesto){
                 swal({
                     title: '<?php echo $INCIDENCIES_new_comment;?>',
-                    html: '<center><table class="formObservacion"><tr><td colspan="2"><input style="width:100%" tabindex="1" value="" placeholder="Observacion" class="input-field" id="observacion3"></td></tr><tr><td>Presupuesto: </td><td><input tabindex="2" type="number" value="0" class="input-field" id="presupuesto3"></td></table></center>',
-                    confirmButtonText: '<?php echo "Añadir observacion"?>',
+                    html: '<center><table class="formObservacion"><tr><td colspan="2"><input style="width:100%" tabindex="1" value="" placeholder="Observacion" class="input-field" id="observacion3"></td></tr><tr><td><?php echo $COMMENT_estimate;?> </td><td><input tabindex="2" type="number" value="0" class="input-field" id="presupuesto3"></td></table></center>',
+                    confirmButtonText: '<?php echo $INCIDENCIES_new_comment;?>',
                     showCancelButton: true,
                     cancelButtonText: '<?php echo $DEPENDENCIES_cancel;?>',
                     closeOnConfirm: true,
@@ -194,10 +194,10 @@
             <br>
             <h3>ID: <?php echo $_POST['ID_INCIDENCIA'];?> &nbsp&nbsp&nbsp&nbsp <?php echo $INCIDENCIES_state;?> <?php echo $row['ESTADO_INCIDENCIA'];?>  &nbsp&nbsp&nbsp&nbsp <?php echo $INCIDENCIES_type;?> <?php echo $row['TIPO_INCIDENCIA'];?></h3>
             <br>
-            <h3>Categoría: <?php echo $row['NOMBRE_CATEGORIA'];?> &nbsp&nbsp&nbsp&nbsp <?php echo $INCIDENCIES_department;?> <?php echo $row['NOMBRE_DEPARTAMENTO'];?></h3>
+            <h3><?php echo $category;?>: <?php echo $row['NOMBRE_CATEGORIA'];?> &nbsp&nbsp&nbsp&nbsp <?php echo $INCIDENCIES_department;?> <?php echo $row['NOMBRE_DEPARTAMENTO'];?></h3>
             <br>
             <h1><?php echo $row['TITULO_INCIDENCIA'];?></h1>
-            <h2>En: <?php echo "<br> &nbsp&nbsp&nbsp&nbsp <span style='font-family: Geneva; font-size: 16px;'> $DEPENDENCIES_build: ".$row['NOMBRE_EDIFICIO']."&nbsp&nbsp&nbsp&nbsp $DEPENDENCIES_floor: ".$row['NUMERO_PLANTA']." &nbsp&nbsp&nbsp&nbsp&nbsp $DEPENDENCIES_classroom: ".$row['NOMBRE_AULA']."</span>";?></h2>
+            <h2><?php echo $in;?>: <?php echo "<br> &nbsp&nbsp&nbsp&nbsp <span style='font-family: Geneva; font-size: 16px;'> $DEPENDENCIES_build: ".$row['NOMBRE_EDIFICIO']."&nbsp&nbsp&nbsp&nbsp $DEPENDENCIES_floor: ".$row['NUMERO_PLANTA']." &nbsp&nbsp&nbsp&nbsp&nbsp $DEPENDENCIES_classroom: ".$row['NOMBRE_AULA']."</span>";?></h2>
             <br>
             <h3 style="text-align: right;"><?php echo $row['FECHA_INCIDENCIA'];?></h3>
             <hr/>
@@ -206,7 +206,7 @@
         </div>
         <div style="margin-bottom: 20px;">
              <?php if ($_SESSION['type']!='NORMAL' && $_SESSION['type']!='SPECIAL' && $row['ESTADO_INCIDENCIA']!='RESUELTA'){?><input type="button" class="button" onclick="addObservacion(<?php echo $_POST['ID_INCIDENCIA'];?>,'',0);" value=" <?php echo $INCIDENCIES_comment;?>"><?php }?>
-            <input type="button" class="simple-button" onclick="mostrarObservaciones(<?php echo $_POST['ID_INCIDENCIA'];?>);" value="Mostrar Observaciones">
+            <input type="button" class="simple-button" onclick="mostrarObservaciones(<?php echo $_POST['ID_INCIDENCIA'];?>);" value="<?php echo $INCIDENCIES_show_comment;?>">
             <?php if ($_SESSION['type']!='NORMAL' && $_SESSION['type']!='SPECIAL' && $row['ESTADO_INCIDENCIA']=='ABIERTA'){?><input type="button" class="simple-button" onclick="cambiarEstado(<?php echo $_POST['ID_INCIDENCIA'];?>,'EN CURSO');" value="<?php echo $INCIDENCIES_accept_incidence;?>"><?php }?>
             <?php if ($row['ESTADO_INCIDENCIA']!='RESUELTA'){?><input type="button" class="simple-button" onclick="cambiarEstado(<?php echo $_POST['ID_INCIDENCIA'];?>,'RESUELTA');" value="<?php echo $INCIDENCIES_resolved_incidence;?>"><?PHP }?>
         </div>

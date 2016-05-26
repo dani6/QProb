@@ -37,6 +37,7 @@
     $OK="Aceptar";
     $delete="Borrar";
     $pdf="Se generará un PDF con información sobre las incidencias borradas.";
+    $in="En";
     
 // Registro
     $signup="Regístrate";
@@ -169,11 +170,18 @@
     $INCIDENCIES_delete_all="¿Borrar todas las incidencias?";
     
     $INCIDENCIES_comment="+ Observación";
+    $INCIDENCIES_show_comment="Mostrar Observaciones";
     $INCIDENCIES_accept_incidence="Llevar esta incidencia";
     $INCIDENCIES_resolved_incidence="Incidencia resuelta";
     $INCIDENCIES_new_comment="Nueva observación";
     $INCIDENCIES_total_cost="Coste total:";
     $INCIDENCIES_state="Estado:";
+    $INCIDENCIES_delete_comment="Borrar observación";
+    $INCIDENCIES_comment_added="Se ha añadido la observación correctamente";
+    $INCIDENCIES_comment_error="Se ha producido un error, por favor vuelva a intentarlo";
+    $INCIDENCIES_description="Descripción";
+
+    
     
     $INCIDENCIES_incidence="Incidencia";
     $INCIDENCIES_incidences="Incidencias";

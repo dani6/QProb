@@ -11,7 +11,7 @@
 ?>
 
 <select style="width: 100px;"class="input-field" id="planta3" onchange="updateClass($('#planta3').val());">
-    <option value="0">-- Planta
+    <option value="0"><?php echo $INCIDENCIES_floor;?>
     <?php
         echo $planta;
     ?>
