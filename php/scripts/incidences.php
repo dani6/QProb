@@ -80,7 +80,7 @@
                         type: 'warning',
                         showCancelButton: true,
                         confirmButtonColor: '#3085d6',
-                        confirmButtonText: <?php echo $INCIDENCIES_delete_incidence;?>
+                        confirmButtonText: '<?php echo $INCIDENCIES_delete_incidence;?>'
                     }).then(function(isConfirm) {
                         if (isConfirm) {
                             borrarIncidencia2(id);
