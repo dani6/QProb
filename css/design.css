@@ -292,8 +292,15 @@
     }
     
     footer{
-        
+        position: absolute;
+        bottom: 20px;
+        width: 100%;
+        text-align: center;
+        padding: 20px;
+        font-family: Square;
+        z-index: -1;
     }
+    
     
     .formIncidence .input-field2, .input-field{
         border: 1px solid rgba(0,0,0,0.4);
@@ -415,7 +422,7 @@
         display: none;
         
         position: absolute;
-        margin-top: 16px;
+        margin-top: -1px;
         right: 0;
         
         background: white; 
@@ -424,15 +431,103 @@
         font-size: 16px;
         text-align: left;
         
-        border-left: 1px solid rgba(0,0,0,0.2);
-        border-bottom: 1px solid rgba(0,0,0,0.2); 
+        border: 1px solid rgba(0,0,0,0.2);
+        border-top: none;
+        border-bottom: none;
         -webkit-transition: all 0.1s ease;
         -moz-transition: all 0.1s ease;
         transition: all 0.1s ease;
-        width: 180%;
+        width: 100%;
     }
     
     #element_toolbar2 .sub_toolbar .element_sub_toolbar{
         cursor: pointer;
-        /*background: red;*/
+        padding: 10px;
+        border-bottom: 1px solid rgba(0,0,0,0.2);
+        background: rgba(0,0,0,0.03);
     }
+    
+    #element_toolbar2 .sub_toolbar .element_sub_toolbar:hover{
+        cursor: pointer;
+        background: rgba(0,0,0,0.1);
+        color: rgb(34,81,255);
+    }
+    
+    /** responsive menu **/
+   #menu_bar{
+       display: none;
+       
+       float: left;
+        position: relative;
+        min-width: 80px;
+        text-align: center;
+        margin-right: 15px;
+        padding: 15px 10px 16px 10px;
+        cursor: pointer;
+        -webkit-transition: all 0.1s ease;
+        -moz-transition: all 0.1s ease;
+        transition: all 0.1s ease;
+   }
+   
+   #menu_bar:hover{
+        background: #FFF;
+        color:rgb(34,81,127);
+   }
+   
+   nav ul {
+        overflow:hidden;
+        list-style:none;
+    }
+    
+    nav ul li {
+        float:right;
+    }
+    
+    nav ul li a {
+        color:#fff;
+        padding:20px;
+        display:block;
+        text-decoration:none;
+        background:rgb(0,122,204);
+    }
+    
+    nav ul li a:hover {
+        background:rgb(255,255,255);
+        color: black;
+    }
+
+    nav {
+        display:none;
+    }
+   
+   @media (max-width: 1000px){
+       #element_toolbar2, .element_toolbar{
+           display: none;
+       }
+       
+       #menu_bar{
+           display: block;
+       }    
+       
+       #language{
+           display: block;
+       }
+     
+       nav {
+            display:block;
+            position: fixed;
+            background: transparent;
+            width:300px;
+            top: 100px;
+            left:-100%;
+            text-align:left;
+            z-index: -10;
+        }
+    
+        nav ul li {
+            display:block;
+            float:none;
+            border-bottom:1px solid white;
+            border-right: 1px white solid;
+        }
+   }

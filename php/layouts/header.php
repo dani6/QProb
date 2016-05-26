@@ -215,6 +215,41 @@
                         }  
                     }  
                 })(jQuery); 
+                
+                $(document).ready(main);
+                $(document).ready(main2);
+                
+                var contador = 1;
+                
+                function main2(){
+                    $('section').click(function(){ 
+                        if(contador != 1){
+                            contador = 1;
+                            $('nav').animate({
+                                left: '-100%'
+                            });
+                        }
+                    });
+                };
+                
+                function main(){
+                    $('#menu_bar').click(function(){
+                        //$('nav').toggle(); 
+                
+                        if(contador == 1){
+                            $('nav').animate({
+                                left: '0'
+                            });
+                            contador = 0;
+                        } else {
+                            contador = 1;
+                            $('nav').animate({
+                                left: '-100%'
+                            });
+                        }
+                
+                    });
+                };
         </script>
     </head>
     <body>
@@ -230,6 +265,6 @@
             <?php require('../layouts/menu.php'); ?>
         </header>
         
-        <section>
+        <section onclick="main2()">
 
             <!-- Page Content -->
