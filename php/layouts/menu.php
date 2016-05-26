@@ -539,7 +539,7 @@
                 $("#pass").bind("keydown",showSweet);
             } 
     </script>
-    <div class="element_toolbar" onclick="showLogin();">
+    <div class="element_toolbar no-responsive" onclick="showLogin();">
         <p><?php echo $login;?></p>
     </div>
     <div class="element_toolbar special" onclick="showRegister('','','','','','');">

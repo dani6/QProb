@@ -526,6 +526,10 @@
            display: block;
        }    
        
+       .no-responsive{
+           display: block;
+       }
+       
        #language{
            display: block;
        }
