@@ -174,6 +174,8 @@
     $INCIDENCIES_deleted_all="The incidences has been deleted";
     $INCIDENCIES_added="Added incidence";
     $INCIDENCIES_has_been_added="The incidence has been added";
+    $INCIDENCIES_show_incidence="Show incidence";
+    
     
     $OBSERVACION="Comment";
     $INCIDENCIES_comment="+ Comment";

@@ -170,8 +170,9 @@
     $INCIDENCIES_delete_all="¿Borrar todas las incidencias?";
     $INCIDENCIES_missing_field="Faltan campos";
     $INCIDENCIES_deleted_all="Las incidencias han sido eliminadas";
- $INCIDENCIES_added="Incidencia añadida";
+    $INCIDENCIES_added="Incidencia añadida";
     $INCIDENCIES_has_been_added="La incidencia ha sido añadida";
+    $INCIDENCIES_show_incidence="Ver incidencia";
 
     
     $OBSERVACION="Observación";
