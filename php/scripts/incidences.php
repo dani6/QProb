@@ -80,7 +80,7 @@
                         type: 'warning',
                         showCancelButton: true,
                         confirmButtonColor: '#3085d6',
-                        confirmButtonText: <?php echo $INCIDENCIES_delete_incidence;?>
+                        confirmButtonText: '<?php echo $INCIDENCIES_delete_incidence;?>'
                     }).then(function(isConfirm) {
                         if (isConfirm) {
                             borrarIncidencia2(id);
@@ -248,7 +248,7 @@
         </table>
         <?php
     }else{
-        echo "$INCIDENCIES_non_exist_urgent";
+        echo "$INCIDENCIES_no_exist_urgent";
     }
     
     $result = $db->query("select i.ID ID,u.USER USUARIO_USUARIO, u.NOMBRE USUARIO_NAME, c.NOMBRE CATEGORIA_NAME, i.ESTADO INCIDENCIA_ESTADO, i.TITULO INCIDENCIA_TITULO, i.TIPO INCIDENCIA_TIPO, e.NOMBRE EDIFICIO_NOMBRE, p.NUMERO PLANTA_NUMERO, a.AULA AULA, i.FECHA FECHA from incidencia i inner join rel_aula_incidencia rai on rai.id_incidencia=i.id inner join rel_categoria_incidencia rci on rci.id_incidencia=i.id inner join usuario u on u.id=i.id_usuario inner join departamento d on d.id=u.id_departamento inner join categoria c on c.id=rci.id_categoria inner join aula a on a.id=rai.id_aula inner join planta p on p.id=a.id_planta inner join edificio e on e.id=p.id_edificio where u.USER LIKE '%".$usuario."%' and c.NOMBRE like '%".$categoria."%' and i.ESTADO like '%".$estado."%' and i.TITULO like '%".$titulo."%' and i.TIPO like '%".$tipo."%' and i.TIPO not like 'URGENTE' and d.NOMBRE LIKE '%".$departamento."%' and e.id like '%".$edificio."%' and p.id like '%".$planta."%' and a.id like '%".$aula."%' and concat(u.NOMBRE,' ',u.APELLIDOS) LIKE '%".$nombre."%' ORDER BY FECHA DESC;");

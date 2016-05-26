@@ -481,6 +481,7 @@
     
     nav ul li {
         float:right;
+        background: white;
     }
     
     nav ul li a {
@@ -488,14 +489,30 @@
         padding:20px;
         display:block;
         text-decoration:none;
-        background:rgb(0,122,204);
+        background: rgb(34,81,127);
     }
     
     nav ul li a:hover {
         background:rgb(255,255,255);
         color: black;
     }
+    
+    nav ul li.cerrar a{
+        background: rgba(0,0,0,0.4);
+    }
 
+    nav ul li.cerrar a:hover{
+        background:rgb(255,255,255);
+    }
+    
+    nav ul li.reset a{
+        background: rgba(108,32,34,1);
+    }
+
+    nav ul li.reset a:hover{
+        background:rgb(255,255,255);
+    }
+    
     nav {
         display:none;
     }
@@ -510,6 +527,10 @@
        }    
        
        #language{
+           display: block;
+       }
+       
+       .special {
            display: block;
        }
      

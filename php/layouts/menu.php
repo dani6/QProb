@@ -27,7 +27,22 @@
     <div id="menu_bar">&#9776;</div> 
     <nav>
         <ul>
-            <li><a href="">FOO</a></li>   
+            <?php if($_SESSION['type']=="ADMIN" || $_SESSION['type']=="TECHNICAL") {?>
+            <li onclick="window.location='incidences.html'"><a>Incidencias</a></li>   
+            <li onclick="window.location='users.html'"><a>Usuarios</a></li>
+            
+            <li onclick="window.location='dependencies.html'"><a>Dependencias</a></li>
+            <li onclick="window.location='categories.html'"><a>Categorías</a></li>
+            <?php } ?>
+            
+            <li onclick="window.location='yours_incidences.html'"><a>Tus incidencias</a></li>
+            <li onclick="perfil(<?php echo $_SESSION['id'];?>);"><a>Perfil</a></li>
+            <li onclick="editar_User(<?php echo $_SESSION['id'];?>)"><a>Gestionar cuenta</a></li>
+            
+            <?php if($_SESSION['type']=="ADMIN") {?>
+            <li onclick="validarAdmin(<?php echo $_SESSION['id'];?>);" class="reset"><a>Resetear incidencias</a></li>
+            <?php } ?>
+            <li class="cerrar" onclick="logout()"><a>Cerrar sesión</a></li>
         </ul>
     </nav>
     
@@ -79,17 +94,7 @@
     <div class="element_toolbar" onclick="">
         <p><?php echo $maintenance;?></p>
          <div class="sub_toolbar">
-            <div class="element_sub_toolbar" onclick="window.location='dependencies.html'"> 
-                <p><?php echo $dependencies; ?></p> 
-            </div>
-            <div class="element_sub_toolbar" onclick="window.location='categories.html'"> 
-                <p><?php echo $categories; ?></p> 
-            </div>
-            <div class="element_sub_toolbar" 
-                style="
-                    border-top: 1px solid rgba(0,0,0,0.2);
-                    "
-                    > 
+             <div class="element_sub_toolbar"> 
                 <p onclick="window.location='incidences.html'"><?php echo $incidences; ?></p>
                 <div class="sub_sub_toolbar">
                     <div class="element_sub_sub_toolbar" onclick="window.location='in_progress.html'"> 
@@ -106,6 +111,16 @@
             <div class="element_sub_toolbar" onclick="window.location='users.html'"> 
                 <p><?php echo $users; ?></p> 
             </div>
+            <div class="element_sub_toolbar" onclick="window.location='dependencies.html'"
+                style="
+                    border-top: 1px solid rgba(0,0,0,0.2);
+                    "> 
+                <p><?php echo $dependencies; ?></p> 
+            </div>
+            <div class="element_sub_toolbar" onclick="window.location='categories.html'"> 
+                <p><?php echo $categories; ?></p> 
+            </div>
+            
             <?php if ($_SESSION['type']=="ADMIN"){ ?>
              <script>
                 function borrarIncidencias(){
