@@ -170,6 +170,8 @@
     $INCIDENCIES_delete_all="¿Borrar todas las incidencias?";
     $INCIDENCIES_missing_field="Faltan campos";
     $INCIDENCIES_deleted_all="Las incidencias han sido eliminadas";
+ $INCIDENCIES_added="Incidencia añadida";
+    $INCIDENCIES_has_been_added="La incidencia ha sido añadida";
 
     
     $OBSERVACION="Observación";
@@ -179,6 +181,7 @@
     $INCIDENCIES_resolved_incidence="Incidencia resuelta";
     $INCIDENCIES_new_comment="Nueva observación";
     $INCIDENCIES_total_cost="Coste total:";
+    $INCIDENCIES_total_expense="Gasto total";
     $INCIDENCIES_state="Estado:";
     $INCIDENCIES_delete_comment="Borrar observación";
     $INCIDENCIES_comment_added="Se ha añadido la observación correctamente";

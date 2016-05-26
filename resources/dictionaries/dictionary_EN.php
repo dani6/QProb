@@ -172,7 +172,8 @@
     $INCIDENCIES_delete_all="Delete all incidences?";
     $INCIDENCIES_missing_field="Missing fields";
     $INCIDENCIES_deleted_all="The incidences has been deleted";
-
+    $INCIDENCIES_added="Added incidence";
+    $INCIDENCIES_has_been_added="The incidence has been added";
     
     $OBSERVACION="Comment";
     $INCIDENCIES_comment="+ Comment";

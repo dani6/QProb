@@ -120,7 +120,7 @@
                                     });
                                 }else{
                                     //window.location="<?php echo $filename;?>.html";
-                                    swal('Incidencia añadida','Se ha añadido la incidencia correctamente','success').then(function(){
+                                    swal('<?php echo $INCIDENCIES_added;?>','<?php echo $INCIDENCIES_has_been_added;?>','success').then(function(){
                                         location.reload(true);
                                     });
                                 }

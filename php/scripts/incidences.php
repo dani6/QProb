@@ -240,7 +240,7 @@
                     <td style="width: 170px;"><?php echo $row['FECHA'];?></td>
                     <td style="width: 100px;"><?php echo $row['INCIDENCIA_ESTADO'];?></td>
                     <?php if($row['INCIDENCIA_ESTADO']!='RESUELTA'){?><td class="X" onclick="borrarIncidencia(<?php echo $row['ID'];?>);"> X</td><?php }?>
-                    <td style="font-size: 10px; width: 100px;" class="editar" onclick="window.location='incidencia.html?id=<?php echo $row['ID'];?>';"> Ver incidencia</td>
+                    <td style="font-size: 10px; width: 100px;" class="editar" onclick="window.location='incidencia.html?id=<?php echo $row['ID'];?>';"> <?php echo $INCIDENCIES_show_incidence;?></td>
                 </tr>
             <?php
                 }
@@ -275,7 +275,7 @@
                     <td style="width: 170px;"><?php echo $row['FECHA'];?></td>
                     <td style="width: 100px;"><?php echo $row['INCIDENCIA_ESTADO'];?></td>
                     <?php if($row['INCIDENCIA_ESTADO']!='RESUELTA'){?><td class="X" onclick="borrarIncidencia(<?php echo $row['ID'];?>);"> X</td><?php }?>
-                    <td style="font-size: 10px; width: 100px;" class="editar" onclick="window.location='incidencia.html?id=<?php echo $row['ID'];?>';"> Ver incidencia</td>
+                    <td style="font-size: 10px; width: 100px;" class="editar" onclick="window.location='incidencia.html?id=<?php echo $row['ID'];?>';"> <?php echo $INCIDENCIES_show_incidence;?></td>
                 </tr>
                 <?php
                     }
