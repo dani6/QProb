@@ -63,7 +63,7 @@
                             success:  function (response) {
                                 swal(
                                     '<?php echo $DEPENDENCIES_delete;?>',
-                                    'La incidencia ha sido eliminada',
+                                    '<?php echo $INCIDENCIES_delete;?>',
                                     'success'
                                 ).then(function(isConfirm){
                                     //window.location="<?php echo $file;?>.html";
@@ -80,7 +80,7 @@
                         type: 'warning',
                         showCancelButton: true,
                         confirmButtonColor: '#3085d6',
-                        confirmButtonText: 'Borrar incidencia'
+                        confirmButtonText: <?php echo $INCIDENCIES_delete_incidence;?>
                     }).then(function(isConfirm) {
                         if (isConfirm) {
                             borrarIncidencia2(id);
@@ -110,7 +110,7 @@
                 </select>
             </td>
             <td>
-                Nombre: 
+                <?php echo $INCIDENCIES_name;?> 
             </td>
             <td>
                 <input class="input-field2" id='nombre' type="text" name="txt" value="" onchange="updateIncidences($('#usuario').val(),$('#categories').val(),'<?php echo $estado;?>',$('#titulo').val(),$('#tipo').val(),$('#departamento').val(),$('#edificio4').val(),$('#planta4').val(),$('#aula4').val(),$('#nombre').val(),'<?php echo $file;?>');"/>
@@ -118,13 +118,13 @@
         </tr>
         <tr>
             <td>
-                Nombre de usuario:
+                <?php echo $INCIDENCIES_user_name;?> 
             </td>
             <td>
                 <input class="input-field2" id='usuario' type="text" name="txt" value="" onchange="updateIncidences($('#usuario').val(),$('#categories').val(),'<?php echo $estado;?>',$('#titulo').val(),$('#tipo').val(),$('#departamento').val(),$('#edificio4').val(),$('#planta4').val(),$('#aula4').val(),$('#nombre').val(),'<?php echo $file;?>');"/>
             </td>
             <td>
-                Título:
+                <?php echo $INCIDENCIES_title;?>
             </td>
             <td>
                 <input class="input-field2" id='titulo' type="text" name="txt" value="" onchange="updateIncidences($('#usuario').val(),$('#categories').val(),'<?php echo $estado;?>',$('#titulo').val(),$('#tipo').val(),$('#departamento').val(),$('#edificio4').val(),$('#planta4').val(),$('#aula4').val(),$('#nombre').val(),'<?php echo $file;?>');"/>
@@ -132,17 +132,17 @@
         </tr>
         <tr>
             <td>
-                Tipo:
+                <?php echo $INCIDENCIES_type;?>
             </td>
              <td>
                 <select id="tipo" onchange="updateIncidences($('#usuario').val(),$('#categories').val(),'<?php echo $estado;?>',$('#titulo').val(),$('#tipo').val(),$('#departamento').val(),$('#edificio4').val(),$('#planta4').val(),$('#aula4').val(),$('#nombre').val(),'<?php echo $file;?>');">
-                        <option value=""> -- Seleccione el tipo
+                        <option value=""> <?php echo $INCIDENCIES_select_type;?>
                         <option value="GENERAL"> GENERAL 
                         <option value="TIC"> TIC
                 </select>
             </td>
             <td>
-                Departamento:
+                <?php echo $INCIDENCIES_department;?>
             </td>
             <td>
                 <input class="input-field2" id='departamento' type="text" name="txt" value="" onchange="updateIncidences($('#usuario').val(),$('#categories').val(),'<?php echo $estado;?>',$('#titulo').val(),$('#tipo').val(),$('#departamento').val(),$('#edificio4').val(),$('#planta4').val(),$('#aula4').val(),$('#nombre').val(),'<?php echo $file;?>');"/>
@@ -153,7 +153,7 @@
         <table class="buscador" style='text-align: right;'>
            <tr>
                 <td>
-                    Título:
+                    <?php echo $INCIDENCIES_title;?>
                 </td>
                 <td colspan="3">
                     <input style="width: 90%;"class="input-field2" id='titulo' type="text" name="txt" value="" onchange="updateIncidences('<?php echo $usuario;?>',$('#categories').val(),'<?php echo $estado;?>',$('#titulo').val(),$('#tipo').val(),'',$('#edificio4').val(),$('#planta4').val(),$('#aula4').val(),'','<?php echo $file;?>');"/>
@@ -181,7 +181,7 @@
             </td>
              <td>
                 <select id="tipo" onchange="updateIncidences('<?php echo $usuario;?>',$('#categories').val(),'<?php echo $estado;?>',$('#titulo').val(),$('#tipo').val(),'',$('#edificio4').val(),$('#planta4').val(),$('#aula4').val(),'','<?php echo $file;?>');">
-                        <option value=""> -- Seleccione el tipo
+                        <option value=""> <?php echo $INCIDENCIES_select_type;?>
                         <option value="GENERAL"> GENERAL 
                         <option value="TIC"> TIC
                 </select>
@@ -191,21 +191,21 @@
     <?php }  ?>
     <br>
     <select style="margin-left: 80px;"id="edificio4" onchange="updateIncidences('<?php echo $usuario;?>',$('#categories').val(),'<?php echo $estado;?>',$('#titulo').val(),$('#tipo').val(),'',$('#edificio4').val(),$('#planta4').val(),$('#aula4').val(),'','<?php echo $file;?>');">
-        <option value=""> -- Seleccionar edificio
+        <option value=""> <?php echo $INCIDENCIES_select_build;?>
         <?php
              echo $edificios;
         ?>
     </select>
 
     <select id="planta4" onchange="updateIncidences('<?php echo $usuario;?>',$('#categories').val(),'<?php echo $estado;?>',$('#titulo').val(),$('#tipo').val(),'',$('#edificio4').val(),$('#planta4').val(),$('#aula4').val(),'','<?php echo $file;?>');">
-        <option value="">-- Planta
+        <option value=""><?php echo $INCIDENCIES_floor;?>
         <?php
             echo $planta2;
         ?>    
     </select>
 
     <select id="aula4" style="width: 350px;"onchange="updateIncidences('<?php echo $usuario;?>',$('#categories').val(),'<?php echo $estado;?>',$('#titulo').val(),$('#tipo').val(),'',$('#edificio4').val(),$('#planta4').val(),$('#aula4').val(),'','<?php echo $file;?>');">
-        <option value=""> -- Seleccionar aula
+        <option value=""> <?php echo $INCIDENCIES_select_classroom;?>
         <?php
             echo $aula2;
         ?>    
@@ -217,7 +217,7 @@
     <?php
     $result = $db->query("select i.ID ID,u.USER USUARIO_USUARIO, u.NOMBRE USUARIO_NAME, c.NOMBRE CATEGORIA_NAME, i.ESTADO INCIDENCIA_ESTADO, i.TITULO INCIDENCIA_TITULO, i.TIPO INCIDENCIA_TIPO, e.NOMBRE EDIFICIO_NOMBRE, p.NUMERO PLANTA_NUMERO, a.AULA AULA, i.FECHA FECHA from incidencia i inner join rel_aula_incidencia rai on rai.id_incidencia=i.id inner join rel_categoria_incidencia rci on rci.id_incidencia=i.id inner join usuario u on u.id=i.id_usuario inner join departamento d on d.id=u.id_departamento inner join categoria c on c.id=rci.id_categoria inner join aula a on a.id=rai.id_aula inner join planta p on p.id=a.id_planta inner join edificio e on e.id=p.id_edificio where u.USER LIKE '%".$usuario."%' and c.NOMBRE like '%".$categoria."%' and i.ESTADO like '%".$estado."%' and i.TITULO like '%".$titulo."%' and i.TIPO like '%URGENTE%' and d.NOMBRE LIKE '%".$departamento."%' and e.id like '%".$edificio."%' and p.id like '%".$planta."%' and a.id like '%".$aula."%' and concat(u.NOMBRE,' ',u.APELLIDOS) LIKE '%".$nombre."%' ORDER BY FECHA DESC;");
 
-    echo "<h2>Incidencias urgentes</h2>";
+    echo "<h2>$INCIDENCIES_urgent_incidence</h2>";
     
     if ($result->num_rows > 0) {
     ?>    
@@ -248,12 +248,12 @@
         </table>
         <?php
     }else{
-        echo "No existen incidencias urgentes.";
+        echo "$INCIDENCIES_non_exist_urgent";
     }
     
     $result = $db->query("select i.ID ID,u.USER USUARIO_USUARIO, u.NOMBRE USUARIO_NAME, c.NOMBRE CATEGORIA_NAME, i.ESTADO INCIDENCIA_ESTADO, i.TITULO INCIDENCIA_TITULO, i.TIPO INCIDENCIA_TIPO, e.NOMBRE EDIFICIO_NOMBRE, p.NUMERO PLANTA_NUMERO, a.AULA AULA, i.FECHA FECHA from incidencia i inner join rel_aula_incidencia rai on rai.id_incidencia=i.id inner join rel_categoria_incidencia rci on rci.id_incidencia=i.id inner join usuario u on u.id=i.id_usuario inner join departamento d on d.id=u.id_departamento inner join categoria c on c.id=rci.id_categoria inner join aula a on a.id=rai.id_aula inner join planta p on p.id=a.id_planta inner join edificio e on e.id=p.id_edificio where u.USER LIKE '%".$usuario."%' and c.NOMBRE like '%".$categoria."%' and i.ESTADO like '%".$estado."%' and i.TITULO like '%".$titulo."%' and i.TIPO like '%".$tipo."%' and i.TIPO not like 'URGENTE' and d.NOMBRE LIKE '%".$departamento."%' and e.id like '%".$edificio."%' and p.id like '%".$planta."%' and a.id like '%".$aula."%' and concat(u.NOMBRE,' ',u.APELLIDOS) LIKE '%".$nombre."%' ORDER BY FECHA DESC;");
     
-    echo "<h2>Otras incidencias</h2>";
+    echo "<h2>$INCIDENCIES_others_incidences</h2>";
     
     if ($result->num_rows > 0) {
     ?>
@@ -280,7 +280,7 @@
                 <?php
                     }
         }else{
-            echo "No hay incidencias actualmente.";
+            echo "$INCIDENCIES_no_exist_incidences";
         }
         ?>
         

@@ -11,7 +11,7 @@
             echo '<div class="observacion" style="float: right;">';
         }
 ?>    
-        <div> Orden: <?php  echo ++$contador." &nbsp&nbsp&nbsp&nbsp ".$row['FECHA_REVISION'];?></div>
+        <div> <?php echo $COMMENT_order;?> <?php  echo ++$contador." &nbsp&nbsp&nbsp&nbsp ".$row['FECHA_REVISION'];?></div>
         <?php
             if($_SESSION['user']==$row['USUARIO_USUARIO']){
         ?>
@@ -25,12 +25,12 @@
                 <?php echo $row['OBSERVACION_REVISION'];?>
             </div>
         </div>
-        <div style="text-align: right;"> Presupuesto: <span style="color: blue; font-weight: bold;"><?php echo $row['PRESUPUESTO_REVISION'];?> €</span></div>
+        <div style="text-align: right;"> <?php echo $COMMENT_estimate;?> <span style="color: blue; font-weight: bold;"><?php echo $row['PRESUPUESTO_REVISION'];?> €</span></div>
     </div>
 <?php
     }
     
     if($contador==0){
-        echo "No hay observaciones para esta incidencia";
+        echo "$COMMENT_no_comment";
     }
 ?>

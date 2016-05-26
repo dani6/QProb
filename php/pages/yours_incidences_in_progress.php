@@ -7,7 +7,7 @@
     </style>  
     
     <div id="wrapper">
-        <h1> Yours incidences in progress </h1>
+        <h1> <?php echo $YOUR_INC_in_progress;?> </h1>
         <hr size="2px"/>
         <br>
         <br>

@@ -11,7 +11,7 @@
 ?>
 
 <select style="width: 400px;" class="input-field" maxlength="20" id="aula3">
-    <option value="0">-- Seleccionar aula
+    <option value="0"><?php echo $DEPENDENCIES_select_classroom;?>
     <?php
         echo $aula;
     ?>

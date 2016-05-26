@@ -6,7 +6,7 @@
         @import url("../css/pages/open.css");
     </style>  
     <div id="wrapper">
-        <h1> Incidences Openned </h1>
+        <h1> <?php echo $INCIDENCIES_openned;?> </h1>
         <hr size="2px"/>
         <br>
         <br>

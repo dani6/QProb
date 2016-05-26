@@ -158,11 +158,11 @@
                                 if(response==1){
                                     swal({
                                         title: '<?php echo $DEPENDENCIES_confirm;?>',
-                                        text: "<?php echo $DEPENDENCIES_warning;?>. Se generará un PDF con información sobre las incidencias borradas.",
+                                        text: "<?php echo $DEPENDENCIES_warning;?>. <?php echo $pdf;?>",
                                         type: 'warning',
                                         showCancelButton: true,
                                         confirmButtonColor: '#3085d6',
-                                        confirmButtonText: 'Borrar'
+                                        confirmButtonText: '<?php echo $delete;?>'
                                     }).then(function(isConfirm) {
                                         if (isConfirm) {
                                             borrarIncidencias();
@@ -417,7 +417,7 @@
                                         type: 'warning',
                                         showCancelButton: true,
                                         confirmButtonColor: '#3085d6',
-                                        confirmButtonText: '¿Borrar todas las incidencias?'
+                                        confirmButtonText: '<?php echo $INCIDENCIES_delete_all;?>'
                                     }).then(function(isConfirm) {
                                         if (isConfirm) {
                                             borrarIncidencias();

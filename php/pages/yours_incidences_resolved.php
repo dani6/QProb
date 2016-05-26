@@ -7,7 +7,7 @@
     </style>  
     
     <div id="wrapper">
-        <h1> Yours incidences resolved </h1>
+        <h1> <?php echo $YOUR_INC_resolved;?> </h1>
         <hr size="2px"/>
         <br>
         <br>

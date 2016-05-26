@@ -36,6 +36,8 @@
     $incidences_open="Open";
     $incidences_resolved="Resolved";
     $OK="OK";
+    $delete="Delete";
+    $pdf="A PDF file with information about the deleted incidences will be generated.";
     
 // Registro
     $signup="Sign up";
@@ -147,6 +149,49 @@
     $USERS_changed_pass="The password has been changed";
     $USERS_confirm_pass="Enter your password: ";
     $USERS_error_confirm_pass="The password is incorrect.";
+    
+// Incidencies
+
+    $INCIDENCIES_user_name="User name:";
+    $INCIDENCIES_type="Type:";
+    $INCIDENCIES_name="Name:";
+    $INCIDENCIES_title="Title:";
+    $INCIDENCIES_department="Department:";
+    $INCIDENCIES_select_type="-- Select type";
+    $INCIDENCIES_select_build="-- Select build";
+    $INCIDENCIES_floor="-- Floor";
+    $INCIDENCIES_select_classroom="-- Select classroom";
+    $INCIDENCIES_delete_incidence="Delete incidence";
+    $INCIDENCIES_urgent_incidence="Urgent incidence";
+    $INCIDENCIES_no_exist_urgent="There are no urgent incidences.";
+    $INCIDENCIES_others_incidences="Other incidences";
+    $INCIDENCIES_no_exist_incidences="There are no incidences.";
+    $INCIDENCIES_deleted="The incidence has been deleted";
+    
+    $INCIDENCIES_comment="+ Comment";
+    $INCIDENCIES_accept_incidence="Take over this incidence";
+    $INCIDENCIES_resolved_incidence="Resolved incidence";
+    $INCIDENCIES_new_comment="New comment";
+    $INCIDENCIES_total_cost="Total cost:";
+    $INCIDENCIES_state="State:";
+    
+    $INCIDENCIES_incidence="Incidence";
+    $INCIDENCIES_incidences="Incidences";
+    $INCIDENCIES_resolved="Resolved incidences";
+    $INCIDENCIES_openned="Openned incidences";
+    $INCIDENCIES_in_progress="Incidences in progress";
+    
+// Your Incidences
+
+    $YOUR_INC_your_incidence="Your incidences";
+    $YOUR_INC_in_progress="Your incidences in progress";
+    $YOUR_INC_openned="Your openned incidences";
+    $YOUR_INC_resolved="Your resolved incidences";
+
+// Observaciones    
+    $COMMENT_order="Order:";
+    $COMMENT_estimate="Estimate:";
+    $COMMENT_no_comment="There are no comments for this incidence.";
     
 // Name file without extension
     $filename = explode(".",basename($_SERVER['PHP_SELF']))[0];

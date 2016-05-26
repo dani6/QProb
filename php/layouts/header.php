@@ -174,7 +174,7 @@
                 
                 function addIncidence(categoria,titulo,descripcion,tipo){
                     swal({
-                        title: 'Incidencia',
+                        title: '<?php echo $INCIDENCIES_incidence;?>',
                         width: 800,
                         html: '<div id="addIncidence"><?php include("../layouts/formIncidence.php");?></div>',
                         confirmButtonText: '<?php echo $DEPENDENCIES_accept;?>',

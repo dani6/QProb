@@ -9,8 +9,8 @@
         while($row = mysqli_fetch_array($result)){
             echo '<div class="element_sub_toolbar" onclick="alert(\'HOLA\');window.location=\'incidencia.html?id='.$row['ID'].'\';"> 
                 ID:'.$row['ID'].'<br>
-                TITULO:'.$row['TITULO'].'<br>
-                FECHA:'.$row['FECHA'].'
+                $title:'.$row['TITULO'].'<br>
+                $date:'.$row['FECHA'].'
             </div>';
         }    
     }else{

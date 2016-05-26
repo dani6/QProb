@@ -15,16 +15,16 @@
     $manage_account="Gestionar Cuenta";
     $logout="Cerrar sesión";
     $description="Sistema de gestión de incidencias v1.0";
-    $register="¿No eres miembro? <a onclick='showRegister(\"\",\"\",\"\",\"\",\"\",\"\");'>Crea una cuenta</a>.";
+    $register="¿No eres miembro? <a onclick='showRegister(\"\",\"\",\"\",\"\",\"\",\"\");'>Regístrate</a>.";
     $cannot_access="<a onclick='notaccess();'>¿No puedes acceder a tu cuenta?</a>";
     $cannot_access2="¿Problemas de acceso?";
-    $contact_with_administrator="Contacta con el adminsitrador del sistema.";
+    $contact_with_administrator="Contacta con el administrador del sistema.";
     
     $addincident="+ Nueva";
     $maintenance="Mantenimiento";
     $dependencies="Dependencias";
-    $categories="Categorias";
-    $category="Categoria";
+    $categories="Categorías";
+    $category="Categoría";
     $status="Estado";
     $title="Título";
     $incidences="Incidencias";
@@ -35,9 +35,11 @@
     $incidences_open="Abiertas";
     $incidences_resolved="Resueltas";
     $OK="Aceptar";
+    $delete="Borrar";
+    $pdf="Se generará un PDF con información sobre las incidencias borradas.";
     
 // Registro
-    $signup="Crea una cuenta";
+    $signup="Regístrate";
     $signup_botton="Crear";
     $name="Nombre ";
     $surname="Apellidos ";
@@ -56,14 +58,14 @@
     $REGISTER_ERROR_user="El nombre de usuario está en uso.";
     $REGISTER_ERROR_email="E-mail no válido.";
     $REGISTER_ERROR_tlf="Teléfono no válido.";
-    $REGISTER_ERROR_surname="Apellidos no válido.";
+    $REGISTER_ERROR_surname="Apellidos no válidos.";
     $REGISTER_ERROR_name="Nombre no válido.";
     $REGISTER_ERROR_onInsert="Es posible que el E-mail ya tenga una cuenta asociada.";
      
          
 // EMAILs
     $EMAIL_REGISTER_TITLE="¡Su usuario ha sido creado!";
-    $EMAIL_REGISTER_MSG=",<br><br><br>&nbsp&nbsp&nbsp bienvenido a la aplicación <i><strong style='color: darkblue;'>QProb</strong>, para la gestión de incidencias en ".$organization.".</i><br><br><div style='font-size: 16px;text-align: center;'><p>Si usted no ha solicitado la creación de está cuenta, póngase en contacto con el administrador del centro.</p><p>Si lo ha solicitado, deberá esperar a la validación por parte del responsable de la aplicación <strong style='color: darkblue;'>QProb</strong> de su centro.</p></div></div><br><br><p style='text-align: right;'> <i>Gracias por usarnos.</i>";
+    $EMAIL_REGISTER_MSG=",<br><br><br>&nbsp&nbsp&nbsp bienvenido a la aplicación <i><strong style='color: darkblue;'>QProb</strong>, para la gestión de incidencias en ".$organization.".</i><br><br><div style='font-size: 16px;text-align: center;'><p>Si usted no ha solicitado la creación de esta cuenta, póngase en contacto con el administrador del centro.</p><p>Si lo ha solicitado, deberá esperar a la validación por parte del responsable de la aplicación <strong style='color: darkblue;'>QProb</strong> de su centro.</p></div></div><br><br><p style='text-align: right;'> <i>Gracias por confiar en nosotros.</i>";
     
 // Variables para la ventana de inicio de sesión.
     $welcome="¡Bienvenido a <span>Q</span>Prob!";
@@ -89,19 +91,19 @@
     $DEPENDENCIES_cancel="CANCELAR";
     $DEPENDENCIES_delete_accept="Sí, borrar dependencia.";
     $DEPENDENCIES_add="Añadir +";
-    $DEPENDENCIES_how_to_add="Cómo añadir edificios y plantas";
+    $DEPENDENCIES_how_to_add="Cómo añadir edificios y plantas.";
     $DEPENDENCIES_instructions="Se pueden utilizar los siguientes comandos en el terminal de MySQL para añadir edificios y plantas:</p><p style='color: blue;margin-top: 20px;'>INSERT INTO EDIFICIO VALUES (0, '--NOMBRE EDIFICIO--');</p><p style='color: blue;margin-top: 20px;'>INSERT INTO PLANTA VALUES (0,--NUMERO_PLANTA--,(select id from edificio where nombre like '--NOMBRE_EDIFICIO--'));</p><p style='margin-top: 30px;'>O puede utilizar una interfaz para el manejo de la base de datos.</p><p> El motivo principal por el que no se puede añadir es debido a que los edificios y plantas no suelen cambiar con relativa frencuencia.</p>";
     $DEPENDENCIES_question=" ¿Desea añadir edificios y plantas nuevos?";
-    $DEPENDENCIES_select_build=" -- Selecciona un edificio";
-    $DEPENDENCIES_select_floor=" -- Selecciona una planta";
-    $DEPENDENCIES_select_classroom=" -- Selecciona un aula";
+    $DEPENDENCIES_select_build=" -- Seleccione un edificio";
+    $DEPENDENCIES_select_floor=" -- Seleccione una planta";
+    $DEPENDENCIES_select_classroom=" -- Seleccione un aula";
     $DEPENDENCIES_build="Edificio";
     $DEPENDENCIES_floor="Planta";
     $DEPENDENCIES_classroom="Aula";
     
 // Categories
     $CATEGORIES_categories="Categorías";
-    $CATEGORIES_select=" -- Selecciona una categoría";
+    $CATEGORIES_select=" -- Seleccione una categoría";
     $CATEGORIES_verify_deleted="Se ha eliminado correctamente.";
     $CATEGORIES_added="¡Añadido!";
     $CATEGORIES_cancel_accept="Sí, borrar categoría.";
@@ -134,7 +136,7 @@
     $USERS_department="DEPARTAMENTO";
     $USERS_type="TIPO";
     $USERS_users_unvalidated="No existen usuarios no validados.";
-    $USERS_users_validated="No existen usuarios válidos.";
+    $USERS_users_validated="No existen usuarios validados.";
     $USERS_validated="Usuarios validados";
     $USERS_delete_accept="Sí, borrar usuario.";
     $USERS_validar="Validar";
@@ -144,8 +146,54 @@
     $USERS_congratulation="¡Éxito!";
     $USERS_changed_pass="La contraseña ha sido cambiada";
     $USERS_confirm_pass="Introduzca su contraseña: ";
-    $USERS_error_confirm_pass="Contraseña no válida";
+    $USERS_error_confirm_pass="Contraseña no válida.";
     
+    
+// Incidencies
+
+    $INCIDENCIES_user_name="Nombre de usuario:";
+    $INCIDENCIES_type="Tipo:";
+    $INCIDENCIES_name="Nombre:";
+    $INCIDENCIES_title="Título:";
+    $INCIDENCIES_department="Departamento:";
+    $INCIDENCIES_select_type="-- Seleccione el tipo";
+    $INCIDENCIES_select_build="-- Seleccione el edificio";
+    $INCIDENCIES_floor="-- Planta";
+    $INCIDENCIES_select_classroom="-- Seleccione el aula";
+    $INCIDENCIES_delete_incidence="Borrar incidencia";
+    $INCIDENCIES_urgent_incidence="Incidencias urgentes";
+    $INCIDENCIES_no_exist_urgent="No existen incidencias urgentes.";
+    $INCIDENCIES_others_incidences="Otras incidencias";
+    $INCIDENCIES_no_exist_incidences="No hay incidencias actualmente.";
+    $INCIDENCIES_deleted="La incidencia ha sido eliminada";
+    $INCIDENCIES_delete_all="¿Borrar todas las incidencias?";
+    
+    $INCIDENCIES_comment="+ Observación";
+    $INCIDENCIES_accept_incidence="Llevar esta incidencia";
+    $INCIDENCIES_resolved_incidence="Incidencia resuelta";
+    $INCIDENCIES_new_comment="Nueva observación";
+    $INCIDENCIES_total_cost="Coste total:";
+    $INCIDENCIES_state="Estado:";
+    
+    $INCIDENCIES_incidence="Incidencia";
+    $INCIDENCIES_incidences="Incidencias";
+    $INCIDENCIES_resolved="Incidencias resueltas";
+    $INCIDENCIES_openned="Incidencias abiertas";
+    $INCIDENCIES_in_progress="Incidencias en progreso";
+    
+// Your Incidences
+
+    $YOUR_INC_your_incidence="Tus incidencias";
+    $YOUR_INC_in_progress="Tus incidencias en progreso";
+    $YOUR_INC_openned="Tus incidencias abiertas";
+    $YOUR_INC_resolved="Tus incidencias resueltas";
+    
+// Observaciones    
+    $COMMENT_order="Orden:";
+    $COMMENT_estimate="Presupuesto:";
+    $COMMENT_no_comment="No hay observaciones para esta incidencia.";
+    
+        
 // Nombre del fichero sin la extension.
     $filename = explode(".",basename($_SERVER['PHP_SELF']))[0];
     
