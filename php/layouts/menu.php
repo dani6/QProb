@@ -1,6 +1,7 @@
 <div id="logo" onclick="window.location='index.html';">
     <h1><span>Q</span>Prob</h1>
 </div>
+
 <div class="toolbar">
 <?php
     if($filename!="login"){
@@ -23,6 +24,14 @@
             }catch(e){}
         });*/
     </script>
+    <div id="menu_bar">&#9776;</div> 
+    <nav>
+        <ul>
+            <li><a href="">FOO</a></li>   
+        </ul>
+    </nav>
+    
+    
     <div id="element_toolbar2" style="margin-right: 40px">
         <input id="searcher" class="buscador" type="text" placeHolder="Search">
         <div class="sub_toolbar"></div>
@@ -524,7 +533,7 @@
 <?php
     }
 ?>
-    <div class="element_toolbar">
+    <div id="language" class="element_toolbar">
         <img style="float:left;margin-top:2px;" src="../resources/images/<?php echo $_SESSION['language']; ?>.png" height="15px"/>
         <p><?php echo $_SESSION['language']; ?></p>
         <div class="sub_toolbar">
