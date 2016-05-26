@@ -28,21 +28,10 @@
         <div class="sub_toolbar"></div>
     </div>
     <script>
-        $("#element_toolbar2").focus(function(){
-            this.select();
-            if($("#element_toolbar2 .sub_toolbar").html() != ""){
-                $("#element_toolbar2 .sub_toolbar").show();
-            }
-        });
-        
-        $("#element_toolbar2 .sub_toolbar").focus(function(){
-            this.select();
-            if($("#element_toolbar2 .sub_toolbar").html() != ""){
-                $("#element_toolbar2 .sub_toolbar").show();
-            }
-        });
-        
         $("#searcher").change(function(){
+            if($("#searcher").val()==""){
+                $("#element_toolbar2 .sub_toolbar").hide();
+            }else{
                 var parametros = {
                     "TEXT": $("#searcher").val()
                 };
@@ -59,19 +48,19 @@
                         
                         //Despues del envio se produce...:
                         success:  function (response) {
-                            alert(response);
                             if(response != 0){
-                                $("#element_toolbar2 .sub_toolbar").html(response);
-                                $("#element_toolbar2 .sub_toolbar").show();  
+                                $("#element_toolbar2 .sub_toolbar").html(response);  
                             }else{
-                                $("#element_toolbar2 .sub_toolbar").html('<div class="element_sub_toolbar"> No se han encontrado resultados. </div>');  
-                             }
+                                $("#element_toolbar2 .sub_toolbar").html('<div class="element_sub_toolbar"> No se han encontrado resultados.</div>');  
+                            }
+                            $("#element_toolbar2 .sub_toolbar").show();
                         }
                 });
+            }
         });
         
-        $("#searcher").blur(function(){
-            $("#element_toolbar2 .sub_toolbar").hide();
+        $("#searcher").focus(function(){
+            this.select();
         });
     </script>
     <div class="element_toolbar special" onclick="addIncidence('','','','','','','','','');">
@@ -246,7 +235,9 @@
                             
                             //Despues del envio se produce...:
                             success:  function (response) {
-                                swal(response);
+                                swal({
+                                    html: response
+                                });
                             }
                     });
                 }
