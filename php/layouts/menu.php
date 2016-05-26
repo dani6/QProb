@@ -28,21 +28,21 @@
     <nav>
         <ul>
             <?php if($_SESSION['type']=="ADMIN" || $_SESSION['type']=="TECHNICAL") {?>
-            <li onclick="window.location='incidences.html'"><a>Incidencias</a></li>   
-            <li onclick="window.location='users.html'"><a>Usuarios</a></li>
+            <li onclick="window.location='incidences.html'"><a><?php echo $incidences;?></a></li>   
+            <li onclick="window.location='users.html'"><a><?php echo $users;?></a></li>
             
-            <li onclick="window.location='dependencies.html'"><a>Dependencias</a></li>
-            <li onclick="window.location='categories.html'"><a>Categorías</a></li>
+            <li onclick="window.location='dependencies.html'"><a><?php echo $dependencies;?></a></li>
+            <li onclick="window.location='categories.html'"><a><?php echo $categories;?></a></li>
             <?php } ?>
             
-            <li onclick="window.location='yours_incidences.html'"><a>Tus incidencias</a></li>
-            <li onclick="perfil(<?php echo $_SESSION['id'];?>);"><a>Perfil</a></li>
-            <li onclick="editar_User(<?php echo $_SESSION['id'];?>)"><a>Gestionar cuenta</a></li>
+            <li onclick="window.location='yours_incidences.html'"><a><?php echo $your_incidences;?></a></li>
+            <li onclick="perfil(<?php echo $_SESSION['id'];?>);"><a><?php echo $profile;?></a></li>
+            <li onclick="editar_User(<?php echo $_SESSION['id'];?>)"><a><?php echo $manage_account;?></a></li>
             
             <?php if($_SESSION['type']=="ADMIN") {?>
-            <li onclick="validarAdmin(<?php echo $_SESSION['id'];?>);" class="reset"><a>Resetear incidencias</a></li>
+            <li onclick="validarAdmin(<?php echo $_SESSION['id'];?>);" class="reset"><a><?php echo $reset;?></a></li>
             <?php } ?>
-            <li class="cerrar" onclick="logout()"><a>Cerrar sesión</a></li>
+            <li class="cerrar" onclick="logout()"><a><?php echo $logout;?></a></li>
         </ul>
     </nav>
     

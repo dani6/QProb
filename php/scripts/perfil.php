@@ -32,7 +32,7 @@
                 <?php
                     echo "<tr>
                     <td></td>
-                    <td style='padding: 10px; text-align: right; font-weight: 10px; color: blue;'> Gasto total: ";
+                    <td style='padding: 10px; text-align: right; font-weight: 10px; color: blue;'> $INCIDENCIES_total_expense: ";
                         if($row['TOTAL']==null)
                             echo 0;
                         else

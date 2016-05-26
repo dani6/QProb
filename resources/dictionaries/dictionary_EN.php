@@ -30,7 +30,7 @@
     $title="Title";
     $incidences="Incidences";
     $users="Users";
-    $your_incidences="Yours Incidences";
+    $your_incidences="Your Incidences";
     $reset="Reset incidences";
     $incidences_in_progress="In progress";
     $incidences_open="Open";
@@ -181,6 +181,7 @@
     $INCIDENCIES_resolved_incidence="Resolved incidence";
     $INCIDENCIES_new_comment="New comment";
     $INCIDENCIES_total_cost="Total cost:";
+    $INCIDENCIES_total_expense="Total expense";
     $INCIDENCIES_state="State:";
     $INCIDENCIES_delete_comment="Delete comment";
     $INCIDENCIES_comment_added="The comment has been added";
