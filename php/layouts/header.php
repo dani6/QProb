@@ -115,7 +115,7 @@
                             //Despues del envio se produce...:
                             success:  function (response) {
                                 if (response != ""){
-                                    swal('ERROR','No ha rellenado todos los campos','error').then(function(){
+                                    swal('ERROR','<?php echo $INCIDENCIES_missing_field;?>','error').then(function(){
                                         addIncidence(categoria,titulo,descripcion,tipo);
                                     });
                                 }else{

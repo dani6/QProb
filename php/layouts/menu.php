@@ -141,7 +141,7 @@
                             success:  function (response) {
                                 swal(
                                     '<?php echo $DEPENDENCIES_delete;?>',
-                                    'Las incidencias han sido eliminada',
+                                    '<?php echo $INCIDENCIES_deleted_all;?>',
                                     'success'
                                 ).then(function(){
                                     window.location='index.html';

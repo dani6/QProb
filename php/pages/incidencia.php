@@ -60,7 +60,7 @@
                     type: 'warning',
                     showCancelButton: true,
                     confirmButtonColor: '#3085d6',
-                    confirmButtonText: 'Cambiar estado'
+                    confirmButtonText: '<?php echo $INCIDENCIES_change_status;?>'
                 }).then(function(isConfirm) {
                     if (isConfirm) {
                         cambiarEstado2(id,estado);
@@ -197,7 +197,7 @@
             <h3><?php echo $category;?>: <?php echo $row['NOMBRE_CATEGORIA'];?> &nbsp&nbsp&nbsp&nbsp <?php echo $INCIDENCIES_department;?> <?php echo $row['NOMBRE_DEPARTAMENTO'];?></h3>
             <br>
             <h1><?php echo $row['TITULO_INCIDENCIA'];?></h1>
-            <h2><?php echo $in;?>: <?php echo "<br> &nbsp&nbsp&nbsp&nbsp <span style='font-family: Geneva; font-size: 16px;'> $DEPENDENCIES_build: ".$row['NOMBRE_EDIFICIO']."&nbsp&nbsp&nbsp&nbsp $DEPENDENCIES_floor: ".$row['NUMERO_PLANTA']." &nbsp&nbsp&nbsp&nbsp&nbsp $DEPENDENCIES_classroom: ".$row['NOMBRE_AULA']."</span>";?></h2>
+            <h2><?php echo $in;?>: <?php echo "<br> &nbsp&nbsp&nbsp&nbsp <span style='font-family: Geneva; font-size: 16px;'> $DEPENDENCIES_build: ".$row['NOMBRE_EDIFICIO']."&nbsp&nbsp&nbsp&nbsp  $INCIDENCIES_select_classroom: ".$row['NUMERO_PLANTA']." &nbsp&nbsp&nbsp&nbsp&nbsp $DEPENDENCIES_classroom: ".$row['NOMBRE_AULA']."</span>";?></h2>
             <br>
             <h3 style="text-align: right;"><?php echo $row['FECHA_INCIDENCIA'];?></h3>
             <hr/>

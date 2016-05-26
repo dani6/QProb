@@ -168,7 +168,11 @@
     $INCIDENCIES_no_exist_incidences="No hay incidencias actualmente.";
     $INCIDENCIES_deleted="La incidencia ha sido eliminada";
     $INCIDENCIES_delete_all="¿Borrar todas las incidencias?";
+    $INCIDENCIES_missing_field="Faltan campos";
+    $INCIDENCIES_deleted_all="Las incidencias han sido eliminadas";
+
     
+    $OBSERVACION="Observación";
     $INCIDENCIES_comment="+ Observación";
     $INCIDENCIES_show_comment="Mostrar Observaciones";
     $INCIDENCIES_accept_incidence="Llevar esta incidencia";
@@ -180,6 +184,7 @@
     $INCIDENCIES_comment_added="Se ha añadido la observación correctamente";
     $INCIDENCIES_comment_error="Se ha producido un error, por favor vuelva a intentarlo";
     $INCIDENCIES_description="Descripción";
+    $INCIDENCIES_change_status="Cambiar estado";
 
     
     

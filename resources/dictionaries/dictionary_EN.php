@@ -169,7 +169,12 @@
     $INCIDENCIES_others_incidences="Other incidences";
     $INCIDENCIES_no_exist_incidences="There are no incidences.";
     $INCIDENCIES_deleted="The incidence has been deleted";
+    $INCIDENCIES_delete_all="Delete all incidences?";
+    $INCIDENCIES_missing_field="Missing fields";
+    $INCIDENCIES_deleted_all="The incidences has been deleted";
+
     
+    $OBSERVACION="Comment";
     $INCIDENCIES_comment="+ Comment";
     $INCIDENCIES_show_comment="Show Comments";
     $INCIDENCIES_accept_incidence="Take over this incidence";
@@ -181,6 +186,7 @@
     $INCIDENCIES_comment_added="The comment has been added";
     $INCIDENCIES_comment_error="There was an error, please try again";
     $INCIDENCIES_description="Description";
+    $INCIDENCIES_change_status="Change status";
     
     $INCIDENCIES_incidence="Incidence";
     $INCIDENCIES_incidences="Incidences";
