@@ -6,7 +6,7 @@
     float: left;
     padding: 2%;
     width: 44.5%;
-    min-height: 300px;
+    min-height: 380px;
     margin-left: 1%;
     margin-bottom: 10px;
     border: 1px solid rgba(0,0,0,0.2);
@@ -41,13 +41,13 @@ h1{
 }
 
 .cabecera{
-    font-size: 14px;
+    font-size: 20px;
 }
 
 .lugar{
-    font-size: 14px;
+    font-size: 20px;
 }
 
 .titulo{
-    font-size: 20px; font-weight: bold;
+    font-size: 30px; font-weight: bold;
 }
