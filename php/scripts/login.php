@@ -19,7 +19,6 @@
         $_SESSION['id_department']=$row['id_departamento'];
         $_SESSION['type']=$row['TIPO'];
                 
-        $db->query("INSERT INTO LOG VALUES (0,CURRENT_DATE,CURRENT_TIMESTAMP,".$row['ID'].",'USER: ".$login_user." ACTION: Log In');");
         echo 1;
     }else{
         $result=$db->query("SELECT * FROM USUARIO where md5('$login_user')=md5(user) and '$login_password'=pass;");
@@ -45,7 +44,7 @@
             $_SESSION['id_department']=$row['id_departamento'];
             $_SESSION['type']=$row['TIPO'];
                     
-            $db->query("INSERT INTO LOG VALUES (0,CURRENT_DATE,CURRENT_TIMESTAMP,".$row['ID'].",'USER: ".$login_user." ACTION: Log In');");
+            
             echo 1;
         }else{
             echo 0;   

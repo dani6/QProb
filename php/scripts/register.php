@@ -44,7 +44,6 @@
         $result = $db->query("SELECT * FROM USUARIO WHERE '".$REGISTER_user."'=user;");
         $row = mysqli_fetch_array($result);
         $db->query('alter table LOG AUTO_INCREMENT=1');
-        $db->query("INSERT INTO LOG VALUES (0,CURRENT_DATE,CURRENT_TIMESTAMP,".$row['ID'].",'USER: ".$REGISTER_user." ACTION: Sign Up');");
         
         echo 1;   
     }else{
