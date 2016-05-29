@@ -15,7 +15,7 @@
     $manage_account="Gestionar Cuenta";
     $logout="Cerrar sesión";
     $description="Sistema de gestión de incidencias v1.0";
-    $register="¿No eres miembro? <a onclick='showRegister(\"\",\"\",\"\",\"\",\"\",\"\");'>Regístrate</a>.";
+    $register="¿No eres miembro? <a onclick='showRegister(\"\",\"\",\"\",\"\",\"\",\"\");'>Regístrate</a>";
     $cannot_access="<a onclick='notaccess();'>¿No puedes acceder a tu cuenta?</a>";
     $cannot_access2="¿Problemas de acceso?";
     $contact_with_administrator="Contacta con el administrador del sistema.";
@@ -210,7 +210,27 @@
     $COMMENT_estimate="Presupuesto:";
     $COMMENT_no_comment="No hay observaciones para esta incidencia.";
     
-        
+    $INDEX_USER_INCIDENCIAS_NOT="No se está llevando ninguna sus incidencia.";
+    $INDEX_USER_INCIDENCIAS_CARRIED_OUT="Se están llevando las siguientes incidencias:";
+    $INDEX_USER_PRINT="IMPRIMIR INCIDENCIAS ABIERTAS";
+    $INDEX_USER_INFORMATION="Información";
+    $INDEX_USER_TOTAL1="Total de incidencias abiertas este mes";
+    $INDEX_USER_TOTAL2="Total de incidencias resueltas este mes";
+    $INDEX_USER_TOTAL3="Incidencias que están siendo llevadas en este mes";
+    $INDEX_USER_TOTAL4="Presupuesto total de este año";
+    $INDEX_TOTAL_INCIDENCIAS="Total incidencias";
+    $MONTH1="Enero";
+    $MONTH2="Febrero";
+    $MONTH3="Marzo";
+    $MONTH4="Abril";
+    $MONTH5="Mayo";
+    $MONTH6="Junio";
+    $MONTH7="Julio";
+    $MONTH8="Agostp";
+    $MONTH9="Septiembre";
+    $MONTH10="Octubre";
+    $MONTH11="Noviembre";
+    $MONTH12="Diciembre"; 
 // Nombre del fichero sin la extension.
     $filename = explode(".",basename($_SERVER['PHP_SELF']))[0];
     
@@ -223,11 +243,5 @@
     $spanish="ESPAÑOL";
 
     $correo = new PHPMailer(); //Creamos una instancia en lugar usar mail()
-/** 
-* 
-*   Los elementos no comunes se verán separados 
-*   dependiendo del archivo que llame a este diccionario .php
-*
-*/
 
 ?>

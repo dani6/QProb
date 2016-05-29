@@ -12,7 +12,9 @@
     
     <style type="text/css" scoped>
         @import url("../css/pages/incidencia.css");
+        @import url("../css/pages/incidenciamedia.css") screen and (max-width: 1000px);
     </style>  
+    
     <script>
         $(function(){
             $('a[href*=#]').click(function() {
@@ -192,12 +194,11 @@
         <div id="wrapper2">
             <h2 style="float: right; margin-top: -8px;"> <?php echo $INCIDENCIES_total_cost;?> <span style="color: blue"><?php echo ($row2['TOTAL']!='')?$row2['TOTAL']:0;?>€</span></h2>
             <br>
-            <h3>ID: <?php echo $_POST['ID_INCIDENCIA'];?> &nbsp&nbsp&nbsp&nbsp <?php echo $INCIDENCIES_state;?> <?php echo $row['ESTADO_INCIDENCIA'];?>  &nbsp&nbsp&nbsp&nbsp <?php echo $INCIDENCIES_type;?> <?php echo $row['TIPO_INCIDENCIA'];?></h3>
-            <br>
-            <h3><?php echo $category;?>: <?php echo $row['NOMBRE_CATEGORIA'];?> &nbsp&nbsp&nbsp&nbsp <?php echo $INCIDENCIES_department;?> <?php echo $row['NOMBRE_DEPARTAMENTO'];?></h3>
+            <h3 style="margin-top: 30px;">ID: <?php echo $_POST['ID_INCIDENCIA'];?></h3><h3><?php echo $INCIDENCIES_state;?> <?php echo $row['ESTADO_INCIDENCIA'];?></h3><h3><?php echo $INCIDENCIES_type;?> <?php echo $row['TIPO_INCIDENCIA'];?></h3>
+            <h3><?php echo $category;?>: <?php echo $row['NOMBRE_CATEGORIA'];?></h3><h3><?php echo $INCIDENCIES_department;?> <?php echo $row['NOMBRE_DEPARTAMENTO'];?></h3>
             <br>
             <h1><?php echo $row['TITULO_INCIDENCIA'];?></h1>
-            <h2><?php echo $in;?>: <?php echo "<br> &nbsp&nbsp&nbsp&nbsp <span style='font-family: Geneva; font-size: 16px;'> $DEPENDENCIES_build: ".$row['NOMBRE_EDIFICIO']."&nbsp&nbsp&nbsp&nbsp  $DEPENDENCIES_floor: ".$row['NUMERO_PLANTA']." &nbsp&nbsp&nbsp&nbsp&nbsp $DEPENDENCIES_classroom: ".$row['NOMBRE_AULA']."</span>";?></h2>
+            <h2 class="lugar"><?php echo $in;?>: <?php echo "<br><br><span> $DEPENDENCIES_build: ".$row['NOMBRE_EDIFICIO']."</span><br><br><span>$DEPENDENCIES_floor: ".$row['NUMERO_PLANTA']." </span><br><br><span>$DEPENDENCIES_classroom: ".$row['NOMBRE_AULA']."</span>";?></h2>
             <br>
             <h3 style="text-align: right;"><?php echo $row['FECHA_INCIDENCIA'];?></h3>
             <hr/>

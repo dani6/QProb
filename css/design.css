@@ -21,6 +21,7 @@
     
     body{
         background: rgb(245,245,245);
+        width: 100%;
     }
     
     header{
@@ -34,7 +35,7 @@
         font-size: 19px;
         font-family: Square;
         
-        position: fixed;
+        position: absolute;
         top: 0;
     }
     
@@ -60,13 +61,25 @@
         color:rgb(34,81,127);
     }
     
-    header .toolbar .special{
+    .special{
         border-radius: 8px;
         background: rgba(87,142,250,0.5);
         margin-top: 8px;
         margin-right: 25px;        
         padding: 7px 10px 8px 10px;
         font-family: Shangai;
+        float: left;
+        position: relative;
+        min-width: 80px;
+        text-align: center;    
+        cursor: pointer;
+        -webkit-transition: all 0.1s ease;
+        -moz-transition: all 0.1s ease;
+        transition: all 0.1s ease;
+    }
+    .special:hover{
+        color: black;
+        background: white;
     }
     
     header .toolbar .element_toolbar .sub_toolbar{
@@ -296,13 +309,13 @@
         bottom: 20px;
         width: 100%;
         text-align: center;
-        padding: 20px;
+        padding-top: 20px;
         font-family: Square;
         z-index: -1;
     }
     
     
-    .formIncidence .input-field2, .input-field{
+    .input-field2, .input-field{
         border: 1px solid rgba(0,0,0,0.4);
         padding: 10px;
         width: 225px;
@@ -456,103 +469,20 @@
     /** responsive menu **/
    #menu_bar{
        display: none;
-       
-       float: left;
-        position: relative;
-        min-width: 80px;
-        text-align: center;
-        margin-right: 15px;
-        padding: 15px 10px 16px 10px;
-        cursor: pointer;
-        -webkit-transition: all 0.1s ease;
-        -moz-transition: all 0.1s ease;
-        transition: all 0.1s ease;
    }
-   
-   #menu_bar:hover{
-        background: #FFF;
-        color:rgb(34,81,127);
-   }
-   
-   nav ul {
-        overflow:hidden;
-        list-style:none;
-    }
-    
-    nav ul li {
-        float:right;
-        background: white;
-    }
-    
-    nav ul li a {
-        color:#fff;
-        padding:20px;
-        display:block;
-        text-decoration:none;
-        background: rgb(34,81,127);
-    }
-    
-    nav ul li a:hover {
-        background:rgb(255,255,255);
-        color: black;
-    }
-    
-    nav ul li.cerrar a{
-        background: rgba(0,0,0,0.4);
-    }
-
-    nav ul li.cerrar a:hover{
-        background:rgb(255,255,255);
-    }
-    
-    nav ul li.reset a{
-        background: rgba(108,32,34,1);
-    }
-
-    nav ul li.reset a:hover{
-        background:rgb(255,255,255);
-    }
-    
     nav {
         display:none;
     }
-   
-   @media (max-width: 1000px){
-       #element_toolbar2, .element_toolbar{
-           display: none;
-       }
-       
-       #menu_bar{
-           display: block;
-       }    
-       
-       .no-responsive{
-           display: block;
-       }
-       
-       #language{
-           display: block;
-       }
-       
-       .special {
-           display: block;
-       }
-     
-       nav {
-            display:block;
-            position: fixed;
-            background: transparent;
-            width:300px;
-            top: 100px;
-            left:-100%;
-            text-align:left;
-            z-index: -10;
-        }
     
-        nav ul li {
-            display:block;
-            float:none;
-            border-bottom:1px solid white;
-            border-right: 1px white solid;
+    @media screen and (max-width: 960px){
+        #searcher{
+            display: none;
         }
-   }
+        
+        @media screen and (max-width: 800px){
+            #language{
+                display: none;
+            }
+        }
+    }
+    

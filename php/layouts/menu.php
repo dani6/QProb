@@ -24,24 +24,17 @@
             }catch(e){}
         });*/
     </script>
-    <div id="menu_bar">&#9776;</div> 
+    <div id="menu_bar"><img width="300"src="../resources/images/btn.png"/></div> 
     <nav>
         <ul>
+            <li onclick="window.location='index.html'"><a>Home</a></li>
             <?php if($_SESSION['type']=="ADMIN" || $_SESSION['type']=="TECHNICAL") {?>
-            <li onclick="window.location='incidences.html'"><a><?php echo $incidences;?></a></li>   
-            <li onclick="window.location='users.html'"><a><?php echo $users;?></a></li>
-            
-            <li onclick="window.location='dependencies.html'"><a><?php echo $dependencies;?></a></li>
-            <li onclick="window.location='categories.html'"><a><?php echo $categories;?></a></li>
+                <li onclick="window.location='incidences.html'"><a><?php echo $incidences;?></a></li>   
             <?php } ?>
             
             <li onclick="window.location='yours_incidences.html'"><a><?php echo $your_incidences;?></a></li>
-            <li onclick="perfil(<?php echo $_SESSION['id'];?>);"><a><?php echo $profile;?></a></li>
-            <li onclick="editar_User(<?php echo $_SESSION['id'];?>)"><a><?php echo $manage_account;?></a></li>
+            <li onclick="window.location='perfil.html?id=<?php echo $_SESSION['id'];?>';"><a><?php echo $profile;?></a></li>
             
-            <?php if($_SESSION['type']=="ADMIN") {?>
-            <li onclick="validarAdmin(<?php echo $_SESSION['id'];?>);" class="reset"><a><?php echo $reset;?></a></li>
-            <?php } ?>
             <li class="cerrar" onclick="logout()"><a><?php echo $logout;?></a></li>
         </ul>
     </nav>
@@ -87,7 +80,7 @@
             this.select();
         });
     </script>
-    <div class="element_toolbar special" onclick="addIncidence('','','','','','','','','');">
+    <div class="special" onclick="addIncidence('','','','','','','','','');">
         <p><?php echo $addincident;?></p>
     </div> 
     <?php if ($_SESSION['type']=="ADMIN" || $_SESSION['type']=="TECHNICAL") { ?>
@@ -542,7 +535,7 @@
     <div class="element_toolbar no-responsive" onclick="showLogin();">
         <p><?php echo $login;?></p>
     </div>
-    <div class="element_toolbar special" onclick="showRegister('','','','','','');">
+    <div class="special" onclick="showRegister('','','','','','');">
         <p><?php echo $signup;?></p>
     </div>
 <?php

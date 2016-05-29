@@ -1,0 +1,34 @@
+h2{
+    font-size: 80px;
+    font-family: Square;
+}
+
+h1{
+    font-size: 50px;
+    padding-top: 20px; 
+    font-family: Square;
+}
+
+table{
+    text-align: left;
+    width: 100%;
+    font-family: Square;
+}
+
+table tr td{
+    font-size: 40px;
+    padding-top: 90px;
+}
+
+.no-responsive{
+    display: none;
+}
+
+#wrapper2{
+    padding: 30px;
+    margin-top: 200px;
+}
+
+body{
+    background: white;
+}

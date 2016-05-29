@@ -1,0 +1,53 @@
+.box{
+    background: white;
+    border-radius: 5px;
+    /*display: inline-table;*/
+    
+    float: left;
+    padding: 2%;
+    width: 44.5%;
+    min-height: 300px;
+    margin-left: 1%;
+    margin-bottom: 10px;
+    border: 1px solid rgba(0,0,0,0.2);
+    text-align: left;
+}
+
+.incidencia{
+     padding: 12px;
+     cursor: pointer;
+     -webkit-transition: all 0.1s ease-in;
+     -moz-transition: all 0.1s ease-in;
+     transition: all 0.1s ease-in;
+}
+
+.incidencia:hover{
+    border: 1px solid rgba(0,0,0,0.2);
+      -webkit-transition: all 0.1s ease-in;
+     -moz-transition: all 0.1s ease-in;
+     transition: all 0.1s ease-in;
+}
+
+.full{
+    width: 94%;
+}
+
+#wrapper2{
+    text-align: center;
+}
+
+h1{
+    font-family: Square; font-size: 40px;
+}
+
+.cabecera{
+    font-size: 14px;
+}
+
+.lugar{
+    font-size: 14px;
+}
+
+.titulo{
+    font-size: 20px; font-weight: bold;
+}

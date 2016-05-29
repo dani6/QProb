@@ -16,7 +16,7 @@
     $manage_account="Manage Account";
     $logout="Log Out";
     $description="Incident Management System v1.0";
-    $register="Not a member? <a style='color: rgb(100,100,255); cursor: pointer;' onclick='showRegister(\"\",\"\",\"\",\"\",\"\",\"\");'>Sign up</a> for an account.";
+    $register="Not a member? <a style='color: rgb(100,100,255); cursor: pointer;' onclick='showRegister(\"\",\"\",\"\",\"\",\"\",\"\");'>Sign up</a> for an account";
     $cannot_access="<a style='color: rgb(100,100,255); cursor: pointer;' onclick='notaccess();'>Can't access your account?</a>";
     $cannot_access2="Can\'t access your account?";
     $contact_with_administrator="You should contact your system administrator.";
@@ -204,7 +204,29 @@
     $YOUR_INC_in_progress="Your incidences in progress";
     $YOUR_INC_openned="Your openned incidences";
     $YOUR_INC_resolved="Your resolved incidences";
-
+    
+    $INDEX_USER_INCIDENCIAS_NOT="Your incidences are not being resolved.";
+    $INDEX_USER_INCIDENCIAS_CARRIED_OUT="They are carried out the following incidences:";
+    $INDEX_USER_PRINT="PRINT OPEN INCIDENCES";
+    $INDEX_USER_INFORMATION="Information";
+    $INDEX_USER_TOTAL1="Total open incidences this month";
+    $INDEX_USER_TOTAL2="Total incidences resolved this month";
+    $INDEX_USER_TOTAL3="In progress incidences this month";
+    $INDEX_USER_TOTAL4="Total budget of this year";
+    $INDEX_TOTAL_INCIDENCIAS="Total incidences";
+    $MONTH1="January";
+    $MONTH2="February";
+    $MONTH3="March";
+    $MONTH4="April";
+    $MONTH5="May";
+    $MONTH6="June";
+    $MONTH7="July";
+    $MONTH8="August";
+    $MONTH9="September";
+    $MONTH10="October";
+    $MONTH11="November";
+    $MONTH12="December";
+    
 // Observaciones    
     $COMMENT_order="Order:";
     $COMMENT_estimate="Estimate:";

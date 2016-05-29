@@ -231,6 +231,14 @@
                     <?php if($row['INCIDENCIA_ESTADO']!='RESUELTA'){?><td class="empty"></td><?php }?>
                     <td class="empty"></td>
                 </tr>
+                <tr style="display:none;">
+                    <td></td>
+                    <td style="width: 100px;"></td>
+                    <td style="width: 170px;"></td>
+                    <td style="width: 100px;"></td>
+                    <?php if($row['INCIDENCIA_ESTADO']!='RESUELTA'){?><td class="X" onclick="borrarIncidencia(<?php echo $row['ID'];?>);"> X</td><?php }?>
+                    <td style="font-size: 10px; width: 100px;" class="editar" onclick="window.location='incidencia.html?id=<?php echo $row['ID'];?>';"> <?php echo $INCIDENCIES_show_incidence;?></td>
+                </tr>
                 <?php
                     while ($row = mysqli_fetch_array($result)) {
                 ?>

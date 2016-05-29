@@ -17,22 +17,21 @@
         <center>
             <table style="width: 100%; font-size: 18px; font-family: Square; margin-top: 20px;">
                 <tr>
-                    <td style="padding: 10px;"> <?php echo $email.": ";?> </td>
-                    <td style="padding: 10px;"> <?php echo $row['EMAIL_USUARIO'];?> </td>
+                    <td class="no-responsive"><?php echo $tipo_name.": ";?></td>
+                    <td><?php echo $row['TIPO_USUARIO'];?></td>
                 </tr>
                 <tr>
-                    <td style="padding: 10px;"> <?php echo $tlf.": ";?> </td>
-                    <td style="padding: 10px;"> <?php echo $row['TLF_USUARIO'];?></td>
+                    <td class="no-responsive"><?php echo $tlf.": ";?> </td>
+                    <td><?php echo $row['TLF_USUARIO'];?></td>
                 </tr>
                 <tr>
-                    <td style="padding: 10px;"> <?php echo $tipo_name.": ";?> </td>
-                    <td style="padding: 10px;"> <?php echo $row['TIPO_USUARIO'];?></td>
+                    <td class="no-responsive"><?php echo $email.": ";?></td>
+                    <td><?php echo $row['EMAIL_USUARIO'];?></td>
                 </tr>
-        
                 <?php
                     echo "<tr>
-                    <td></td>
-                    <td style='padding: 10px; text-align: right; font-weight: 10px; color: blue;'> $INCIDENCIES_total_expense: ";
+                    <td class='no-responsive'></td>
+                    <td style='text-align: right; font-weight: 10px; color: blue;'> $INCIDENCIES_total_expense: ";
                         if($row['TOTAL']==null)
                             echo 0;
                         else

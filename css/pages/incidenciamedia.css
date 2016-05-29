@@ -1,0 +1,54 @@
+#wrapper2{
+    margin-top: 200px;
+    font-family: Square;
+}
+
+#wrapper2 h1{
+    font-size: 80px;
+    padding-bottom: 30px; 
+}
+
+#wrapper2 h2{
+    font-size: 50px;   
+    margin-bottom: 30px;
+}
+
+#wrapper2 h3{
+    font-size: 20px;
+}
+
+h2.lugar{
+    font-size: 30px;
+}
+h2.lugar span{
+    font-size: 30px;
+    margin-left: 80px;
+    padding-top: 20px;
+}
+
+#wrapper2 p{
+    font-size: 40px;
+}
+
+.button{
+    width: 100%;
+    font-size: 50px;
+}
+
+.simple-button{
+    width: 100%;
+    font-size: 50px;
+    padding: 5px;
+    margin-bottom: 20px;
+    margin-right: 0;
+    margin-left: 0;
+}
+
+.observacion{
+    width: 90%;
+    font-size: 40px;   
+}
+
+.observacion div.text{
+    font-size: 30px;
+}

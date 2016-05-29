@@ -1,0 +1,93 @@
+body{
+    background: white;    
+}
+
+header{
+    display: none;
+}
+
+section{
+    padding: 20px;
+}
+
+#title-login{
+    color:rgb(35,81,127);
+}
+
+#title-login h1{
+    font-size: 270px;
+}
+
+#title-login h1 span{
+    font-size: 280px;
+}
+
+#title-login p{
+    font-size: 40px;
+}
+
+#title-login p#org{
+    font-size: 44px;
+}
+
+#login{
+    width: 100%;
+    background: transparent;
+    border: none;
+    border-radius: none;
+    font-size: 60px;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    font-family: Square;
+    padding: 0;
+}
+
+#login h1{
+    display: none;
+}
+
+tbody .input-text{
+    display: none;
+}
+
+#login table{
+    margin:0;
+    width: 98%;
+    padding-left: 0;  
+}
+
+#login table td{
+    padding: 2%;
+    padding-top: 60px;
+}
+
+.kktua{
+    width: 100%;
+    padding: 40px;
+}
+
+footer{
+    display: none;
+}
+
+.notaccess{
+    display: none;
+}
+
+.register2{
+    font-size: 50px;
+    text-align: center;
+}
+
+.button-login{
+    margin-top: 50px;
+    width: 99%;
+    font-size: 100px;
+    font-family: Square;
+    padding-top: 40px;
+    padding-bottom: 40px;  
+    color: white;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+    background: rgb(35,81,127);
+}

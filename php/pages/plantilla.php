@@ -7,7 +7,7 @@
     <p> Soy una prueba </p>
      
      <!-- Ejemplo de Chart.js -->
-         <div style="width:75%">
+    <div style="width:75%">
         <div>
             <canvas id="canvas"></canvas>
         </div>
@@ -141,7 +141,7 @@
             window.myScatter.update();
         });*/
         
-        $.notify("Welcome!", { autoHide: false,position:"right middle", className: 'success' });
+        $.notify("Welcome!", { autoHide: false,position:"right top", className: 'success' });
     </script>
 <!-- </section> -->    
 <?php

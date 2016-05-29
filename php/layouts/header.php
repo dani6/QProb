@@ -10,6 +10,9 @@
         <!-- Links to CSS files -->
             <!-- General Design -->
         <link rel="stylesheet" href="../css/design.css" type="text/css"/>
+        
+        <link rel="stylesheet" media="screen and (max-width: 1000px)" href="../css/designmedia.css" type="text/css"/>
+        
             <!-- Stylesheet for text fonts -->
         <link rel="stylesheet" href="../css/fonts.css" type="text/css"/>
             <!-- Stylesheet for SweetAlet library -->
@@ -236,8 +239,6 @@
                 
                 function main(){
                     $('#menu_bar').click(function(){
-                        //$('nav').toggle(); 
-                
                         if(contador == 1){
                             $('nav').animate({
                                 left: '0'

@@ -4,6 +4,7 @@
 <!-- <section> -->
     <style type="text/css" scoped>
         @import url("../css/pages/login.css");
+        @import url("../css/pages/loginmedia.css") screen and (max-width: 1000px);
     </style>   
     
     <script>
@@ -78,20 +79,20 @@
         <table>
             <tr>
                 <td class="input-text"><?php echo $user_text;?></td>
-                <td colspan="2"><input class="input-field2" id="user2" placeholder="<?php echo $user_text;?>" value=""></input></td>
+                <td colspan="2" class="inputs"><input class="input-field2 kktua" id="user2" placeholder="<?php echo $user_text;?>" value=""></input></td>
             </tr>
             <tr>
                 <td class="input-text"><?php echo $password_text; ?></td>
-                <td colspan="2"><input class="input-field2" id="pass2" placeholder="<?php echo $password_text; ?>" type="password" value=""></input></td>
+                <td colspan="2" class="inputs"><input class="input-field2 kktua" id="pass2" placeholder="<?php echo $password_text; ?>" type="password" value=""></input></td>
             </tr>
             <tr>
-                <td></td>
-                <td colspan="2"><?php echo $register;?></td>
+                <td class="input-text"></td>
+                <td colspan="2" class="register2"><?php echo $register;?></td>
             </tr>
             <tr>
-                <td></td>
+                <td class="input-text"></td>
                 <td><p class="button-login" onclick="login($('#user2').val(),$('#pass2').val());"><?php echo $enter;?></p></td>
-                <td><?php echo $cannot_access;?></td>
+                <td class="notaccess"><?php echo $cannot_access;?></td>
             </tr>
         </table>
         <script>

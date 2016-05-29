@@ -1,0 +1,117 @@
+body{
+    background: rgb(245,245,245);
+}
+header{
+    background: transparent;
+    color: black;
+    position: inherit;
+}
+
+#logo{
+    display: none;
+}
+
+header .toolbar{
+    float: left;
+    width: 100%;
+}
+
+#element_toolbar2, .element_toolbar{
+    display: none;
+}
+
+#menu_bar{
+    display: block;
+    
+    float: left;
+    position: relative;
+    min-width: 80px;
+    text-align: center;
+    margin-right: 15px;
+    /*padding: 40px;*/
+    font-size: 200px;
+    cursor: pointer;
+    -webkit-transition: all 0.1s ease;
+    -moz-transition: all 0.1s ease;
+    transition: all 0.1s ease;
+}    
+
+#menu_bar:hover{
+    background: #FFF;
+    color:rgb(34,81,127);
+}
+   
+
+.no-responsive{
+    display: block;
+}
+
+#language{
+    display: none;
+}
+
+.special{
+    position: absolute;
+    right: 40px;
+    top: 40px;
+    padding: 40px;
+    background: rgba(31,84,127,1);
+    color: white;
+    font-size: 100px;
+}
+
+nav {
+    display:block;
+    position: fixed;
+    background: transparent;
+    width:80%;
+    top: 20%;
+    left:-100%;
+    text-align:left;
+    z-index: 10;
+}
+
+nav ul {
+    overflow:hidden;
+    list-style:none;
+}
+
+nav ul li {
+    display:block;
+    border-bottom:1px solid white;
+    border-right: 1px white solid;
+    float:left;
+    width: 100%;
+    background: white;
+    font-size: 2.4em;
+}
+
+nav ul li a {
+    
+    color:#fff;
+    padding:40px;
+    display:block;
+    text-decoration:none;
+    background: rgb(34,81,127);
+}
+
+nav ul li a:hover {
+    background:rgb(255,255,255);
+    color: black;
+}
+
+nav ul li.cerrar a{
+    background: rgba(0,0,0,0.4);
+}
+
+nav ul li.cerrar a:hover{
+    background:rgb(255,255,255);
+}
+
+nav ul li.reset a{
+    background: rgba(108,32,34,1);
+}
+
+nav ul li.reset a:hover{
+    background:rgb(255,255,255);
+}
