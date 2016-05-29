@@ -189,7 +189,7 @@
                             <?php
                             $consulta = "select i.ID ID, u.NOMBRE USUARIO_NOMBRE, u.APELLIDOS USUARIO_APELLIDOS, c.NOMBRE CATEGORIA_NAME,i.DESCRIPCION INCIDENCIA_DESCRIPCION, i.TITULO INCIDENCIA_TITULO, i.TIPO INCIDENCIA_TIPO,i.ESTADO INCIDENCIA_ESTADO, e.NOMBRE EDIFICIO_NOMBRE, p.NUMERO PLANTA_NUMERO, a.AULA AULA, i.FECHA FECHA from incidencia i inner join rel_aula_incidencia rai on rai.id_incidencia=i.id inner join rel_categoria_incidencia rci on rci.id_incidencia=i.id inner join usuario u on u.id=i.id_usuario inner join departamento d on d.id=u.id_departamento inner join categoria c on c.id=rci.id_categoria inner join aula a on a.id=rai.id_aula inner join planta p on p.id=a.id_planta inner join edificio e on e.id=p.id_edificio ORDER BY FECHA DESC limit 5;";
                             $result = $db->query($consulta);
-                                echo "<h1 style='font-family: Square; font-size: 20px; text-align: right; margin-top: 30px;'>Incidencias más recientes: </h1><br>";
+                                echo "<h1 style='font-family: Square; font-size: 20px; text-align: right; margin-top: 30px;'>$RECENT_INCIDENCE: </h1><br>";
                                 while($row = mysqli_fetch_array($result)){
                                     echo "<div class='incidencia' onclick='window.location=\"incidencia.html?id=".$row['ID']."\";'>";
                                     echo "<p style='font-size: 10px;'>$INCIDENCIES_state ".$row['INCIDENCIA_ESTADO']."</p>";

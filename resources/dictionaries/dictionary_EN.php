@@ -119,7 +119,7 @@
     $DEPARTMENT_error_message="An error has been happened. The department may already exists.";
     $CATEGORIES_intro_category="Enter a category";
     $DEPARTMENT_intro_category="Enter a department";
-    
+    $RECENT_INCIDENCE="Recent incidences";
 // Users
 
     $USERS_users="Users";

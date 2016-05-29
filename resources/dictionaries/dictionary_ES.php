@@ -117,6 +117,7 @@
     $DEPARTMENT_error_message="Ha ocurrido un error. Posiblemente el departamento ya existe.";
     $CATEGORIES_intro_category="Introduzca una categoría";
     $DEPARTMENT_intro_category="Introduzca un departamento";
+    $RECENT_INCIDENCE="Incidencias recientes";
 // Users
 
     $USERS_users="Usuarios";
