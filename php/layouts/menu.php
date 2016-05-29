@@ -113,6 +113,9 @@
             <div class="element_sub_toolbar" onclick="window.location='categories.html'"> 
                 <p><?php echo $categories; ?></p> 
             </div>
+            <div class="element_sub_toolbar" onclick="window.location='department.html'"> 
+                <p><?php echo $department2; ?></p> 
+            </div>
             
             <?php if ($_SESSION['type']=="ADMIN"){ ?>
              <script>

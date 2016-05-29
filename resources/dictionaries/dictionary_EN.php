@@ -53,6 +53,7 @@
     $tipo_name="Type";
     $place="Place";
     $date="Date";
+    $department2="Department";
     
     $REGISTER_congratulation="Congratulation!";
     $REGISTER_OK_msg="You\'ve just created your account. Admin have to activate account before sign in. You will receive an e- mail when your account has been validated.";
@@ -109,10 +110,15 @@
     $CATEGORIES_categories="Categories";
     $CATEGORIES_select=" -- Select a category";
     $CATEGORIES_verify_deleted="Your category has been deleted.";
+    $DEPARTMENT_verify_deleted="Your department has been deleted.";
     $CATEGORIES_added="Category has been added";
+    $DEPARTMENT_added="Department has been added";
     $CATEGORIES_cancel_accept="Yes, delete category.";
+    $DEPARTMENT_cancel_accept="Yes, delete department.";
     $CATEGORIES_error_message="An error has been happened. The category may already exists.";
+    $DEPARTMENT_error_message="An error has been happened. The department may already exists.";
     $CATEGORIES_intro_category="Enter a category";
+    $DEPARTMENT_intro_category="Enter a department";
     
 // Users
 
@@ -227,6 +233,7 @@
     $MONTH11="November";
     $MONTH12="December";
     
+    $DEPARTMENT_select="-- Select a deparment";
 // Observaciones    
     $COMMENT_order="Order:";
     $COMMENT_estimate="Estimate:";

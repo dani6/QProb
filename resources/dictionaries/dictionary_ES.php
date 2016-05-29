@@ -39,6 +39,7 @@
     $pdf="Se generará un PDF con información sobre las incidencias borradas.";
     $in="En";
     
+    $DEPARTMENT_select="-- Seleccione un departamento";
 // Registro
     $signup="Regístrate";
     $signup_botton="Crear";
@@ -51,7 +52,8 @@
     $tipo_name="Tipo";
     $place="Lugar";
     $date="Fecha";
-     
+    $department2="Departamento";
+    
     $REGISTER_congratulation="¡Bienvenido!";
     $REGISTER_OK_msg="Su cuenta ha sido creada. El admnistrador deberá validar su cuenta antes de poder acceder a ella. Recibirá un correo cuando su cuenta sea validada.";
     $REGISTER_ERROR_passwords1="La contraseña debe tener al menos 8 caracteres.";
@@ -106,11 +108,15 @@
     $CATEGORIES_categories="Categorías";
     $CATEGORIES_select=" -- Seleccione una categoría";
     $CATEGORIES_verify_deleted="Se ha eliminado correctamente.";
+    $DEPARTMENT_verify_deleted="Se ha eliminado correctamente.";
     $CATEGORIES_added="¡Añadido!";
+    $DEPARTMENT_added="¡Añadido!";
     $CATEGORIES_cancel_accept="Sí, borrar categoría.";
+    $DEPARTMENT_cancel_accept="Sí, borrar departamento.";
     $CATEGORIES_error_message="Ha ocurrido un error. Posiblemente la categoría ya existe.";
+    $DEPARTMENT_error_message="Ha ocurrido un error. Posiblemente el departamento ya existe.";
     $CATEGORIES_intro_category="Introduzca una categoría";
-
+    $DEPARTMENT_intro_category="Introduzca un departamento";
 // Users
 
     $USERS_users="Usuarios";
