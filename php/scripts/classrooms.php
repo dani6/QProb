@@ -6,7 +6,7 @@
     
     $aula="";
     while ($row = mysqli_fetch_array($result)) {
-        $aula.='<option value="'.$row['id'].'">'.$row['AULA'];
+        $aula.='<option value="'.$row['id'].'">'.$row['aula'];
     }
 ?>
 

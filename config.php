@@ -17,5 +17,5 @@
     // Database        
     $server="127.0.0.1";
     $database_user="root";
-    $database_password="root";
+    $database_password="[RamsesII]614";
     $database="qprob";    

@@ -466,6 +466,7 @@
         color: rgb(34,81,255);
     }
     
+    
     /** responsive menu **/
    #menu_bar{
        display: none;
@@ -485,4 +486,5 @@
             }
         }
     }
+    
     
