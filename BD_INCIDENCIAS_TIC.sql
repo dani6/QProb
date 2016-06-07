@@ -3,6 +3,7 @@ create database qprob
   DEFAULT CHARACTER SET utf8
   DEFAULT COLLATE utf8_general_ci;
 use qprob;
+SET NAMES 'utf8';
 
 CREATE TABLE `departamento` (
   `ID` int(11) unsigned NOT NULL AUTO_INCREMENT,
