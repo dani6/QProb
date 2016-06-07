@@ -34,7 +34,7 @@
         
         $aula2="";
         while ($row = mysqli_fetch_array($result)) {
-            $aula2.='<option value="'.$row['id'].'">'.$row['AULA'];
+            $aula2.='<option value="'.$row['id'].'">'.$row['aula'];
         }
     }
     ?>
