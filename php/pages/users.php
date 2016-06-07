@@ -247,6 +247,7 @@
                         if (isConfirm) {
                             loading_check();
                         }
+                        $("input").bind("keydown",null);
                     });
                     
                     $("#name").select();
