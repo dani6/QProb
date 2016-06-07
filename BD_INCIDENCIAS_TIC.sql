@@ -1,5 +1,6 @@
-drop database if existsqprob;
+drop database if exists qprob;
 create database qprob;
+use qprob;
 
 CREATE TABLE `departamento` (
   `ID` int(11) unsigned NOT NULL AUTO_INCREMENT,
@@ -8,7 +9,7 @@ CREATE TABLE `departamento` (
   UNIQUE KEY `nombre_unique` (`NOMBRE`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 
-CREATE TABLE `CATEGORIA` (
+CREATE TABLE `categoria` (
   `ID` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `NOMBRE` varchar(20) NOT NULL DEFAULT '',
   PRIMARY KEY (`ID`),
@@ -29,20 +30,20 @@ CREATE TABLE `planta` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `NUMERO` (`NUMERO`,`id_edificio`),
   KEY `id_edificio` (`id_edificio`),
-  CONSTRAINT `rel_edificio_planta` FOREIGN KEY (`id_edificio`) REFERENCES `EDIFICIO` (`id`) ON DELETE CASCADE
+  CONSTRAINT `rel_edificio_planta` FOREIGN KEY (`id_edificio`) REFERENCES `edificio` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 
-CREATE TABLE `AULA` (
+CREATE TABLE `aula` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `AULA` varchar(50) NOT NULL DEFAULT '',
+  `aula` varchar(50) NOT NULL DEFAULT '',
   `id_planta` int(11) unsigned NOT NULL,
   PRIMARY KEY (`id`),
-  UNIQUE KEY `AULA` (`AULA`,`id_planta`),
+  UNIQUE KEY `aula` (`aula`,`id_planta`),
   KEY `rel_aula_planta` (`id_planta`),
-  CONSTRAINT `rel_aula_planta` FOREIGN KEY (`id_planta`) REFERENCES `PLANTA` (`id`) ON DELETE CASCADE
+  CONSTRAINT `rel_aula_planta` FOREIGN KEY (`id_planta`) REFERENCES `planta` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 
-CREATE TABLE `USUARIO` (
+CREATE TABLE `usuario` (
   `ID` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `NOMBRE` varchar(20) NOT NULL,
   `APELLIDOS` varchar(20) NOT NULL,
@@ -59,56 +60,56 @@ CREATE TABLE `USUARIO` (
   UNIQUE KEY `user_unique` (`USER`),
   UNIQUE KEY `email_unique` (`EMAIL`),
   KEY `departamento_usuario` (`id_departamento`),
-  CONSTRAINT `departamento_usuario` FOREIGN KEY (`id_departamento`) REFERENCES `DEPARTAMENTO` (`ID`) ON DELETE CASCADE
+  CONSTRAINT `departamento_usuario` FOREIGN KEY (`id_departamento`) REFERENCES `departamento` (`ID`) ON DELETE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 
 
-CREATE TABLE `INCIDENCIA` (
+CREATE TABLE `incidencia` (
   `ID` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `ESTADO` enum('ABIERTA','RESUELTA','EN CURSO') NOT NULL DEFAULT 'ABIERTA',
   `FECHA` date NOT NULL,
   `TITULO` varchar(40) NOT NULL DEFAULT '',
   `DESCRIPCION` text,
   `TIPO` enum('URGENTE','TIC','GENERAL') NOT NULL DEFAULT 'GENERAL',
-  `id_Departamento` int(11) unsigned NOT NULL,
-  `id_Usuario` int(11) unsigned NOT NULL,
+  `id_departamento` int(11) unsigned NOT NULL,
+  `id_usuario` int(11) unsigned NOT NULL,
   PRIMARY KEY (`ID`),
-  KEY `id_Departamento` (`id_Departamento`),
-  KEY `id_Usuario` (`id_Usuario`),
-  CONSTRAINT `departamento_incidencias` FOREIGN KEY (`id_Departamento`) REFERENCES `DEPARTAMENTO` (`ID`) ON DELETE CASCADE,
-  CONSTRAINT `usuario_incidencia` FOREIGN KEY (`id_Usuario`) REFERENCES `USUARIO` (`ID`) ON DELETE CASCADE
+  KEY `id_departamento` (`id_departamento`),
+  KEY `id_usuario` (`id_usuario`),
+  CONSTRAINT `departamento_incidencias` FOREIGN KEY (`id_departamento`) REFERENCES `departamento` (`ID`) ON DELETE CASCADE,
+  CONSTRAINT `usuario_incidencia` FOREIGN KEY (`id_usuario`) REFERENCES `usuario` (`ID`) ON DELETE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 
 
-CREATE TABLE `REVISION` (
+CREATE TABLE `revision` (
   `FECHA` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `id_Usuario` int(11) unsigned NOT NULL,
-  `id_Incidencia` int(11) unsigned NOT NULL,
+  `id_usuario` int(11) unsigned NOT NULL,
+  `id_incidencia` int(11) unsigned NOT NULL,
   `OBSERVACION` text NOT NULL,
   `PRESUPUESTO` float NOT NULL DEFAULT '0',
-  PRIMARY KEY (`FECHA`,`id_Usuario`,`id_Incidencia`),
-  KEY `id_Usuario` (`id_Usuario`),
-  KEY `id_Incidencia` (`id_Incidencia`),
-  CONSTRAINT `incidecia_revision` FOREIGN KEY (`id_Incidencia`) REFERENCES `INCIDENCIA` (`ID`) ON DELETE CASCADE,
-  CONSTRAINT `usuario_revision` FOREIGN KEY (`id_Usuario`) REFERENCES `USUARIO` (`ID`) ON DELETE CASCADE
+  PRIMARY KEY (`FECHA`,`id_usuario`,`id_incidencia`),
+  KEY `id_usuario` (`id_usuario`),
+  KEY `id_incidencia` (`id_incidencia`),
+  CONSTRAINT `incidecia_revision` FOREIGN KEY (`id_incidencia`) REFERENCES `incidencia` (`ID`) ON DELETE CASCADE,
+  CONSTRAINT `usuario_revision` FOREIGN KEY (`id_usuario`) REFERENCES `usuario` (`ID`) ON DELETE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 
-CREATE TABLE `REL_AULA_INCIDENCIA` (
+CREATE TABLE `rel_aula_incidencia` (
   `id_aula` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `id_incidencia` int(11) unsigned NOT NULL,
   PRIMARY KEY (`id_aula`,`id_incidencia`),
   UNIQUE KEY `id_incidencia` (`id_incidencia`,`id_aula`),
-  CONSTRAINT `rel_aula_incidencia` FOREIGN KEY (`id_aula`) REFERENCES `AULA` (`id`) ON DELETE CASCADE,
-  CONSTRAINT `rel_incidencia_aula` FOREIGN KEY (`id_incidencia`) REFERENCES `INCIDENCIA` (`ID`) ON DELETE CASCADE
+  CONSTRAINT `rel_aula_incidencia` FOREIGN KEY (`id_aula`) REFERENCES `aula` (`id`) ON DELETE CASCADE,
+  CONSTRAINT `rel_incidencia_aula` FOREIGN KEY (`id_incidencia`) REFERENCES `incidencia` (`ID`) ON DELETE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 
-CREATE TABLE `REL_CATEGORIA_INCIDENCIA` (
+CREATE TABLE `rel_categoria_incidencia` (
   `id_incidencia` int(11) unsigned NOT NULL,
   `id_categoria` int(11) unsigned NOT NULL,
   PRIMARY KEY (`id_incidencia`,`id_categoria`),
   KEY `rel_categoria_incidencia` (`id_categoria`),
-  CONSTRAINT `rel_categoria_incidencia` FOREIGN KEY (`id_categoria`) REFERENCES `CATEGORIA` (`ID`) ON DELETE CASCADE,
-  CONSTRAINT `rel_incidencia_categoria` FOREIGN KEY (`id_incidencia`) REFERENCES `INCIDENCIA` (`ID`) ON DELETE CASCADE
+  CONSTRAINT `rel_categoria_incidencia` FOREIGN KEY (`id_categoria`) REFERENCES `categoria` (`ID`) ON DELETE CASCADE,
+  CONSTRAINT `rel_incidencia_categoria` FOREIGN KEY (`id_incidencia`) REFERENCES `incidencia` (`ID`) ON DELETE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 
 INSERT INTO `edificio` (`id`, `NOMBRE`) VALUES
@@ -143,11 +144,11 @@ INSERT INTO `departamento` (`ID`, `NOMBRE`) VALUES
 (27, 'Peluquería'),
 (20, 'Tecnología');
 
-INSERT INTO `CATEGORIA` (`ID`, `NOMBRE`) VALUES
+INSERT INTO `categoria` (`ID`, `NOMBRE`) VALUES
 (3, 'Hardware'),
 (2, 'Software');
 
-INSERT INTO `AULA` (`id`, `AULA`, `id_planta`) VALUES
+INSERT INTO `aula` (`id`, `aula`, `id_planta`) VALUES
 (32, '1ºA', 2),
 (110, '1ºA', 5),
 (30, '1ºB', 2),

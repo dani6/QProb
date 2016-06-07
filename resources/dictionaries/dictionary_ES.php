@@ -217,7 +217,7 @@
     $COMMENT_estimate="Presupuesto:";
     $COMMENT_no_comment="No hay observaciones para esta incidencia.";
     
-    $INDEX_USER_INCIDENCIAS_NOT="No se está llevando ninguna sus incidencia.";
+    $INDEX_USER_INCIDENCIAS_NOT="No se está llevando ninguna de sus incidencia.";
     $INDEX_USER_INCIDENCIAS_CARRIED_OUT="Se están llevando las siguientes incidencias:";
     $INDEX_USER_PRINT="IMPRIMIR INCIDENCIAS ABIERTAS";
     $INDEX_USER_INFORMATION="Información";
