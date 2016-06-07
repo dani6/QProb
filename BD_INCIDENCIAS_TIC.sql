@@ -1,5 +1,7 @@
 drop database if exists qprob;
-create database qprob;
+create database qprob 
+  DEFAULT CHARACTER SET utf8
+  DEFAULT COLLATE utf8_general_ci;
 use qprob;
 
 CREATE TABLE `departamento` (
