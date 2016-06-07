@@ -246,15 +246,14 @@
                     }).then(function(isConfirm) {
                         if (isConfirm) {
                             loading_check();
-                        }
-                        $("input").bind("keydown",null);
+                        }                        
                     });
                     
                     $("#name").select();
-                    $("input").focus(function(){
+                    $(".register input").focus(function(){
                         this.select();
                     }); 
-                    $("input").bind("keydown",showSweetCheck);
+                    $(".register input").bind("keydown",showSweetCheck);
                     
                     switch(control) {
                         case "surname":
