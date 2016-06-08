@@ -235,7 +235,7 @@
     $MONTH5="Mayo";
     $MONTH6="Junio";
     $MONTH7="Julio";
-    $MONTH8="Agostp";
+    $MONTH8="Agosto";
     $MONTH9="Septiembre";
     $MONTH10="Octubre";
     $MONTH11="Noviembre";
