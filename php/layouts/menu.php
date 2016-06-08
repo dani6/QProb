@@ -39,7 +39,7 @@
         </ul>
     </nav>
     
-    
+    <?php if ($_SESSION['type']=="ADMIN" || $_SESSION['type']=="TECHNICAL") { ?>
     <div id="element_toolbar2" style="margin-right: 40px">
         <input id="searcher" class="buscador" type="text" placeHolder="Search">
         <div class="sub_toolbar"></div>
@@ -80,6 +80,7 @@
             this.select();
         });
     </script>
+    <?php } ?>
     <div class="special" onclick="addIncidence('','','','','','','','','');">
         <p><?php echo $addincident;?></p>
     </div> 

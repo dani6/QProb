@@ -205,7 +205,7 @@
                     <div class="box full" style='min-height:0;'>
                         <div>
                             <?php
-                            $consulta = "select COUNT(*) total FROM usuario u inner join incidencia i on i.id_usuario=u.id where i.ESTADO LIKE 'ABIERTA'";
+                            $consulta = "select COUNT(*) total FROM usuario u inner join incidencia i on i.id_usuario=u.id where i.ESTADO LIKE 'ABIERTA' and u.id=".$_SESSION['id'];
                             $result = $db->query($consulta);
                             echo "<p>".$INDEX_USER_INCIDENCIAS_TOTAL.": <span style='color: rgba(31,81,127,0.8)'>".mysqli_fetch_array($result)["total"]."</span></p>";
                             
