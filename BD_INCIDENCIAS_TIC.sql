@@ -83,7 +83,6 @@ CREATE TABLE `incidencia` (
   CONSTRAINT `usuario_incidencia` FOREIGN KEY (`id_usuario`) REFERENCES `usuario` (`ID`) ON DELETE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 
-
 CREATE TABLE `revision` (
   `FECHA` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `id_usuario` int(11) unsigned NOT NULL,

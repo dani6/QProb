@@ -226,6 +226,8 @@
     $INDEX_USER_TOTAL3="Incidencias que están siendo llevadas en este mes";
     $INDEX_USER_TOTAL4="Presupuesto total de este año";
     $INDEX_TOTAL_INCIDENCIAS="Total incidencias";
+    $INDEX_USER_INCIDENCIAS_TOTAL="Tiene abiertas un total de";
+    $INDEX_RESOLVED_INCIDENCES="<br>Tiene incidencias resultas <a href='yours_incidences_resolved.html'>Ver incidencias resueltas.</a>";
     $MONTH1="Enero";
     $MONTH2="Febrero";
     $MONTH3="Marzo";

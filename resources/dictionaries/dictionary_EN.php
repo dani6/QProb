@@ -215,11 +215,13 @@
     $INDEX_USER_INCIDENCIAS_CARRIED_OUT="They are carried out the following incidences:";
     $INDEX_USER_PRINT="PRINT OPEN INCIDENCES";
     $INDEX_USER_INFORMATION="Information";
-    $INDEX_USER_TOTAL1="Total open incidences this month";
+    $INDEX_USER_TOTAL1="Total openned incidences this month";
     $INDEX_USER_TOTAL2="Total incidences resolved this month";
     $INDEX_USER_TOTAL3="In progress incidences this month";
     $INDEX_USER_TOTAL4="Total budget of this year";
     $INDEX_TOTAL_INCIDENCIAS="Total incidences";
+    $INDEX_USER_INCIDENCIAS_TOTAL="Total openned incidences";
+    $INDEX_RESOLVED_INCIDENCES="<br>You have resolved incidences <a href='yours_incidences_resolved.html'> Show resolved incidences </a>";
     $MONTH1="January";
     $MONTH2="February";
     $MONTH3="March";
