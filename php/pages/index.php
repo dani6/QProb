@@ -207,12 +207,12 @@
                             <?php
                             $consulta = "select COUNT(*) total FROM usuario u inner join incidencia i on i.id_usuario=u.id where i.ESTADO LIKE 'ABIERTA' and u.id=".$_SESSION['id'];
                             $result = $db->query($consulta);
-                            echo "<p>".$INDEX_USER_INCIDENCIAS_TOTAL.": <span style='color: rgba(31,81,127,0.8)'>".mysqli_fetch_array($result)["total"]."</span></p>";
-                            
+                            echo $INDEX_USER_INCIDENCIAS_TOTAL.": <span style='color: rgba(31,81,127,0.8)'>".mysqli_fetch_array($result)["total"]."</span>";
+                            echo "<br><br>";
                             $consulta = "select COUNT(*) total FROM usuario u inner join incidencia i on i.id_usuario=u.id where i.ESTADO LIKE 'RESUELTA'";
                             $result = $db->query($consulta);
                             if(mysqli_fetch_array($result)>0){
-                                echo "<p>".$INDEX_RESOLVED_INCIDENCES."</p><br>";
+                                echo $INDEX_RESOLVED_INCIDENCES."<br><br>";
                             }
                             
                             $consulta = "select i.ID ID, u.NOMBRE USUARIO_NOMBRE, u.APELLIDOS USUARIO_APELLIDOS, c.NOMBRE CATEGORIA_NAME,i.DESCRIPCION INCIDENCIA_DESCRIPCION, i.TITULO INCIDENCIA_TITULO, i.TIPO INCIDENCIA_TIPO,i.ESTADO INCIDENCIA_ESTADO, e.NOMBRE EDIFICIO_NOMBRE, p.NUMERO PLANTA_NUMERO, a.AULA AULA, i.FECHA FECHA from incidencia i inner join rel_aula_incidencia rai on rai.id_incidencia=i.id inner join rel_categoria_incidencia rci on rci.id_incidencia=i.id inner join usuario u on u.id=i.id_usuario inner join departamento d on d.id=u.id_departamento inner join categoria c on c.id=rci.id_categoria inner join aula a on a.id=rai.id_aula inner join planta p on p.id=a.id_planta inner join edificio e on e.id=p.id_edificio where i.ESTADO LIKE 'EN CURSO' and i.id_Usuario='".$_SESSION['id']."' ORDER BY FECHA DESC;";
