@@ -136,6 +136,7 @@
                             
                             //Despues del envio se produce...:
                             success:  function (response) {
+                                alert(response);
                                 swal(
                                     '<?php echo $DEPENDENCIES_delete;?>',
                                     '<?php echo $INCIDENCIES_deleted_all;?>',

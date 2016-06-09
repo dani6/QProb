@@ -26,10 +26,7 @@
        $pdf->writeHTML(utf8_decode(" <br>TOTAL PRESUPUESTO: ".number_format($row2['TOTAL'])." Euros</p>"));
     }
     
-    
-    
-    $nombre_archivo= date("d:m:Y");
-    $pdf->Output('F','../../resources/incidencias/'.$nombre_archivo.'.pdf');
+    $pdf->Output('F','../../resources/incidencias/incidences.pdf');
     
     
     $db->query("DELETE FROM INCIDENCIA");
